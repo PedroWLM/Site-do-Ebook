@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia de Produtividade para TDAH — foco sem sobrecarga</title>
+  <meta name="description" content="Métodos simples para vencer a procrastinação e estudar com leveza. Técnicas práticas de TDAH, foco e rotina flexível sem fórmulas rígidas.">
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://assets.mlcdn.com" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config: prefix + cores -->
+  <script>
+    tailwind.config = {
+      prefix: 'tw-',
+      theme: {
+        extend: {
+          colors: {
+            brandPink: '#ec4899',
+            brandOrange: '#f97316',
+            brandRose: '#ffe4e6'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- MailerLite base fonts -->
+  <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
+
+  <!-- Estilos adicionais (patch de cores e animação do CTA) -->
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+
+    /* Fundo padrão da landing */
+    .tdah-landing {
+      background-image: linear-gradient(to bottom right, #fff1f2, #fff7ed, #ffe4e6);
+    }
+
+    /* CTA com gradiente de marca */
+    .tdah-landing .cta {
+      background-image: linear-gradient(to right, #ec4899, #f97316);
+      color: #fff;
+    }
+    .tdah-landing .cta:hover { filter: brightness(1.05); }
+
+    /* Animação de “respirar” do botão */
+    @keyframes breatheAndColor {
+      0%   { transform: scale(1);    background: #ec4899; }
+      33%  { transform: scale(1.03); background: #f97316; }
+      66%  { transform: scale(1);    background: #fbbf24; }
+      100% { transform: scale(1.03); background: #ec4899; }
+    }
+    .breathe-button {
+      background: #ec4899;
+      animation: breatheAndColor 5s ease-in-out infinite;
+    }
+    .breathe-button:hover {
+      animation-play-state: paused;
+      background: #f97316 !important;
+      transform: scale(1.05) !important;
+    }
+
+    /* MailerLite (não prefixar) */
+    .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); border: 0;
+    }
+    .ml-form-embedSubmitLoad:after {
+      content: " "; display: block; width: 11px; height: 11px; margin: 1px;
+      border-radius: 50%; border: 4px solid #fff; border-color: #ffffff #ffffff #ffffff transparent;
+      animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+    }
+    @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+
+    #mlb2-30554077.ml-form-embedContainer {
+      box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important;
+    }
+    #mlb2-30554077 .ml-form-embedWrapper {
+      background-color: #fef5ef; border-width: 0; border-color: transparent; border-radius: 40px; border-style: solid;
+      box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative;
+    }
+    #mlb2-30554077 .ml-form-embedWrapper.embedForm { max-width: 730px; width: 100%; }
+    #mlb2-30554077 .ml-form-embedBody { padding: 20px 20px 0 20px; }
+    #mlb2-30554077 .ml-form-embedContent { text-align: left; margin: 0 0 20px 0; }
+    #mlb2-30554077 .ml-form-embedContent h4 {
+      color: #000; font-family: 'Poppins', sans-serif; font-size: 40px; font-weight: 700; margin: 0 0 10px 0; text-align: center; word-break: break-word;
+    }
+    #mlb2-30554077 .ml-form-embedContent p {
+      color: #000; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 400; line-height: 20px; margin: 0 0 10px 0; text-align: center;
+    }
+    #mlb2-30554077 .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
+    #mlb2-30554077 .ml-form-fieldRow input {
+      background-color: #fff !important; color: #475569 !important; border-color: #ccc;
+      border-radius: 4px !important; border-style: solid !important; border-width: 1px !important;
+      font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 14px !important; height: auto; line-height: 21px !important;
+      margin: 0; padding: 10px 10px !important; width: 100% !important; box-sizing: border-box !important; max-width: 100% !important;
+    }
+    #mlb2-30554077 .ml-form-embedSubmit button {
+      background-color: #f97316 !important; border: none !important; border-radius: 13px !important; box-shadow: none !important;
+      color: #fff !important; cursor: pointer; font-family: 'Inter', Arial, Helvetica, sans-serif !important;
+      font-size: 18px !important; font-weight: 700 !important; line-height: 21px !important; height: auto; padding: 12px !important;
+      width: 100% !important; box-sizing: border-box !important;
+    }
+    #mlb2-30554077 .ml-form-embedSubmit button:hover { background-color: #ec4899 !important; }
+
+    @media only screen and (max-width: 730px){
+      .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100%!important; }
+      .tw-opacity-10 { opacity: 0; }
+    }
+    @media (min-width: 768px) { .md\:tw-opacity-10 { opacity: 0.1; } }
+  </style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body class="tw-bg-gradient-to-br tw-from-pink-50 tw-via-orange-50 tw-to-rose-50 tw-min-h-screen" id="topo">
+  <div class="tdah-landing">
+    <!-- Nuvens de fundo -->
+    <div class="tw-absolute tw-inset-0 tw-opacity-0 md:tw-opacity-10">
+      <div class="tw-absolute tw-top-20 tw-left-10 tw-w-32 tw-h-20 tw-bg-white tw-rounded-full tw-blur-lg"></div>
+      <div class="tw-absolute tw-top-40 tw-right-20 tw-w-48 tw-h-24 tw-bg-white tw-rounded-full tw-blur-lg"></div>
+      <div class="tw-absolute tw-top-80 tw-left-1/3 tw-w-40 tw-h-20 tw-bg-white tw-rounded-full tw-blur-lg"></div>
+      <div class="tw-absolute tw-bottom-40 tw-right-10 tw-w-36 tw-h-20 tw-bg-white tw-rounded-full tw-blur-lg"></div>
+      <div class="tw-absolute tw-bottom-80 tw-left-20 tw-w-44 tw-h-24 tw-bg-white tw-rounded-full tw-blur-lg"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="tw-sticky tw-top-0 tw-z-40 tw-bg-white/80 tw-backdrop-blur-md tw-shadow-sm supports-[backdrop-filter]:tw-bg-white/60">
+      <div class="tw-container tw-mx-auto tw-px-4 tw-py-4">
+        <div class="tw-flex tw-items-center tw-justify-between">
+          <a href="#topo" class="tw-flex tw-items-center tw-gap-2" aria-label="Voltar ao topo">
+            <i data-lucide="brain" class="tw-w-8 tw-h-8 tw-text-pink-500" aria-hidden="true"></i>
+            <span class="tw-text-xl tw-font-bold tw-text-slate-900 font-poppins">TDAH Produtivo</span>
+          </a>
+          <nav class="tw-hidden md:tw-flex tw-gap-6" aria-label="Navegação principal">
+            <a href="#sobre" class="tw-text-slate-600 hover:tw-text-pink-500 tw-transition-colors">Sobre</a>
+            <a href="#beneficios" class="tw-text-slate-600 hover:tw-text-pink-500 tw-transition-colors">Benefícios</a>
+            <a href="#depoimentos" class="tw-text-slate-600 hover:tw-text-pink-500 tw-transition-colors">Depoimentos</a>
+            <a href="#contato" class="tw-text-slate-600 hover:tw-text-pink-500 tw-transition-colors">Contato</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="tw-relative tw-z-10">
+      <!-- Hero -->
+      <section class="tw-py-20 tw-px-4">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center">
+          <span class="tw-inline-block tw-mb-6 tw-px-4 tw-py-2 tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-500 tw-text-white tw-text-sm tw-font-bold tw-rounded-full">
+            Guia Especializado para TDAH
+          </span>
+
+          <h1 class="tw-text-4xl md:tw-text-6xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-6 tw-leading-tight">
+            Guia prático para foco e produtividade com TDAH
+          </h1>
+
+          <p class="tw-text-xl tw-text-slate-600 tw-mb-8 tw-max-w-2xl tw-mx-auto">
+            Métodos simples para vencer a procrastinação e estudar com leveza — sem fórmulas rígidas.
+          </p>
+
+          <div class="tw-flex tw-flex-col sm:tw-flex-row tw-gap-4 tw-justify-center tw-items-center tw-mb-6">
+            <div class="tw-text-center">
+              <p class="tw-text-3xl tw-font-bold tw-text-slate-900">R$ 35,00</p>
+              <p class="tw-text-sm tw-text-pink-600 tw-font-semibold">15% de desconto no PIX</p>
+            </div>
+          </div>
+
+          <!-- Prova social curta -->
+          <div class="tw-flex tw-flex-wrap tw-justify-center tw-gap-4 tw-mb-12 tw-text-sm tw-text-slate-600">
+            <span class="tw-flex tw-items-center tw-gap-1">
+              <i data-lucide="check" class="tw-w-4 tw-h-4 tw-text-green-500" aria-hidden="true"></i>
+              Técnicas rápidas 10–15 min
+            </span>
+            <span class="tw-flex tw-items-center tw-gap-1">
+              <i data-lucide="check" class="tw-w-4 tw-h-4 tw-text-green-500" aria-hidden="true"></i>
+              Rotina leve
+            </span>
+            <span class="tw-flex tw-items-center tw-gap-1">
+              <i data-lucide="check" class="tw-w-4 tw-h-4 tw-text-green-500" aria-hidden="true"></i>
+              Bônus de testes
+            </span>
+          </div>
+
+          <button
+            onclick="window.open('https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086', '_blank')"
+            class="cta breathe-button tw-text-white tw-px-12 tw-py-6 tw-text-xl tw-font-bold tw-rounded-full tw-shadow-xl hover:tw-shadow-2xl tw-transition-all tw-duration-300 tw-relative tw-overflow-hidden tw-group"
+            aria-label="Abrir página de compra do guia"
+          >
+            <span class="tw-relative tw-z-10 tw-flex tw-items-center tw-justify-center">
+              <i data-lucide="external-link" class="tw-w-6 tw-h-6 tw-mr-3" aria-hidden="true"></i>
+              Quero começar agora
+            </span>
+            <div class="tw-absolute tw-inset-0 tw-bg-white tw-opacity-0 group-hover:tw-opacity-10 tw-transition-opacity tw-duration-300"></div>
+          </button>
+
+          <p class="tw-text-sm tw-text-slate-500 tw-mt-4">R$ 35,00 • 15% de desconto no PIX • Cupom <strong>TDAH30</strong></p>
+        </div>
+      </section>
+
+      <!-- Chips -->
+      <section class="tw-px-4 -tw-mt-6">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-3">
+          <div class="tw-flex tw-items-center tw-gap-2 tw-bg-white/80 tw-rounded-full tw-px-4 tw-py-2 tw-shadow-sm">
+            <i data-lucide="sparkles" class="tw-w-4 tw-h-4 tw-text-pink-500" aria-hidden="true"></i>
+            <span class="tw-text-sm tw-text-slate-700">Ambiente de foco</span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-2 tw-bg-white/80 tw-rounded-full tw-px-4 tw-py-2 tw-shadow-sm">
+            <i data-lucide="timer" class="tw-w-4 tw-h-4 tw-text-orange-500" aria-hidden="true"></i>
+            <span class="tw-text-sm tw-text-slate-700">Técnicas 10–15 min</span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-2 tw-bg-white/80 tw-rounded-full tw-px-4 tw-py-2 tw-shadow-sm">
+            <i data-lucide="calendar-check" class="tw-w-4 tw-h-4 tw-text-pink-500" aria-hidden="true"></i>
+            <span class="tw-text-sm tw-text-slate-700">Rotina leve</span>
+          </div>
+          <div class="tw-flex tw-items-center tw-gap-2 tw-bg-white/80 tw-rounded-full tw-px-4 tw-py-2 tw-shadow-sm">
+            <i data-lucide="target" class="tw-w-4 tw-h-4 tw-text-orange-500" aria-hidden="true"></i>
+            <span class="tw-text-sm tw-text-slate-700">Foco sem pressão</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Captura de e-mail -->
+      <section class="tw-py-16 tw-px-4">
+        <div class="tw-container tw-mx-auto tw-max-w-2xl">
+          <div id="mlb2-30554077" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-30554077">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent">
+                    <h4>Ganhe 15% de desconto agora</h4>
+                    <p style="text-align:center;">Digite seu e-mail e receba o cupom <strong>TDAH30</strong> + 1 checklist de foco.</p>
+                  </div>
+
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/subscribe" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <label for="ml-email" class="sr-only">Seu melhor e-mail</label>
+                          <input id="ml-email" aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email" required>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="primary">Receber meu cupom</button>
+                      <button disabled style="display: none;" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+
+                <div class="ml-form-successBody row-success" style="display: none">
+                  <div class="ml-form-successContent">
+                    <h4>Obrigado!</h4>
+                    <p>Você se inscreveu com sucesso em nossa newsletter.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Como funciona -->
+      <section class="tw-py-16 tw-px-4 tw-bg-white/50">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl">
+          <div class="tw-text-center tw-mb-12">
+            <h2 class="tw-text-3xl md:tw-text-4xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-4">Como funciona</h2>
+            <p class="tw-text-xl tw-text-slate-600">3 passos simples para transformar sua produtividade</p>
+          </div>
+
+          <div class="tw-grid md:tw-grid-cols-3 tw-gap-8">
+            <div class="tw-text-center">
+              <div class="tw-w-16 tw-h-16 tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-500 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4">
+                <span class="tw-text-2xl tw-font-bold tw-text-white">1</span>
+              </div>
+              <h3 class="tw-text-xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-2">Baixe o guia</h3>
+              <p class="tw-text-slate-700">Acesso imediato após a compra</p>
+            </div>
+
+            <div class="tw-text-center">
+              <div class="tw-w-16 tw-h-16 tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-500 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4">
+                <span class="tw-text-2xl tw-font-bold tw-text-white">2</span>
+              </div>
+              <h3 class="tw-text-xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-2">Aplique por 10–15 min/dia</h3>
+              <p class="tw-text-slate-700">Técnicas rápidas e práticas</p>
+            </div>
+
+            <div class="tw-text-center">
+              <div class="tw-w-16 tw-h-16 tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-500 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4">
+                <span class="tw-text-2xl tw-font-bold tw-text-white">3</span>
+              </div>
+              <h3 class="tw-text-xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-2">Use os testes bônus</h3>
+              <p class="tw-text-slate-700">Personalize sua rotina ideal</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefícios -->
+      <section id="beneficios" class="tw-py-20 tw-px-4">
+        <div class="tw-container tw-mx-auto tw-max-w-6xl">
+          <div class="tw-text-center tw-mb-12">
+            <h2 class="tw-text-3xl md:tw-text-4xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-4">O que você vai descobrir</h2>
+            <p class="tw-text-xl tw-text-slate-600">Estratégias testadas e aprovadas por pessoas com TDAH</p>
+          </div>
+
+          <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-items-start tw-gap-3">
+                <i data-lucide="zap" class="tw-w-6 tw-h-6 tw-text-pink-500 tw-mt-1 tw-flex-shrink-0" aria-hidden="true"></i>
+                <p class="tw-text-slate-700">Estratégias práticas para vencer a procrastinação</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-items-start tw-gap-3">
+                <i data-lucide="calendar" class="tw-w-6 tw-h-6 tw-text-orange-500 tw-mt-1 tw-flex-shrink-0" aria-hidden="true"></i>
+                <p class="tw-text-slate-700">Organizar rotina sem rigidez, de forma leve</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-items-start tw-gap-3">
+                <i data-lucide="book-open" class="tw-w-6 tw-h-6 tw-text-pink-500 tw-mt-1 tw-flex-shrink-0" aria-hidden="true"></i>
+                <p class="tw-text-slate-700">Técnicas de estudo que funcionam para TDAH</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-items-start tw-gap-3">
+                <i data-lucide="home" class="tw-w-6 tw-h-6 tw-text-orange-500 tw-mt-1 tw-flex-shrink-0" aria-hidden="true"></i>
+                <p class="tw-text-slate-700">Preparar ambiente de foco que reduz distrações</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-items-start tw-gap-3">
+                <i data-lucide="target" class="tw-w-6 tw-h-6 tw-text-pink-500 tw-mt-1 tw-flex-shrink-0" aria-hidden="true"></i>
+                <p class="tw-text-slate-700">Lidar com falta de motivação e manter foco</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-items-start tw-gap-3">
+                <i data-lucide="gift" class="tw-w-6 tw-h-6 tw-text-orange-500 tw-mt-1 tw-flex-shrink-0" aria-hidden="true"></i>
+                <p class="tw-text-slate-700">Bônus com testes práticos para autoconhecimento</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre -->
+      <section id="sobre" class="tw-py-20 tw-px-4 tw-bg-white/50">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl">
+          <div class="tw-bg-white tw-rounded-lg tw-overflow-hidden tw-shadow-sm">
+            <div class="tw-p-8 md:tw-p-12 tw-text-center">
+              <i data-lucide="book-open" class="tw-w-16 tw-h-16 tw-text-pink-500 tw-mx-auto tw-mb-6" aria-hidden="true"></i>
+              <h2 class="tw-text-3xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-6">Sobre o Guia</h2>
+              <p class="tw-text-lg tw-text-slate-600 tw-mb-6 tw-leading-relaxed">
+                O Guia de Produtividade para Pessoas com TDAH é um manual prático criado para quem sente dificuldade em manter o foco, organizar tarefas e combater a procrastinação. Ele apresenta técnicas simples, aplicáveis no dia a dia, para transformar a forma de estudar e trabalhar sem sobrecarga.
+              </p>
+              <p class="tw-text-slate-700 tw-leading-relaxed">
+                Este eBook mostra que produtividade não é sobre se encaixar em regras rígidas, mas sim adaptar os métodos ao seu próprio jeito de funcionar. Através de capítulos curtos e objetivos, o guia traz dicas sobre ambiente, técnicas de estudo, organização da rotina, combate à procrastinação e manutenção do foco.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Depoimentos -->
+      <section id="depoimentos" class="tw-py-20 tw-px-4">
+        <div class="tw-container tw-mx-auto tw-max-w-6xl">
+          <div class="tw-text-center tw-mb-12">
+            <h2 class="tw-text-3xl md:tw-text-4xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-4">O que dizem nossos leitores</h2>
+            <p class="tw-text-xl tw-text-slate-600">Histórias reais de transformação</p>
+          </div>
+
+          <div class="tw-grid md:tw-grid-cols-2 tw-gap-6 tw-mb-12">
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-mb-4">
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+              </div>
+              <p class="tw-text-slate-700 tw-mb-4 tw-italic">"Finalmente consegui organizar minha rotina de estudos! As técnicas me ajudaram a focar sem sobrecarga."</p>
+              <div class="tw-border-t tw-pt-4">
+                <p class="tw-font-semibold tw-text-slate-900">Maria Santos</p>
+                <p class="tw-text-sm tw-text-slate-600">Estudante de Medicina, 28 anos</p>
+                <p class="tw-text-xs tw-text-green-600 tw-mt-1">✓ Compra verificada</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-mb-4">
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+              </div>
+              <p class="tw-text-slate-700 tw-mb-4 tw-italic">"Sofria muito com procrastinação. O guia me ensinou estratégias que realmente funcionam para TDAH."</p>
+              <div class="tw-border-t tw-pt-4">
+                <p class="tw-font-semibold tw-text-slate-900">João Pedro</p>
+                <p class="tw-text-sm tw-text-slate-600">Desenvolvedor, 23 anos</p>
+                <p class="tw-text-xs tw-text-green-600 tw-mt-1">✓ Compra verificada</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-mb-4">
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+              </div>
+              <p class="tw-text-slate-700 tw-mb-4 tw-italic">"As dicas de ambiente de foco mudaram minha vida! Consegui criar um espaço que funciona para mim."</p>
+              <div class="tw-border-t tw-pt-4">
+                <p class="tw-font-semibold tw-text-slate-900">Ana Carolina</p>
+                <p class="tw-text-sm tw-text-slate-600">Professora, 34 anos</p>
+                <p class="tw-text-xs tw-text-green-600 tw-mt-1">✓ Compra verificada</p>
+              </div>
+            </div>
+
+            <div class="tw-bg-white tw-rounded-lg tw-p-6 tw-shadow-sm hover:tw-shadow-lg tw-transition-shadow tw-duration-300">
+              <div class="tw-flex tw-mb-4">
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-yellow-400 tw-fill-current" aria-hidden="true"></i>
+              </div>
+              <p class="tw-text-slate-700 tw-mb-4 tw-italic">"Estava quase desistindo dos estudos. Este guia me mostrou que é possível adaptar as técnicas ao meu jeito."</p>
+              <div class="tw-border-t tw-pt-4">
+                <p class="tw-font-semibold tw-text-slate-900">Lucas Oliveira</p>
+                <p class="tw-text-sm tw-text-slate-600">Estudante de Direito, 26 anos</p>
+                <p class="tw-text-xs tw-text-green-600 tw-mt-1">✓ Compra verificada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contato -->
+      <section id="contato" class="tw-py-20 tw-px-4 tw-bg-white/50">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl">
+          <div class="tw-text-center">
+            <h2 class="tw-text-3xl md:tw-text-4xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-6">Fale Conosco</h2>
+            <p class="tw-text-xl tw-text-slate-600 tw-mb-8">Tire suas dúvidas ou compartilhe sua experiência conosco</p>
+
+            <div class="tw-max-w-2xl tw-mx-auto tw-bg-white tw-rounded-lg tw-shadow-sm">
+              <div class="tw-p-8">
+                <i data-lucide="mail" class="tw-w-16 tw-h-16 tw-text-pink-500 tw-mx-auto tw-mb-6" aria-hidden="true"></i>
+                <h3 class="tw-text-2xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-4">Entre em Contato</h3>
+                <p class="tw-text-slate-700 tw-mb-6">Para dúvidas, sugestões ou compartilhar seu depoimento:</p>
+                <a
+                  href="mailto:tdah.ativo.oficial@gmail.com"
+                  class="tw-inline-flex tw-items-center tw-gap-2 tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-500 hover:tw-from-pink-600 hover:tw-to-orange-600 tw-text-white tw-px-8 tw-py-4 tw-rounded-full tw-font-bold tw-text-lg tw-transition-all tw-duration-300 tw-transform hover:tw-scale-105 tw-shadow-lg hover:tw-shadow-xl"
+                  aria-label="Enviar email para tdah.ativo.oficial@gmail.com"
+                >
+                  <i data-lucide="mail" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
+                  tdah.ativo.oficial@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="tw-py-20 tw-px-4 tw-bg-gradient-to-r tw-from-pink-100 tw-to-orange-100">
+        <div class="tw-container tw-mx-auto tw-max-w-3xl tw-text-center">
+          <h2 class="tw-text-3xl md:tw-text-4xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-6">Pronto para transformar sua produtividade?</h2>
+          <p class="tw-text-xl tw-text-slate-600 tw-mb-8">Junte-se a centenas de pessoas que já descobriram como ser produtivo com TDAH</p>
+
+          <button
+            onclick="window.open('https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086', '_blank')"
+            class="cta breathe-button tw-text-white tw-px-12 tw-py-6 tw-text-xl tw-font-bold tw-rounded-full tw-shadow-xl hover:tw-shadow-2xl tw-transition-all tw-duration-300 tw-relative tw-overflow-hidden tw-group"
+            aria-label="Abrir página de compra do guia"
+          >
+            <span class="tw-relative tw-z-10 tw-flex tw-items-center tw-justify-center">
+              <i data-lucide="external-link" class="tw-w-6 tw-h-6 tw-mr-3" aria-hidden="true"></i>
+              Quero começar agora
+            </span>
+            <div class="tw-absolute tw-inset-0 tw-bg-white tw-opacity-0 group-hover:tw-opacity-10 tw-transition-opacity tw-duration-300"></div>
+          </button>
+          <p class="tw-text-sm tw-text-slate-500 tw-mt-4">R$ 35,00 • 15% de desconto no PIX • Cupom <strong>TDAH30</strong></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="tw-bg-gray-800 tw-text-white tw-py-12 tw-px-4">
+      <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center">
+        <div class="tw-flex tw-items-center tw-justify-center tw-gap-2 tw-mb-6">
+          <i data-lucide="brain" class="tw-w-8 tw-h-8 tw-text-pink-400" aria-hidden="true"></i>
+          <span class="tw-text-xl tw-font-bold font-poppins">TDAH Produtivo</span>
+        </div>
+        <p class="tw-text-gray-400 tw-mb-6">Transformando a vida de pessoas com TDAH através da produtividade adaptada</p>
+        <div class="tw-flex tw-justify-center tw-gap-6 tw-text-sm tw-text-gray-400">
+          <a href="#sobre" class="hover:tw-text-pink-400 tw-transition-colors">Sobre</a>
+          <a href="#beneficios" class="hover:tw-text-pink-400 tw-transition-colors">Benefícios</a>
+          <a href="#depoimentos" class="hover:tw-text-pink-400 tw-transition-colors">Depoimentos</a>
+          <a href="#contato" class="hover:tw-text-pink-400 tw-transition-colors">Contato</a>
+        </div>
+        <div class="tw-border-t tw-border-gray-700 tw-mt-8 tw-pt-8 tw-text-sm tw-text-gray-500">
+          <p>&copy; 2025 TDAH Produtivo. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+
+    // Sucesso do MailerLite + CTA
+    function ml_webform_success_30554077() {
+      const wrapper = document.querySelector('.ml-subscribe-form-30554077');
+      const successBody = wrapper?.querySelector('.row-success');
+      const formBody = wrapper?.querySelector('.row-form');
+
+      if (successBody) {
+        successBody.style.display = 'block';
+        const box = successBody.querySelector('.ml-form-successContent');
+        if (box && !box.querySelector('#cta-success')) {
+          box.innerHTML = `
+            <h4>Cupom enviado! 🎉</h4>
+            <p>Confira seu e-mail (olhe o spam). Você já pode abrir a página de pagamento com desconto.</p>
+            <a id="cta-success" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener"
+               class="tw-inline-flex tw-items-center tw-gap-2 tw-mt-4 tw-px-5 tw-py-3 tw-rounded-full tw-font-semibold tw-text-white
+                      tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-500 hover:tw-from-pink-600 hover:tw-to-orange-600"
+               aria-label="Abrir página de pagamento com desconto">
+              <i data-lucide="external-link" class="tw-w-4 tw-h-4" aria-hidden="true"></i> Abrir pagamento com desconto
+            </a>`;
+          if (window.lucide) lucide.createIcons();
+        }
+      }
+      if (formBody) formBody.style.display = 'none';
+    }
+
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+  <!-- MailerLite boot -->
+  <script>fetch("https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel")</script>
+</body>
+</html>
