@@ -52,7 +52,7 @@
     }
     .tdah-landing .cta:hover { filter: brightness(1.05); }
 
-    /* Animação de "respirar" do botão */
+    /* Animação de “respirar” do botão */
     @keyframes breatheAndColor {
       0%   { transform: scale(1);    background: #ec4899; }
       33%  { transform: scale(1.03); background: #f97316; }
@@ -192,7 +192,6 @@
             </span>
           </div>
 
-          <!-- BOTÃO VARIAÇÃO A (Topo) -->
           <button
             onclick="window.open('https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086', '_blank')"
             class="cta breathe-button tw-text-white tw-px-12 tw-py-6 tw-text-xl tw-font-bold tw-rounded-full tw-shadow-xl hover:tw-shadow-2xl tw-transition-all tw-duration-300 tw-relative tw-overflow-hidden tw-group"
@@ -200,7 +199,7 @@
           >
             <span class="tw-relative tw-z-10 tw-flex tw-items-center tw-justify-center">
               <i data-lucide="external-link" class="tw-w-6 tw-h-6 tw-mr-3" aria-hidden="true"></i>
-              Garanta seu guia com desconto agora
+              Quero começar agora
             </span>
             <div class="tw-absolute tw-inset-0 tw-bg-white tw-opacity-0 group-hover:tw-opacity-10 tw-transition-opacity tw-duration-300"></div>
           </button>
@@ -493,7 +492,6 @@
           <h2 class="tw-text-3xl md:tw-text-4xl font-poppins tw-font-bold tw-text-slate-900 tw-mb-6">Pronto para transformar sua produtividade?</h2>
           <p class="tw-text-xl tw-text-slate-600 tw-mb-8">Junte-se a centenas de pessoas que já descobriram como ser produtivo com TDAH</p>
 
-          <!-- BOTÃO VARIAÇÃO A (Final) -->
           <button
             onclick="window.open('https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086', '_blank')"
             class="cta breathe-button tw-text-white tw-px-12 tw-py-6 tw-text-xl tw-font-bold tw-rounded-full tw-shadow-xl hover:tw-shadow-2xl tw-transition-all tw-duration-300 tw-relative tw-overflow-hidden tw-group"
@@ -501,7 +499,7 @@
           >
             <span class="tw-relative tw-z-10 tw-flex tw-items-center tw-justify-center">
               <i data-lucide="external-link" class="tw-w-6 tw-h-6 tw-mr-3" aria-hidden="true"></i>
-              Garanta seu guia com desconto agora
+              Quero começar agora
             </span>
             <div class="tw-absolute tw-inset-0 tw-bg-white tw-opacity-0 group-hover:tw-opacity-10 tw-transition-opacity tw-duration-300"></div>
           </button>
