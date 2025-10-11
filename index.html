@@ -337,7 +337,7 @@
               id="cta-hero"
               href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="tw-inline-flex tw-items-center tw-gap-3 tw-px-8 tw-py-4 tw-text-lg cta-pill"
             >
               <i data-lucide="download" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
@@ -382,12 +382,13 @@
                     <p>Pequenos e-mails com dicas de foco, autocuidado e atualizações do TDAH.Simples.</p>
                   </div>
 
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/subscribe" method="post" target="_blank">
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/subscribe" method="post">
                     <div class="ml-form-formContent">
                       <div class="ml-form-fieldRow ml-last-item">
                         <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
                           <label for="ml-email" class="sr-only">Seu melhor e-mail</label>
-                          <input id="ml-email" aria-label="E-mail" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email" required>
+                          <input id="ml-email" aria-label="E-mail" aria-required="true" aria-describedby="ml-email-help" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email" required>
+                          <div id="ml-email-help" class="sr-only">Enviaremos um e-mail de confirmação para este endereço.</div>
                         </div>
                       </div>
                     </div>
@@ -605,7 +606,7 @@
             id="cta-final"
             href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="tw-inline-flex tw-items-center tw-gap-3 tw-px-10 tw-py-4 tw-text-lg cta-pill"
           >
             <i data-lucide="external-link" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
@@ -668,11 +669,11 @@
       if (successBody) {
         successBody.style.display = 'block';
         const box = successBody.querySelector('.ml-form-successContent');
-        if (box && !box.querySelector('#cta-success')) {
+          if (box && !box.querySelector('#cta-success')) {
           box.innerHTML = `
             <h4>Seu guia está a um clique! ✨</h4>
             <p>Olhe seu e-mail (incluindo spam). Se quiser, abra o pagamento agora mesmo.</p>
-            <a id="cta-success" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener"
+            <a id="cta-success" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener noreferrer"
                class="tw-inline-flex tw-items-center tw-gap-2 tw-mt-4 tw-px-6 tw-py-3 tw-rounded-full tw-font-semibold tw-text-brandWhite"
                style="background: linear-gradient(135deg, #523CAD, #FE76E1); box-shadow: 0 12px 25px rgba(82, 60, 173, 0.3);"
                aria-label="Abrir página de pagamento do guia">
@@ -699,7 +700,17 @@
   </script>
 
   <!-- MailerLite boot -->
-  <script>fetch("https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel")</script>
+  <script>
+    (async function loadMailerLite() {
+      try {
+        // Request the MailerLite takel script; use no-cors to avoid CORS errors for JSONP endpoint
+        await fetch("https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel", { mode: 'no-cors' });
+      } catch (err) {
+        // Fail silently but keep a debug hint for developers
+        console.debug('MailerLite takel load failed or blocked by CORS:', err);
+      }
+    })();
+  </script>
 </body>
 </html>
 
