@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TDAH.Simples — Guia de Produtividade leve para mentes inquietas</title>
-  <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves. Baixe o guia de produtividade e comece pequeno, no seu tempo." />
+  <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves. Baixe o guia de produtividade e comece pequeno, no seu tempo.">
 
   <!-- Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://assets.mlcdn.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://assets.mlcdn.com">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -50,8 +50,74 @@
 
     body {
       font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-      background: linear-gradient(180deg, #E6CCFF 0%, #FFFFFF 60%);
+      /* Background image (fallback to gradient) */
+      background-image: url('assets/72637509-D69A-4AC7-AC66-4869954E3A13.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #E6CCFF; /* fallback */
       color: #2B176D;
+    }
+
+    /* Hero translucent cards and button */
+    .hero-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .hero-card {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 1.75rem;
+      max-width: 880px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 6px 20px rgba(43,23,109,0.08);
+    }
+
+    .hero-card.lilas { background: #BBA8FF40; border: 1px solid rgba(187,168,255,0.18); }
+    .hero-card.rosa { background: #FFC8F740; border: 1px solid rgba(255,200,247,0.18); }
+    .hero-card.branco { background: #FFFFFF33; border: 1px solid rgba(255,255,255,0.12); }
+
+    .hero-card h1 { margin: 0 0 0.5rem 0; font-size: 2rem; line-height: 1.05; color: #1f1148; }
+    .hero-card p { margin: 0; color: #24183a; }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #8B5CF6, #FE76E1);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(254,118,225,0.18), 0 2px 6px rgba(139,92,246,0.12);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: box-shadow 0.25s ease, transform 0.12s ease;
+      text-align: center;
+      max-width: 100%;
+  /* limit button text visually to ~2 lines on small screens */
+  line-height: 1.05;
+  max-height: 2.3rem; /* approx two lines */
+  white-space: normal;
+  overflow: hidden;
+    }
+
+    .cta-button:hover,
+    .cta-button:focus {
+      box-shadow: 0 0 15px #FE76E1, 0 10px 30px rgba(139,92,246,0.12);
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 768px) {
+      .hero-cards { padding: 4rem 2rem; }
+      .hero-card h1 { font-size: 2.75rem; }
+      .hero-card { padding: 2.25rem; }
     }
 
     .font-lexend {
@@ -295,6 +361,7 @@
 </head>
 
 <body class="tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
+  <!-- html-validate: test trigger (no-op comment) -->
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <div class="tw-min-h-screen tw-bg-gradient-to-b tw-from-brandLilac/60 tw-via-brandWhite tw-to-brandWhite">
@@ -319,33 +386,24 @@
     <main id="conteudo" class="tw-relative tw-z-10">
       <!-- Hero -->
       <section class="tw-px-4 tw-py-20">
-        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8">
-          <div class="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-full badge-soft tw-text-sm tw-font-medium">
-            <span>Um guia seguro para quem vive com TDAH</span>
-          </div>
+        <div class="tw-container tw-mx-auto tw-max-w-6xl">
+          <section class="hero-cards" aria-label="Hero">
+            <div class="hero-card lilas">
+              <h1>Você tem TDAH e se sente perdido na sua rotina?</h1>
+              <p>Não sabe por onde começar, organizar ou como mudar isso?<br>✨ Este guia foi criado exatamente para você.</p>
+            </div>
 
-          <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight">
-            Isso tem um nome: TDAH.
-          </h1>
+            <div class="hero-card rosa">
+              <p>O TDAH não é falta de foco — é um cérebro que funciona diferente.<br> E está tudo bem ser assim. 💫<br>Aqui você encontra um espaço leve para entender sua mente, aliviar a culpa e aprender a lidar com o dia a dia com mais gentileza.<br>Este guia te mostra <em>como começar</em>.</p>
+              <div style="margin-top: 1rem; text-align: center;">
+                <button type="button" class="cta-button" aria-label="Baixar o guia">💡 O Guia que vai transformar sua vida com TDAH 🌠</button>
+              </div>
+            </div>
 
-          <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/80 tw-max-w-2xl tw-mx-auto">
-            Um espaço leve e acolhedor para entender sua mente e começar pequeno, do seu jeito.
-          </p>
-
-          <div class="tw-flex tw-flex-col tw-items-center tw-gap-6">
-            <a
-              id="cta-hero"
-              href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Baixar o Guia de Produtividade TDAH"
-              class="tw-inline-flex tw-items-center tw-gap-3 tw-px-8 tw-py-4 tw-text-lg cta-pill"
-            >
-              <i data-lucide="download" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
-              Baixar o Guia de Produtividade TDAH
-            </a>
-            <p class="tw-text-sm tw-text-brandDeep/60">PDF imediato • Conteúdo prático em passos curtos</p>
-          </div>
+            <div class="hero-card branco">
+              <p>Um guia simples, feito por quem já se sentiu perdido.<br>Aprendi sozinho a lidar com a confusão — e agora quero te ajudar a fazer o mesmo.<br>💬 Este guia traz clareza, conforto e os primeiros passos para você melhorar sua vida com TDAH.</p>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -398,7 +456,7 @@
                     <div class="ml-form-embedSubmit">
                       <button type="submit" class="primary">Receber novidades com cuidado</button>
                       <button disabled style="display: none;" type="button" class="loading">
-                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="ml-form-embedSubmitLoad" aria-hidden="true"></span>
                         <span class="sr-only">Carregando...</span>
                       </button>
                     </div>
