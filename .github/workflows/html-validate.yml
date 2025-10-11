@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'index.html'
+  workflow_dispatch: {}
 
 jobs:
   html-validate:
