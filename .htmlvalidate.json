@@ -14,22 +14,17 @@
     "attr-no-dup": "error",
 
     "element-required-attributes": [
-      {
-        "element": "a[target=_blank]",
-        "attributes": [
-          { "name": "rel", "pattern": "noopener noreferrer" }
-        ]
-      }
+      "error",
+      [
+        {
+          "element": "a[target=_blank]",
+          "attributes": [
+            { "name": "rel", "pattern": "noopener noreferrer" }
+          ]
+        }
+      ]
     ],
 
-    "aria-allowed-attr": "error",
-
-    "attr-req-aria-hidden-for-icon": [
-      "warn",
-      {
-        "selector": "i[data-lucide], svg[aria-hidden], i[aria-hidden]",
-        "message": "Ícones decorativos devem ter aria-hidden=\"true\""
-      }
-    ]
+    "aria-allowed-attr": "error"
   }
 }
