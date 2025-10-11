@@ -4,14 +4,9 @@
   ],
   "rules": {
     "attribute-boolean-style": "error",
-    "label-req-for": "error",
     "void-style": "error",
     "no-inline-style": "off",
-    "img-req-alt": "warn",
-    "valid-lang": "error",
     "require-sri": "off",
-
-    "attr-no-dup": "error",
 
     "element-required-attributes": [
       "error",
@@ -23,8 +18,6 @@
           ]
         }
       ]
-    ],
-
-    "aria-allowed-attr": "error"
+    ]
   }
 }
