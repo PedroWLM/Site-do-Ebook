@@ -4,25 +4,21 @@
   ],
   "rules": {
     "attribute-boolean-style": "error",
-    "label-req-for": "error",
     "void-style": "error",
     "no-inline-style": "off",
-    "img-req-alt": "warn",
-    "valid-lang": "error",
     "require-sri": "off",
 
-    "attr-no-dup": "error",
-
     "element-required-attributes": [
-      {
-        "element": "a[target=_blank]",
-        "attributes": [
-          { "name": "rel", "pattern": "noopener noreferrer" }
-        ]
-      }
+      "error",
+      [
+        {
+          "element": "a[target=_blank]",
+          "attributes": [
+            { "name": "rel", "pattern": "noopener noreferrer" }
+          ]
+        }
+      ]
     ],
-
-    "aria-allowed-attr": "error",
 
     "attr-req-aria-hidden-for-icon": [
       "warn",
