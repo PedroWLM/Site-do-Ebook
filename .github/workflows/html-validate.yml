@@ -22,3 +22,14 @@ jobs:
 
       - name: Run html-validate on index.html
         run: npx html-validate --config .htmlvalidate.json index.html
+
+      - name: Fallback checks (grep)
+        run: |
+          echo "Checking for target=\"_blank\" without rel=\"noopener noreferrer\"..."
+          grep -n "target=\"_blank\"" index.html || true
+          echo "Checking for <i data-lucide> without aria-hidden..."
+          grep -n "data-lucide" index.html | while read -r line; do
+            num=$(echo "$line" | cut -d: -f1)
+            text=$(sed -n "${num}p" index.html)
+            echo "$num: $text"
+          done || true
