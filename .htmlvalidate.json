@@ -1,13 +1,10 @@
 {
-  "extends": [
-    "html-validate:recommended"
-  ],
+  "extends": ["html-validate:recommended"],
   "rules": {
     "attribute-boolean-style": "error",
     "void-style": "error",
     "no-inline-style": "off",
     "require-sri": "off",
-
     "element-required-attributes": [
       "error",
       [
@@ -18,14 +15,6 @@
           ]
         }
       ]
-    ],
-
-    "attr-req-aria-hidden-for-icon": [
-      "warn",
-      {
-        "selector": "i[data-lucide], svg[aria-hidden], i[aria-hidden]",
-        "message": "Ícones decorativos devem ter aria-hidden=\"true\""
-      }
     ]
   }
 }
