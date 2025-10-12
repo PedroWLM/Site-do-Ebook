@@ -1,0 +1,41 @@
+name: Netlify Build Hook (PR Preview)
+
+on:
+  pull_request:
+    branches: [dev, main]
+  workflow_dispatch:
+
+jobs:
+  trigger-netlify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Choose build hook by PR base
+        id: pick
+        run: |
+          echo "BASE=${{ github.base_ref }}" >> $GITHUB_OUTPUT
+          if [ "${{ github.base_ref }}" = "dev" ]; then
+            echo "HOOK=${{ secrets.NETLIFY_BUILD_HOOK_URL_DEV }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.base_ref }}" = "main" ]; then
+            echo "HOOK=${{ secrets.NETLIFY_BUILD_HOOK_URL_MAIN }}" >> $GITHUB_OUTPUT
+          else
+            echo "HOOK=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Fail if hook missing
+        if: steps.pick.outputs.HOOK == ''
+        run: |
+          echo "No build hook configured for base '${{ steps.pick.outputs.BASE }}'."
+          exit 1
+
+      - name: Trigger Netlify build
+        run: |
+          # Post to the selected Netlify build hook. The hook URL is treated as a secret
+          # and is never echoed in logs. We capture the response body and HTTP code.
+          curl -s -X POST "${{ steps.pick.outputs.HOOK }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"trigger_title\":\"GitHub PR #${{ github.event.number }} (${{ github.head_ref }} -> ${{ github.base_ref }})\"}" \
+            -o /tmp/resp.json -w "\nHTTP %{http_code}\n"
+          echo "Response body (truncated):"
+          head -c 2048 /tmp/resp.json || true
+          echo "\nHTTP status code:"
+          tail -n 1 /tmp/resp.json || true
