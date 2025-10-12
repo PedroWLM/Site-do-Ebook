@@ -303,6 +303,37 @@
       font-family: 'Lexend', sans-serif !important;
       font-size: 18px !important;
       font-weight: 600 !important;
+          /* Novo hero classes */
+          .hero-bg {
+            background-image: url('./assets/hero-bg-nuvens.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+          }
+
+          .card-translucido {
+            background: rgba(255,255,255,0.35);
+            border: 1px solid rgba(82,60,173,0.25);
+            border-radius: 24px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+          }
+
+          .card-lilas { background: rgba(187,168,255,0.25); }
+          .card-rosa  { background: rgba(255,200,247,0.25); }
+
+          .cta-hero {
+            background-image: linear-gradient(90deg, #8B5CF6, #FE76E1);
+            color: #fff; border-radius: 999px; font-weight: 800;
+            padding: 16px 28px; box-shadow: 0 8px 24px rgba(254,118,225,0.35);
+            transition: transform .2s ease, box-shadow .2s ease;
+          }
+
+          .cta-hero:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(254,118,225,0.5); }
+
+          @media (prefers-reduced-motion: reduce){
+            .cta-hero, .cta-hero:hover { transition: none; transform: none; }
+          }
       line-height: 24px !important;
       height: auto;
       padding: 14px !important;
@@ -387,7 +418,7 @@
       <!-- Hero -->
       <section class="tw-px-4 tw-py-20">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
-          <section class="hero-cards" aria-label="Hero">
+            <section class="hero-cards hero-bg" aria-label="Hero">
             <div class="hero-card lilas">
               <h1>Você tem TDAH e se sente perdido na sua rotina?</h1>
               <p>Não sabe por onde começar, organizar ou como mudar isso?<br>✨ Este guia foi criado exatamente para você.</p>
