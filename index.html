@@ -9,12 +9,55 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-      body { font-family: Inter, system-ui, sans-serif; color:#111827; }
-      .hero { max-width:1100px; margin:48px auto; padding:32px; text-align:center }
-      .btn { display:inline-block; padding:12px 20px; border-radius:999px; font-weight:700 }
-      .cta-hero { background:linear-gradient(90deg,#8B5CF6,#FE76E1); color:#fff; border:none }
-      .cta-pill { background:linear-gradient(135deg,#523CAD,#FE76E1); color:#fff; padding:12px 22px; border-radius:999px }
-      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+      /* Core layout */
+      :root{
+        --brand-purple:#47329A;
+        --brand-glow:#FE77FD;
+        --bg-start:#E4CFFF;
+        --bg-end:#CFA3FF;
+      }
+      html,body{height:100%;}
+      body { font-family: Inter, system-ui, sans-serif; color:#111827; margin:0; }
+      .page-hero {
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        position:relative;
+        overflow:hidden;
+        color:#fff;
+        padding:48px 20px;
+      }
+      .page-hero::before{
+        content:'';
+        position:absolute;inset:0;z-index:0;background-size:cover;background-position:center fixed;
+        background-image: url('/assets/hero-bg-nuvens.png');
+      }
+      /* fallback gradient if image unavailable */
+      .page-hero.no-image::before{
+        background-image: linear-gradient(180deg,var(--bg-start),var(--bg-end));
+      }
+      .hero-inner{position:relative;z-index:1;max-width:980px;margin:0 auto}
+
+      /* marca acima do título */
+      .brand-phrase{font-family: 'Lexend', sans-serif; font-weight:800; font-size:clamp(28px,6vw,56px); color:#fff; text-shadow: 0 0 20px var(--brand-glow); margin-bottom:18px}
+
+      .hero-title{font-family:'Lexend',sans-serif;font-weight:800;font-size:clamp(28px,6vw,56px);color:#fff;margin:0 0 10px}
+      .hero-sub{font-size:clamp(16px,2.4vw,20px);color:#fff;opacity:0.95;margin:12px 0 20px}
+
+      /* cartão explicativo */
+      .hero-card{background:rgba(255,255,255,0.08);backdrop-filter: blur(6px);border-radius:18px;padding:20px 24px;margin:22px auto;max-width:820px;color:#fff}
+
+      /* botão grande */
+      .cta-big{display:inline-block;padding:20px 36px;border-radius:999px;font-weight:800;font-size:clamp(18px,3vw,26px);color:#fff;border:2px solid var(--brand-purple);background:linear-gradient(90deg,#6E4AE6 0%,#9E6CFF 100%);box-shadow:0 8px 30px rgba(247,119,253,0.18), 0 0 18px var(--brand-glow);text-decoration:none}
+
+      .cta-caption{margin-top:16px;color:#fff;opacity:0.95;max-width:820px;margin-left:auto;margin-right:auto}
+
+      @media (max-width:640px){
+        .hero-inner{padding:0 12px}
+        .brand-phrase{font-size:32px}
+      }
     </style>
 
     <!-- Google Analytics 4 (preserved) -->
@@ -41,15 +84,25 @@
     <a class="sr-only" href="#main">Pular para o conteúdo</a>
 
     <header aria-label="Cabeçalho do site" class="py-6 text-center">
-      <h1 class="text-2xl font-bold">TDAH.Simples</h1>
+      <h1 class="text-2xl font-bold" style="color:var(--brand-purple);">TDAH.Simples</h1>
     </header>
 
     <main id="main" aria-label="Conteúdo principal">
-      <section class="hero" aria-label="Hero">
-        <h2 style="font-size:clamp(28px,4vw,40px);">Você tem TDAH e se sente perdido na sua rotina?</h2>
-        <p style="max-width:700px;margin:12px auto;">Não sabe por onde começar? Este guia foi pensado para quem precisa de passos simples e gentis.</p>
-        <div style="margin-top:16px">
-          <button id="cta-hero" type="button" class="btn cta-hero">💡 Quero o guia</button>
+      <section class="page-hero" id="hero-section" aria-label="Hero">
+        <div class="hero-inner">
+          <div class="brand-phrase">tivesse um alarme te cobrando</div>
+          <h2 class="hero-title">Você tem TDAH e se sente perdido na sua rotina?</h2>
+          <p class="hero-sub">✨ Não sabe por onde começar, organizar ou como mudar isso? Este guia foi criado exatamente para você.</p>
+
+          <div class="hero-card">
+            <p style="margin:0;">“O TDAH não é falta de foco — é um cérebro que funciona diferente. E está tudo bem ser assim. Aqui você encontra um espaço leve para entender sua mente, aliviar a culpa e aprender a lidar com o dia a dia com mais gentileza.”</p>
+          </div>
+
+          <div style="margin-top:20px">
+            <button id="cta-hero" type="button" class="cta-big">💡 O Guia que vai transformar sua vida com TDAH 💡</button>
+          </div>
+
+          <p class="cta-caption">Um guia simples, feito por quem já se sentiu perdido. Aprendi sozinho a lidar com a confusão e agora quero te ajudar a fazer o mesmo. Este guia cria caminhos gentis de produtividade para mentes inquietas, dando clareza, conforto e os primeiros passos para você melhorar sua vida com TDAH.</p>
         </div>
       </section>
 
@@ -74,34 +127,37 @@
     <footer aria-label="Rodapé do site" class="py-6 text-center text-sm">
       <p>&copy; 2025 TDAH.Simples</p>
     </footer>
+
+    <script>
+      (function () {
+        var url = 'https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086';
+        var hero = document.getElementById('cta-hero');
+        if (hero) {
+          hero.removeAttribute('onclick');
+          hero.addEventListener('click', function () {
+            window.open(url, '_blank', 'noopener');
+          }, { passive: true });
+        }
+        var finalBtn = document.getElementById('cta-final');
+        if (finalBtn) {
+          if (finalBtn.tagName.toLowerCase() === 'a') {
+            finalBtn.setAttribute('target', '_blank');
+            finalBtn.setAttribute('rel', 'noopener noreferrer');
+            finalBtn.setAttribute('href', url);
+          } else {
+            finalBtn.removeAttribute('onclick');
+            finalBtn.addEventListener('click', function () {
+              window.open(url, '_blank', 'noopener');
+            }, { passive: true });
+          }
+        }
+        // detect if background image exists; if not, add class to use gradient fallback
+        var heroSection = document.getElementById('hero-section');
+        var img = new Image();
+        img.onload = function(){ /* image exists, do nothing */ };
+        img.onerror = function(){ if (heroSection) heroSection.classList.add('no-image'); };
+        img.src = '/assets/hero-bg-nuvens.png';
+      })();
+    </script>
   </body>
 </html>
-
-<script>
-  (function () {
-    var url = 'https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086';
-    var hero = document.getElementById('cta-hero');
-    if (hero) {
-      // remove any inline onclick that might conflict
-      hero.removeAttribute('onclick');
-      hero.addEventListener('click', function () {
-        window.open(url, '_blank', 'noopener');
-      }, { passive: true });
-    }
-    var finalBtn = document.getElementById('cta-final');
-    if (finalBtn) {
-      // if it's an anchor, ensure it has proper attributes; if button, add listener
-      if (finalBtn.tagName.toLowerCase() === 'a') {
-        finalBtn.setAttribute('target', '_blank');
-        finalBtn.setAttribute('rel', 'noopener noreferrer');
-        // ensure href matches expected url
-        finalBtn.setAttribute('href', url);
-      } else {
-        finalBtn.removeAttribute('onclick');
-        finalBtn.addEventListener('click', function () {
-          window.open(url, '_blank', 'noopener');
-        }, { passive: true });
-      }
-    }
-  })();
-</script>
