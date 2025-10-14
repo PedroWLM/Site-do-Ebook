@@ -1,0 +1,40 @@
+name: Lighthouse
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Lighthouse CI
+        run: npm i -g @lhci/cli@0.12.x
+
+      - name: Run Lighthouse against production
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p reports
+          lhci collect \
+            --url=https://tdah-simples.vercel.app \
+            --numberOfRuns=3 \
+            --settings.preset=desktop \
+            --outputPath=./reports/lhr.html \
+            --collect.staticDistDir=.
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: reports/lhr.html
