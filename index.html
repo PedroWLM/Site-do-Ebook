@@ -67,9 +67,29 @@
       function gtag(){dataLayer.push(arguments);} 
       gtag('js', new Date());
       gtag('config', 'G-1KS3167PQQ');
-  </script>
+    </script>
 
-  <!-- JSON-LD preserved -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const ids = ['cta-hero','cta-final'];
+        ids.forEach(id => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+              gtag('event', 'cta_click', {
+                event_category: 'conversion',
+                event_label: id,
+                value: 1
+              });
+            }
+            // navegação: já tratada pelo script existente
+          });
+        });
+      });
+    </script>
+
+    <!-- JSON-LD preserved -->
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
