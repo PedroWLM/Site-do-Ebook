@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TDAH.Simples — Guia de Produtividade</title>
     <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves.">
@@ -69,6 +69,26 @@
       gtag('config', 'G-1KS3167PQQ');
     </script>
 
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const ids = ['cta-hero','cta-final'];
+        ids.forEach(id => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener('click', () => {
+            if (typeof gtag === 'function') {
+              gtag('event', 'cta_click', {
+                event_category: 'conversion',
+                event_label: id,
+                value: 1
+              });
+            }
+            // navegação: já tratada pelo script existente
+          });
+        });
+      });
+    </script>
+
     <!-- JSON-LD preserved -->
     <script type="application/ld+json">
     {
@@ -78,6 +98,22 @@
       "description":"Um guia acolhedor para entender o TDAH e criar rotinas leves."
     }
     </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TDAH.Simples — um guia gentil para quem vive com TDAH">
+  <meta property="og:description" content="Passos simples, sem culpa e feitos para mentes inquietas.">
+  <meta property="og:url" content="https://tdah-simples.vercel.app">
+  <meta property="og:image" content="https://tdah-simples.vercel.app/assets/og-hero.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TDAH.Simples — um guia gentil para quem vive com TDAH">
+  <meta name="twitter:description" content="Passos simples, sem culpa e feitos para mentes inquietas.">
+  <meta name="twitter:image" content="https://tdah-simples.vercel.app/assets/og-hero.png">
   </head>
 
   <body>
