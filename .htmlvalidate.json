@@ -11,7 +11,7 @@
         {
           "element": "a[target=_blank]",
           "attributes": [
-            { "name": "rel", "pattern": "noopener noreferrer" }
+            { "name": "rel", "pattern": "pattern": "noopener noreferrer" }
           ]
         }
       ]
