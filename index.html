@@ -6,22 +6,22 @@
   <title>TDAH.Simples — Guia de Produtividade leve para mentes inquietas</title>
   <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves. Baixe o guia de produtividade e comece pequeno, no seu tempo." />
   <link rel="canonical" href="https://tdah-simples.vercel.app/" />
-
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TDAH.Simples — um começo leve para entender sua mente" />
   <meta property="og:description" content="Guia de Produtividade TDAH. Simples, acolhedor e direto ao ponto." />
   <meta property="og:url" content="https://tdah-simples.vercel.app/" />
-  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="og:image" content="https://tdah-simples.vercel.app/assets/og-image.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TDAH.Simples — um começo leve para entender sua mente" />
   <meta name="twitter:description" content="Guia de Produtividade TDAH. Simples, acolhedor e direto ao ponto." />
-  <meta name="twitter:image" content="/assets/og-image.png" />
+  <meta name="twitter:image" content="https://tdah-simples.vercel.app/assets/og-image.png" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <meta name="theme-color" content="#523CAD" />
 
   <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,6 +68,8 @@
       --lilas: #E6CCFF;
       --roxoProf: #2B176D;
       --branco: #FFFFFF;
+      --bg-start: rgba(230, 204, 255, 0.65);
+      --bg-end: rgba(255, 255, 255, 0.85);
     }
 
     body {
@@ -76,7 +78,9 @@
       color: var(--roxoProf);
     }
 
-    .font-lexend { font-family: 'Lexend', sans-serif; }
+    .font-lexend {
+      font-family: 'Lexend', sans-serif;
+    }
 
     .skip-link {
       position: absolute;
@@ -93,6 +97,7 @@
       pointer-events: none;
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
+
     .skip-link:focus-visible {
       opacity: 1;
       pointer-events: auto;
@@ -110,6 +115,7 @@
       box-shadow: 0 8px 24px rgba(82, 60, 173, 0.25);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .pill-btn:hover,
     .pill-btn:focus-visible,
     .cta-pill:hover,
@@ -129,53 +135,203 @@
       border-radius: 9999px;
     }
 
-    .badge-soft { background: rgba(82, 60, 173, 0.1); color: #2B176D; }
+    .badge-soft {
+      background: rgba(82, 60, 173, 0.1);
+      color: #2B176D;
+    }
+
+    .cta-pill:focus-visible {
+      outline: 3px solid #FE76E1;
+      outline-offset: 3px;
+    }
+
     .card-surface {
       background: #FFFFFF;
       border: 1px solid rgba(82, 60, 173, 0.08);
       box-shadow: 0 20px 45px rgba(43, 23, 109, 0.08);
     }
+
     .section-soft {
       background: linear-gradient(180deg, rgba(230, 204, 255, 0.45) 0%, rgba(255, 255, 255, 0.85) 100%);
     }
 
-    .ml-form-embedSubmitLoad { display:inline-block; width:20px; height:20px; }
-    .sr-only {
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+    .ml-form-embedSubmitLoad {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
     }
-    .ml-form-embedSubmitLoad:after {
-      content:" "; display:block; width:11px; height:11px; margin:1px; border-radius:50%;
-      border:4px solid #FFFFFF; border-color:#FFFFFF #FFFFFF #FFFFFF transparent; animation:ml-form-embedSubmitLoad 1.2s linear infinite;
-    }
-    @keyframes ml-form-embedSubmitLoad { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
 
-    /* MailerLite blocos principais */
-    #mlb2-30554077.ml-form-embedContainer { box-sizing:border-box; display:table; margin:0 auto; position:static; width:100%!important; }
-    #mlb2-30554077 .ml-form-embedWrapper { background-color:rgba(230,204,255,0.35); border-width:0; border-radius:32px; display:inline-block!important; margin:0; padding:0; position:relative; }
-    #mlb2-30554077 .ml-form-embedWrapper.embedForm { max-width:730px; width:100%; }
-    #mlb2-30554077 .ml-form-embedBody { padding:24px 24px 8px 24px; }
-    #mlb2-30554077 .ml-form-embedContent { text-align:center; margin:0 0 16px 0; }
-    #mlb2-30554077 .ml-form-embedContent h4 { color:#2B176D; font-family:'Lexend',sans-serif; font-size:32px; font-weight:600; margin:0 0 10px 0; word-break:break-word; }
-    #mlb2-30554077 .ml-form-embedContent p { color:#2B176D; font-family:'Lexend',sans-serif; font-size:16px; line-height:1.5; margin:0 0 10px 0; }
-    #mlb2-30554077 .ml-form-fieldRow { margin:0 0 10px 0; width:100%; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .ml-form-embedSubmitLoad:after {
+      content: " ";
+      display: block;
+      width: 11px;
+      height: 11px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 4px solid #FFFFFF;
+      border-color: #FFFFFF #FFFFFF #FFFFFF transparent;
+      animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+    }
+
+    @keyframes ml-form-embedSubmitLoad {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #mlb2-30554077.ml-form-embedContainer {
+      box-sizing: border-box;
+      display: table;
+      margin: 0 auto;
+      position: static;
+      width: 100% !important;
+    }
+
+    #mlb2-30554077 .ml-form-embedWrapper {
+      background-color: rgba(230, 204, 255, 0.35);
+      border-width: 0;
+      border-color: transparent;
+      border-radius: 32px;
+      border-style: solid;
+      box-sizing: border-box;
+      display: inline-block !important;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    #mlb2-30554077 .ml-form-embedWrapper.embedForm {
+      max-width: 730px;
+      width: 100%;
+    }
+
+    #mlb2-30554077 .ml-form-embedBody {
+      padding: 24px 24px 8px 24px;
+    }
+
+    #mlb2-30554077 .ml-form-embedContent {
+      text-align: center;
+      margin: 0 0 16px 0;
+    }
+
+    #mlb2-30554077 .ml-form-embedContent h4 {
+      color: #2B176D;
+      font-family: 'Lexend', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      word-break: break-word;
+    }
+
+    #mlb2-30554077 .ml-form-embedContent p {
+      color: #2B176D;
+      font-family: 'Lexend', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 0 0 10px 0;
+    }
+
+    #mlb2-30554077 .ml-form-fieldRow {
+      margin: 0 0 10px 0;
+      width: 100%;
+    }
+
     #mlb2-30554077 .ml-form-fieldRow input {
-      background-color:#FFFFFF!important; color:#2B176D!important; border-color:rgba(82,60,173,0.25)!important;
-      border-radius:999px!important; border-style:solid!important; border-width:1px!important; font-family:'Lexend',sans-serif!important;
-      font-size:16px!important; height:auto; line-height:24px!important; margin:0; padding:14px 18px!important; width:100%!important; box-sizing:border-box!important; max-width:100%!important;
+      background-color: #FFFFFF !important;
+      color: #2B176D !important;
+      border-color: rgba(82, 60, 173, 0.25) !important;
+      border-radius: 999px !important;
+      border-style: solid !important;
+      border-width: 1px !important;
+      font-family: 'Lexend', sans-serif !important;
+      font-size: 16px !important;
+      height: auto;
+      line-height: 24px !important;
+      margin: 0;
+      padding: 14px 18px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      max-width: 100% !important;
     }
+
     #mlb2-30554077 .ml-form-embedSubmit button {
-      background:linear-gradient(135deg,#523CAD,#FE76E1)!important; border:none!important; border-radius:999px!important;
-      box-shadow:0 10px 25px rgba(82,60,173,0.25)!important; color:#FFFFFF!important; cursor:pointer; font-family:'Lexend',sans-serif!important;
-      font-size:18px!important; font-weight:600!important; line-height:24px!important; height:auto; padding:14px!important; width:100%!important; box-sizing:border-box!important; transition:transform .2s ease!important;
+      background: linear-gradient(135deg, #523CAD, #FE76E1) !important;
+      border: none !important;
+      border-radius: 999px !important;
+      box-shadow: 0 10px 25px rgba(82, 60, 173, 0.25) !important;
+      color: #FFFFFF !important;
+      cursor: pointer;
+      font-family: 'Lexend', sans-serif !important;
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+      height: auto;
+      padding: 14px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      transition: transform 0.2s ease !important;
     }
+
     #mlb2-30554077 .ml-form-embedSubmit button:hover,
     #mlb2-30554077 .ml-form-embedSubmit button:focus-visible {
-      transform:translateY(-1px);
-      background:linear-gradient(135deg,#2B176D,#FE76E1)!important;
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, #2B176D, #FE76E1) !important;
     }
 
-    @media (max-width:730px){
-      .ml-form-embedWrapper.embedDefault,.ml-form-embedWrapper.embedPopup{ width:100%!important; }
+    /* === Hero background com fallback === */
+    .page-hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      padding:48px 20px;
+    }
+
+    .page-hero > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .page-hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .page-hero.no-image::before{
+      background-image: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    }
+
+    .hero-bg::before{
+      background-image: url('/assets/hero-bg-nuvens.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media only screen and (max-width: 730px) {
+      .ml-form-embedWrapper.embedDefault,
+      .ml-form-embedWrapper.embedPopup {
+        width: 100% !important;
+      }
     }
   </style>
 
@@ -195,8 +351,14 @@
       "@type": "Book",
       "name": "Guia de Produtividade TDAH.Simples",
       "description": "Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
-      "author": { "@type": "Organization", "name": "TDAH.Simples" },
-      "publisher": { "@type": "Organization", "name": "TDAH.Simples" },
+      "author": {
+        "@type": "Organization",
+        "name": "TDAH.Simples"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "TDAH.Simples"
+      },
       "offers": {
         "@type": "Offer",
         "price": "35.00",
@@ -231,33 +393,44 @@
     </header>
 
     <main id="conteudo" class="tw-relative tw-z-10">
-      <!-- Hero -->
-      <section class="tw-px-4 tw-py-20">
-        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8">
-          <div class="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-full badge-soft tw-text-sm tw-font-medium">
-            <span>Um guia seguro para quem vive com TDAH</span>
+      <!-- HERO -->
+      <section class="page-hero hero-bg" id="hero-section" aria-label="Hero">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8 tw-px-4">
+          <!-- 1. Badge (maior, nova frase) -->
+          <div class="tw-inline-flex tw-items-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full badge-soft tw-text-base tw-font-medium">
+            <span>🧭 Dificuldade para criar ou ajustar sua rotina?</span>
           </div>
 
+          <!-- 2. Título -->
           <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight glow-title">
-            Isso tem um nome: TDAH.
+            ✅ Não se preocupe — eu tenho a solução para os seus problemas!
           </h1>
 
-          <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/80 tw-max-w-2xl tw-mx-auto">
-            Um espaço leve e acolhedor para entender sua mente e começar pequeno, do seu jeito.
+          <!-- 3. Subtítulo acolhedor -->
+          <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/90 tw-max-w-3xl tw-mx-auto">
+            TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim.
+            Comece encontrando um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia
+            com mais gentileza. 🌿
           </p>
 
-          <div class="tw-flex tw-flex-col tw-items-center tw-gap-6">
+          <!-- 4. Botão (CTA) -->
+          <div class="tw-flex tw-flex-col tw-items-center tw-gap-3">
             <a
               id="cta-hero"
               href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
               target="_blank"
               rel="noopener"
               class="tw-inline-flex tw-items-center tw-gap-3 tw-px-8 tw-py-4 tw-text-lg cta-pill"
+              aria-label="Abrir página do guia TDAH.Simples"
             >
-              <i data-lucide="download" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
-              Baixar o Guia de Produtividade TDAH
+              💡 A solução para ter uma rotina produtiva com TDAH 💡
             </a>
-            <p class="tw-text-sm tw-text-brandDeep/60">PDF imediato • Conteúdo prático em passos curtos</p>
+
+            <!-- 5. Frase abaixo do botão -->
+            <p class="tw-text-sm tw-text-brandDeep/80 tw-max-w-xl">
+              🤝 Este guia foi feito por quem também tem TDAH e penou para criar e organizar a própria rotina —
+              por isso ele criou este material para te acompanhar e ajudar nesse começo.
+            </p>
           </div>
         </div>
       </section>
@@ -347,7 +520,7 @@
 
             <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
               <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">2</div>
-              <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha um micro-passos</h3>
+              <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha micro-passos</h3>
               <p class="tw-text-brandDeep/80">Use exercícios de 10 minutos para construir confiança.</p>
             </div>
 
@@ -560,12 +733,18 @@
     });
 
     function trackCTA(id) {
-      if (window.gtag) { gtag('event', 'cta_click', { event_label: id }); }
+      if (window.gtag) {
+        gtag('event', 'cta_click', { event_label: id });
+      }
     }
+
     function bindCTA(id) {
       const el = document.getElementById(id);
-      if (el) { el.addEventListener('click', () => trackCTA(id)); }
+      if (el) {
+        el.addEventListener('click', () => trackCTA(id));
+      }
     }
+
     ['cta-hero', 'cta-final', 'cta-success'].forEach(bindCTA);
 
     function ml_webform_success_30554077() {
@@ -605,7 +784,20 @@
       });
     });
   </script>
-  <noscript><!-- Sem JS: apenas conteúdo estático --></noscript>
+  <script>
+    (function () {
+      var heroSection = document.getElementById('hero-section');
+      var img = new Image();
+      img.onload = function () {};
+      img.onerror = function () {
+        if (heroSection) heroSection.classList.add('no-image');
+      };
+      img.src = '/assets/hero-bg-nuvens.png';
+    })();
+  </script>
+  <noscript>
+    <!-- fallback de transparência: sem JavaScript não há GA4, apenas conteúdo estático -->
+  </noscript>
 
   <!-- MailerLite boot -->
   <script>fetch("https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel")</script>
