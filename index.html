@@ -28,12 +28,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://pay.kirvano.com" />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
+  <link rel="preload" as="image" href="/assets/bg-magico-desktop.webp" />
+  <link rel="preload" as="image" href="/assets/bg-magico-mobile.webp" media="(max-width:768px)" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
 
   <!-- Tailwind config: prefix + cores -->
   <script>
@@ -74,8 +76,36 @@
 
     body {
       font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-      background: linear-gradient(180deg, var(--lilas) 0%, var(--branco) 60%);
       color: var(--roxoProf);
+    }
+
+    /* ===== Fundo de nuvens modular - TDAH.Simples ===== */
+    .page-bg {
+      position: relative;
+      min-height: 100vh;
+      background:
+        image-set(url('/assets/bg-magico-desktop.webp') type('image/webp')) center top / cover no-repeat,
+        linear-gradient(180deg, #E4CFFF, #CFA3FF);
+      background-attachment: scroll;
+      background-color: #DABEFF;
+    }
+
+    @media (min-width: 1024px) {
+      .page-bg {
+        background-attachment: fixed;
+        background-position: center top;
+      }
+    }
+
+    /* mobile: usa a versão vertical e desativa parallax */
+    @media (max-width: 768px) {
+      .page-bg {
+        background:
+          image-set(url('/assets/bg-magico-mobile.webp') type('image/webp')) center top / cover no-repeat,
+          linear-gradient(180deg, #E4CFFF, #CFA3FF);
+        background-attachment: scroll;
+        background-color: #DABEFF;
+      }
     }
 
     .font-lexend {
@@ -124,6 +154,11 @@
       box-shadow: 0 16px 40px rgba(82, 60, 173, 0.35);
     }
 
+    .cta-pill:focus-visible {
+      outline: 3px solid #FE76E1;
+      outline-offset: 3px;
+    }
+
     .glow-title {
       text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas);
     }
@@ -138,11 +173,6 @@
     .badge-soft {
       background: rgba(82, 60, 173, 0.1);
       color: #2B176D;
-    }
-
-    .cta-pill:focus-visible {
-      outline: 3px solid #FE76E1;
-      outline-offset: 3px;
     }
 
     .card-surface {
@@ -289,42 +319,68 @@
       background: linear-gradient(135deg, #2B176D, #FE76E1) !important;
     }
 
-    /* === Hero background com fallback === */
-    .page-hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-      color:#fff;
-      padding:48px 20px;
+    /* Balões translúcidos para destaque */
+    .bubble {
+      background: rgba(255, 255, 255, 0.85);
+      color: #2B176D;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(43, 23, 109, 0.12);
+      backdrop-filter: blur(6px);
     }
 
-    .page-hero > *{
-      position:relative;
-      z-index:1;
+    /* Badge pequena: mais sutil */
+    .bubble--badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
     }
 
-    .page-hero::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      z-index:0;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
+    /* Título e subtítulo mais “presentes” em balão */
+    .bubble--title {
+      padding: 18px 22px;
+      margin-top: 12px;
     }
 
-    .page-hero.no-image::before{
-      background-image: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    .bubble--sub {
+      padding: 16px 20px;
+      margin-top: 10px;
     }
 
-    .hero-bg::before{
-      background-image: url('/assets/hero-bg-nuvens.png');
-      background-size: cover;
-      background-position: center;
+    /* CTA roxo sólido */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 18px;
+      color: #FFFFFF;
+      background: #6E4AE6;
+      border: 2px solid #523CAD;
+      box-shadow: 0 10px 26px rgba(82, 60, 173, 0.25);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-cta:hover,
+    .btn-cta:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(82, 60, 173, 0.35);
+    }
+
+    /* Espaçamentos do herói para o novo fundo */
+    .hero-wrap {
+      text-align: center;
+      padding: 64px 20px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-wrap {
+        padding: 96px 20px;
+      }
     }
 
     @media only screen and (max-width: 730px) {
@@ -370,7 +426,7 @@
   </script>
 </head>
 
-<body class="tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
+<body class="page-bg tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <div class="tw-min-h-screen tw-bg-gradient-to-b tw-from-brandLilac/60 tw-via-brandWhite tw-to-brandWhite">
@@ -394,24 +450,28 @@
 
     <main id="conteudo" class="tw-relative tw-z-10">
       <!-- HERO -->
-      <section class="page-hero hero-bg" id="hero-section" aria-label="Hero">
-        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8 tw-px-4">
+      <section id="hero-section" aria-label="Hero">
+        <div class="hero-wrap tw-container tw-mx-auto tw-max-w-4xl tw-space-y-6">
           <!-- 1. Badge (maior, nova frase) -->
-          <div class="tw-inline-flex tw-items-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full badge-soft tw-text-base tw-font-medium">
+          <div class="bubble bubble--badge tw-inline-flex tw-items-center tw-gap-2">
             <span>🧭 Dificuldade para criar ou ajustar sua rotina?</span>
           </div>
 
           <!-- 2. Título -->
-          <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight glow-title">
-            ✅ Não se preocupe — eu tenho a solução para os seus problemas!
-          </h1>
+          <div class="bubble bubble--title">
+            <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight glow-title">
+              ✅ Não se preocupe — eu tenho a solução para os seus problemas!
+            </h1>
+          </div>
 
           <!-- 3. Subtítulo acolhedor -->
-          <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/90 tw-max-w-3xl tw-mx-auto">
-            TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim.
-            Comece encontrando um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia
-            com mais gentileza. 🌿
-          </p>
+          <div class="bubble bubble--sub">
+            <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/90 tw-max-w-3xl tw-mx-auto">
+              TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim.
+              Comece encontrando um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia
+              com mais gentileza. 🌿
+            </p>
+          </div>
 
           <!-- 4. Botão (CTA) -->
           <div class="tw-flex tw-flex-col tw-items-center tw-gap-3">
@@ -420,10 +480,12 @@
               href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
               target="_blank"
               rel="noopener"
-              class="tw-inline-flex tw-items-center tw-gap-3 tw-px-8 tw-py-4 tw-text-lg cta-pill"
+              class="btn-cta"
               aria-label="Abrir página do guia TDAH.Simples"
             >
-              💡 A solução para ter uma rotina produtiva com TDAH 💡
+              <span aria-hidden="true">💡</span>
+              A solução para ter uma rotina produtiva com TDAH
+              <span aria-hidden="true">💡</span>
             </a>
 
             <!-- 5. Frase abaixo do botão -->
@@ -783,17 +845,6 @@
         }
       });
     });
-  </script>
-  <script>
-    (function () {
-      var heroSection = document.getElementById('hero-section');
-      var img = new Image();
-      img.onload = function () {};
-      img.onerror = function () {
-        if (heroSection) heroSection.classList.add('no-image');
-      };
-      img.src = '/assets/hero-bg-nuvens.png';
-    })();
   </script>
   <noscript>
     <!-- fallback de transparência: sem JavaScript não há GA4, apenas conteúdo estático -->
