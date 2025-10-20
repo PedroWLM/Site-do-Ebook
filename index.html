@@ -6,6 +6,7 @@
   <title>TDAH.Simples — Guia de Produtividade leve para mentes inquietas</title>
   <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves. Baixe o guia de produtividade e comece pequeno, no seu tempo." />
   <link rel="canonical" href="https://tdah-simples.vercel.app/" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TDAH.Simples — um começo leve para entender sua mente" />
@@ -26,6 +27,7 @@
   <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" />
   <link rel="dns-prefetch" href="https://pay.kirvano.com" />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
   <link rel="preload" as="image" href="/assets/bg-magico-desktop.webp" />
@@ -34,11 +36,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
-
-  <!-- Tailwind config: prefix + cores -->
+  <!-- Tailwind config (antes do CDN) -->
   <script>
+    tailwind = window.tailwind || {};
     tailwind.config = {
       prefix: 'tw-',
       theme: {
@@ -57,6 +57,8 @@
       }
     };
   </script>
+  <!-- CDN Tailwind (sem defer) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- MailerLite base fonts -->
   <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
@@ -108,216 +110,51 @@
       }
     }
 
-    .font-lexend {
-      font-family: 'Lexend', sans-serif;
-    }
+    .font-lexend { font-family: 'Lexend', sans-serif; }
 
     .skip-link {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       top: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      background: var(--rox);
-      color: var(--branco);
-      font-weight: 600;
-      z-index: 100;
+      padding: 0.5rem 1rem;
+      background-color: #523CAD;
+      color: #FFFFFF;
+      border-radius: 9999px;
+      text-decoration: none;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      transition: opacity 0.2s ease;
+      z-index: 50;
     }
-
-    .skip-link:focus-visible {
+    .skip-link:focus, .skip-link:focus-visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translate(-50%, 0);
-      outline: 3px solid var(--rosa);
-      outline-offset: 4px;
+      outline: none;
+      box-shadow: 0 0 0 4px #FE76E1;
     }
 
-    .pill-btn,
-    .cta-pill {
+    .badge-soft {
+      background: rgba(230, 204, 255, 0.8);
+      color: var(--roxoProf);
+      box-shadow: 0 8px 20px rgba(82, 60, 173, 0.18);
+    }
+
+    .pill-btn {
       background: linear-gradient(120deg, var(--rox), var(--rosa) 65%);
-      color: var(--branco);
-      border-radius: 999px;
-      font-weight: 600;
       box-shadow: 0 8px 24px rgba(82, 60, 173, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: var(--branco);
     }
+    .pill-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(82, 60, 173, 0.35); }
 
-    .pill-btn:hover,
-    .pill-btn:focus-visible,
-    .cta-pill:hover,
-    .cta-pill:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(82, 60, 173, 0.35);
-    }
+    .glow-title { text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas); }
 
-    .cta-pill:focus-visible {
-      outline: 3px solid #FE76E1;
-      outline-offset: 3px;
-    }
-
-    .glow-title {
-      text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas);
-    }
-
-    a:focus-visible,
-    button:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: none;
       box-shadow: 0 0 0 4px var(--lilas);
       border-radius: 9999px;
     }
-
-    .badge-soft {
-      background: rgba(82, 60, 173, 0.1);
-      color: #2B176D;
-    }
-
-    .card-surface {
-      background: #FFFFFF;
-      border: 1px solid rgba(82, 60, 173, 0.08);
-      box-shadow: 0 20px 45px rgba(43, 23, 109, 0.08);
-    }
-
-    .section-soft {
-      background: linear-gradient(180deg, rgba(230, 204, 255, 0.45) 0%, rgba(255, 255, 255, 0.85) 100%);
-    }
-
-    .ml-form-embedSubmitLoad {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    .ml-form-embedSubmitLoad:after {
-      content: " ";
-      display: block;
-      width: 11px;
-      height: 11px;
-      margin: 1px;
-      border-radius: 50%;
-      border: 4px solid #FFFFFF;
-      border-color: #FFFFFF #FFFFFF #FFFFFF transparent;
-      animation: ml-form-embedSubmitLoad 1.2s linear infinite;
-    }
-
-    @keyframes ml-form-embedSubmitLoad {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    #mlb2-30554077.ml-form-embedContainer {
-      box-sizing: border-box;
-      display: table;
-      margin: 0 auto;
-      position: static;
-      width: 100% !important;
-    }
-
-    #mlb2-30554077 .ml-form-embedWrapper {
-      background-color: rgba(230, 204, 255, 0.35);
-      border-width: 0;
-      border-color: transparent;
-      border-radius: 32px;
-      border-style: solid;
-      box-sizing: border-box;
-      display: inline-block !important;
-      margin: 0;
-      padding: 0;
-      position: relative;
-    }
-
-    #mlb2-30554077 .ml-form-embedWrapper.embedForm {
-      max-width: 730px;
-      width: 100%;
-    }
-
-    #mlb2-30554077 .ml-form-embedBody {
-      padding: 24px 24px 8px 24px;
-    }
-
-    #mlb2-30554077 .ml-form-embedContent {
-      text-align: center;
-      margin: 0 0 16px 0;
-    }
-
-    #mlb2-30554077 .ml-form-embedContent h4 {
-      color: #2B176D;
-      font-family: 'Lexend', sans-serif;
-      font-size: 32px;
-      font-weight: 600;
-      margin: 0 0 10px 0;
-      word-break: break-word;
-    }
-
-    #mlb2-30554077 .ml-form-embedContent p {
-      color: #2B176D;
-      font-family: 'Lexend', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      margin: 0 0 10px 0;
-    }
-
-    #mlb2-30554077 .ml-form-fieldRow {
-      margin: 0 0 10px 0;
-      width: 100%;
-    }
-
-    #mlb2-30554077 .ml-form-fieldRow input {
-      background-color: #FFFFFF !important;
-      color: #2B176D !important;
-      border-color: rgba(82, 60, 173, 0.25) !important;
-      border-radius: 999px !important;
-      border-style: solid !important;
-      border-width: 1px !important;
-      font-family: 'Lexend', sans-serif !important;
-      font-size: 16px !important;
-      height: auto;
-      line-height: 24px !important;
-      margin: 0;
-      padding: 14px 18px !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-      max-width: 100% !important;
-    }
-
-    #mlb2-30554077 .ml-form-embedSubmit button {
-      background: linear-gradient(135deg, #523CAD, #FE76E1) !important;
-      border: none !important;
-      border-radius: 999px !important;
-      box-shadow: 0 10px 25px rgba(82, 60, 173, 0.25) !important;
-      color: #FFFFFF !important;
-      cursor: pointer;
-      font-family: 'Lexend', sans-serif !important;
-      font-size: 18px !important;
-      font-weight: 600 !important;
-      line-height: 24px !important;
-      height: auto;
-      padding: 14px !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-      transition: transform 0.2s ease !important;
-    }
-
-    #mlb2-30554077 .ml-form-embedSubmit button:hover,
-    #mlb2-30554077 .ml-form-embedSubmit button:focus-visible {
-      transform: translateY(-1px);
-      background: linear-gradient(135deg, #2B176D, #FE76E1) !important;
-    }
+    .cta-pill:focus-visible { outline: 3px solid #FE76E1; outline-offset: 3px; }
 
     /* Balões translúcidos para destaque */
     .bubble {
@@ -327,71 +164,29 @@
       box-shadow: 0 12px 28px rgba(43, 23, 109, 0.12);
       backdrop-filter: blur(6px);
     }
-
-    /* Badge pequena: mais sutil */
-    .bubble--badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    /* Título e subtítulo mais “presentes” em balão */
-    .bubble--title {
-      padding: 18px 22px;
-      margin-top: 12px;
-    }
-
-    .bubble--sub {
-      padding: 16px 20px;
-      margin-top: 10px;
-    }
+    .bubble--badge { display: inline-block; padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14px; }
+    .bubble--title { padding: 18px 22px; margin-top: 12px; }
+    .bubble--sub { padding: 16px 20px; margin-top: 10px; }
 
     /* CTA roxo sólido */
     .btn-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 26px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 18px;
-      color: #FFFFFF;
-      background: #6E4AE6;
-      border: 2px solid #523CAD;
-      box-shadow: 0 10px 26px rgba(82, 60, 173, 0.25);
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 26px; border-radius: 999px;
+      font-weight: 800; font-size: 18px; color: #FFFFFF;
+      background: #6E4AE6; border: 2px solid #523CAD;
+      box-shadow: 0 10px 26px rgba(82, 60, 173, 0.25); text-decoration: none;
     }
+    .btn-cta:hover, .btn-cta:focus-visible { transform: translateY(-1px); box-shadow: 0 16px 36px rgba(82, 60, 173, 0.35); }
 
-    .btn-cta:hover,
-    .btn-cta:focus-visible {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(82, 60, 173, 0.35);
-    }
+    .hero-wrap { text-align: center; padding: 64px 20px; }
+    @media (min-width: 768px) { .hero-wrap { padding: 96px 20px; } }
 
-    /* Espaçamentos do herói para o novo fundo */
-    .hero-wrap {
-      text-align: center;
-      padding: 64px 20px;
-    }
-
-    @media (min-width: 768px) {
-      .hero-wrap {
-        padding: 96px 20px;
-      }
-    }
-
-    @media only screen and (max-width: 730px) {
-      .ml-form-embedWrapper.embedDefault,
-      .ml-form-embedWrapper.embedPopup {
-        width: 100% !important;
-      }
+    .sr-only {
+      border: 0; clip: rect(0,0,0,0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
     }
   </style>
 
-  <!-- Google Analytics 4 -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -400,25 +195,20 @@
     gtag('config', 'G-1KS3167PQQ');
   </script>
 
-  <!-- JSON-LD: Book / Offer -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Book",
       "name": "Guia de Produtividade TDAH.Simples",
-      "description": "Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
-      "author": {
-        "@type": "Organization",
-        "name": "TDAH.Simples"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "TDAH.Simples"
-      },
+      "author": { "@type": "Organization", "name": "TDAH.Simples" },
+      "image": "https://tdah-simples.vercel.app/assets/og-image.png",
+      "description": "Guia prático para organizar a rotina com TDAH, com foco em acolhimento e passos pequenos.",
+      "url": "https://tdah-simples.vercel.app/",
       "offers": {
         "@type": "Offer",
-        "price": "35.00",
         "priceCurrency": "BRL",
+        "price": "35.00",
         "availability": "https://schema.org/InStock",
         "url": "https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
       }
@@ -427,9 +217,9 @@
 </head>
 
 <body class="page-bg tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a href="#conteudo" class="skip-link">Ir para conteúdo principal</a>
 
-  <div class="tw-min-h-screen tw-bg-gradient-to-b tw-from-brandLilac/60 tw-via-brandWhite tw-to-brandWhite">
+  <div class="tw-min-h-screen tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-brandLilac/60 tw-via-brandWhite tw-to-brandWhite">
     <!-- Header -->
     <header class="tw-sticky tw-top-0 tw-z-40 tw-bg-brandWhite/80 tw-backdrop-blur tw-border-b tw-border-brandPrimary/10">
       <div class="tw-container tw-mx-auto tw-max-w-6xl tw-px-4 tw-py-4">
@@ -448,23 +238,20 @@
       </div>
     </header>
 
-    <main id="conteudo" class="tw-relative tw-z-10">
+    <main id="conteudo" class="tw-relative tw-z-10 tw-flex-1">
       <!-- HERO -->
       <section id="hero-section" aria-label="Hero">
         <div class="hero-wrap tw-container tw-mx-auto tw-max-w-4xl tw-space-y-6">
-          <!-- 1. Badge (maior, nova frase) -->
           <div class="bubble bubble--badge tw-inline-flex tw-items-center tw-gap-2">
             <span>🧭 Dificuldade para criar ou ajustar sua rotina?</span>
           </div>
 
-          <!-- 2. Título -->
           <div class="bubble bubble--title">
             <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight glow-title">
               ✅ Não se preocupe — eu tenho a solução para os seus problemas!
             </h1>
           </div>
 
-          <!-- 3. Subtítulo acolhedor -->
           <div class="bubble bubble--sub">
             <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/90 tw-max-w-3xl tw-mx-auto">
               TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim.
@@ -473,7 +260,6 @@
             </p>
           </div>
 
-          <!-- 4. Botão (CTA) -->
           <div class="tw-flex tw-flex-col tw-items-center tw-gap-3">
             <a
               id="cta-hero"
@@ -488,7 +274,6 @@
               <span aria-hidden="true">💡</span>
             </a>
 
-            <!-- 5. Frase abaixo do botão -->
             <p class="tw-text-sm tw-text-brandDeep/80 tw-max-w-xl">
               🤝 Este guia foi feito por quem também tem TDAH e penou para criar e organizar a própria rotina —
               por isso ele criou este material para te acompanhar e ajudar nesse começo.
@@ -544,7 +329,7 @@
                     <input type="hidden" name="ml-submit" value="1">
                     <div class="ml-form-embedSubmit">
                       <button type="submit" class="primary">Receber novidades com cuidado</button>
-                      <button disabled style="display: none;" type="button" class="loading">
+                      <button disabled style="display:none;" type="button" class="loading">
                         <div class="ml-form-embedSubmitLoad"></div>
                         <span class="sr-only">Carregando...</span>
                       </button>
@@ -553,7 +338,8 @@
                   </form>
                 </div>
 
-                <div class="ml-form-successBody row-success" style="display: none" aria-live="polite" role="status">
+                <!-- Sucesso do MailerLite com aria-live -->
+                <div class="ml-form-successBody row-success" style="display:none" aria-live="polite" role="status">
                   <div class="ml-form-successContent">
                     <h4>Obrigada por confiar na gente 💜</h4>
                     <p>Em instantes você recebe um e-mail confirmando sua inscrição.</p>
@@ -566,7 +352,7 @@
       </section>
 
       <!-- Como funciona -->
-      <section class="tw-py-16 tw-px-4 section-soft">
+      <section class="tw-py-16 tw-px-4 tw-bg-gradient-to-b tw-from-brandLilac/45 tw-to-brandWhite/80">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="tw-text-center tw-mb-12">
             <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold tw-mb-4">Comece no seu ritmo</h2>
@@ -574,19 +360,19 @@
           </div>
 
           <div class="tw-grid md:tw-grid-cols-3 tw-gap-8">
-            <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
+            <div class="tw-text-center tw-bg-white/90 tw-rounded-2xl tw-p-8 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">1</div>
               <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Baixe o guia</h3>
               <p class="tw-text-brandDeep/80">Acesso imediato com orientações práticas e acolhedoras.</p>
             </div>
 
-            <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
+            <div class="tw-text-center tw-bg-white/90 tw-rounded-2xl tw-p-8 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">2</div>
               <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha micro-passos</h3>
               <p class="tw-text-brandDeep/80">Use exercícios de 10 minutos para construir confiança.</p>
             </div>
 
-            <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
+            <div class="tw-text-center tw-bg-white/90 tw-rounded-2xl tw-p-8 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">3</div>
               <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Crie sua rotina afetiva</h3>
               <p class="tw-text-brandDeep/80">Adapte os testes bônus para um plano que respeita sua energia.</p>
@@ -604,42 +390,42 @@
           </div>
 
           <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
-            <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
+            <div class="tw-bg-white/90 tw-rounded-2xl tw-p-6 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-flex tw-items-start tw-gap-3">
                 <i data-lucide="compass" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
                 <p class="tw-text-brandDeep/90">Mapas mentais para identificar gatilhos e caminhos de foco.</p>
               </div>
             </div>
 
-            <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
+            <div class="tw-bg-white/90 tw-rounded-2xl tw-p-6 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-flex tw-items-start tw-gap-3">
                 <i data-lucide="calendar" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
                 <p class="tw-text-brandDeep/90">Modelos de rotina flexível que respeitam seus ciclos de energia.</p>
               </div>
             </div>
 
-            <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
+            <div class="tw-bg-white/90 tw-rounded-2xl tw-p-6 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-flex tw-items-start tw-gap-3">
                 <i data-lucide="heart" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
                 <p class="tw-text-brandDeep/90">Ferramentas de autocuidado para reduzir culpa e autocrítica.</p>
               </div>
             </div>
 
-            <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
+            <div class="tw-bg-white/90 tw-rounded-2xl tw-p-6 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-flex tw-items-start tw-gap-3">
                 <i data-lucide="sun" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
                 <p class="tw-text-brandDeep/90">Checklists de manhã e noite para ritmar seu dia sem pressão.</p>
               </div>
             </div>
 
-            <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
+            <div class="tw-bg-white/90 tw-rounded-2xl tw-p-6 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-flex tw-items-start tw-gap-3">
                 <i data-lucide="target" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
                 <p class="tw-text-brandDeep/90">Técnicas focadas em objetivos curtos com feedback imediato.</p>
               </div>
             </div>
 
-            <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
+            <div class="tw-bg-white/90 tw-rounded-2xl tw-p-6 tw-border tw-border-brandPrimary/10 tw-shadow-lg">
               <div class="tw-flex tw-items-start tw-gap-3">
                 <i data-lucide="gift" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
                 <p class="tw-text-brandDeep/90">Bônus: testes práticos para personalizar seu plano de ação.</p>
@@ -650,9 +436,9 @@
       </section>
 
       <!-- Sobre -->
-      <section id="sobre" class="tw-py-20 tw-px-4 section-soft">
+      <section id="sobre" class="tw-py-20 tw-px-4 tw-bg-gradient-to-b tw-from-brandLilac/45 tw-to-brandWhite/85">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
-          <div class="card-surface tw-rounded-3xl tw-overflow-hidden">
+          <div class="tw-bg-white tw-rounded-3xl tw-overflow-hidden tw-shadow-xl tw-border tw-border-brandPrimary/10">
             <div class="tw-p-10 md:tw-p-14 tw-text-center tw-space-y-6">
               <i data-lucide="book-open" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto" aria-hidden="true"></i>
               <h2 class="tw-text-3xl tw-font-semibold">Sobre o guia</h2>
@@ -677,7 +463,7 @@
           </div>
 
           <div class="tw-grid md:tw-grid-cols-2 tw-gap-6 tw-mb-12">
-            <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
+            <div class="tw-bg-white tw-rounded-3xl tw-p-8 tw-shadow-xl tw-border tw-border-brandPrimary/10 tw-space-y-4">
               <div class="tw-flex tw-gap-1" aria-hidden="true">
                 <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
                 <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
@@ -692,7 +478,7 @@
               </div>
             </div>
 
-            <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
+            <div class="tw-bg-white tw-rounded-3xl tw-p-8 tw-shadow-xl tw-border tw-border-brandPrimary/10 tw-space-y-4">
               <div class="tw-flex tw-gap-1" aria-hidden="true">
                 <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
                 <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
@@ -708,7 +494,7 @@
             </div>
           </div>
 
-          <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
+          <div class="tw-bg-white tw-rounded-3xl tw-p-8 tw-shadow-xl tw-border tw-border-brandPrimary/10 tw-space-y-4">
             <div class="tw-flex tw-gap-1" aria-hidden="true">
               <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
               <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
@@ -726,9 +512,9 @@
       </section>
 
       <!-- Contato -->
-      <section id="contato" class="tw-py-20 tw-px-4 section-soft">
+      <section id="contato" class="tw-py-20 tw-px-4 tw-bg-gradient-to-b tw-from-brandLilac/45 tw-to-brandWhite/85">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
-          <div class="card-surface tw-rounded-3xl tw-p-10 tw-text-center tw-space-y-6">
+          <div class="tw-bg-white tw-rounded-3xl tw-p-10 tw-text-center tw-space-y-6 tw-shadow-xl tw-border tw-border-brandPrimary/10">
             <i data-lucide="mail" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto" aria-hidden="true"></i>
             <h2 class="tw-text-3xl tw-font-semibold">Fale com o TDAH.Simples</h2>
             <p class="tw-text-xl tw-text-brandDeep/80">Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
@@ -785,39 +571,25 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" defer></script>
+  <!-- Scripts de terceiros -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js" defer></script>
 
+  <!-- Scripts do site -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.lucide) lucide.createIcons();
-    });
+    function trackCTA(id){ if(window.gtag){ gtag('event','cta_click',{ event_label:id }); } }
+    function bindCTA(id){ const el=document.getElementById(id); if(el){ el.addEventListener('click',()=>trackCTA(id)); } }
+    ['cta-hero','cta-final','cta-success'].forEach(bindCTA);
 
-    function trackCTA(id) {
-      if (window.gtag) {
-        gtag('event', 'cta_click', { event_label: id });
-      }
-    }
+    // Exibe CTA de sucesso após inscrição (se o MailerLite chamar este callback)
+    function ml_webform_success_30554077(){
+      const wrapper=document.querySelector('.ml-subscribe-form-30554077');
+      const successBody=wrapper?.querySelector('.row-success');
+      const formBody=wrapper?.querySelector('.row-form');
 
-    function bindCTA(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener('click', () => trackCTA(id));
-      }
-    }
-
-    ['cta-hero', 'cta-final', 'cta-success'].forEach(bindCTA);
-
-    function ml_webform_success_30554077() {
-      const wrapper = document.querySelector('.ml-subscribe-form-30554077');
-      const successBody = wrapper?.querySelector('.row-success');
-      const formBody = wrapper?.querySelector('.row-form');
-
-      if (successBody) {
-        successBody.style.display = 'block';
-        const box = successBody.querySelector('.ml-form-successContent');
-        if (box && !box.querySelector('#cta-success')) {
+      if(successBody){
+        successBody.style.display='block';
+        const box=successBody.querySelector('.ml-form-successContent');
+        if(box && !box.querySelector('#cta-success')){
           box.innerHTML = `
             <h4>Seu guia está a um clique! ✨</h4>
             <p>Olhe seu e-mail (incluindo spam). Se quiser, abra o pagamento agora mesmo.</p>
@@ -827,28 +599,31 @@
                aria-label="Abrir página de pagamento do guia">
               <i data-lucide="external-link" class="tw-w-4 tw-h-4" aria-hidden="true"></i> Abrir pagamento do guia
             </a>`;
-          if (window.lucide) lucide.createIcons();
+          if(window.lucide) lucide.createIcons();
           bindCTA('cta-success');
         }
       }
-      if (formBody) formBody.style.display = 'none';
+      if(formBody) formBody.style.display='none';
     }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+    // Scroll suave nos âncoras
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+      anchor.addEventListener('click',function(e){
+        const targetId=this.getAttribute('href');
+        if(!targetId || targetId==='#') return;
+        const target=document.querySelector(targetId);
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
       });
     });
   </script>
-  <noscript>
-    <!-- fallback de transparência: sem JavaScript não há GA4, apenas conteúdo estático -->
-  </noscript>
+
+  <!-- Ícones Lucide -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script>
+    window.addEventListener('load', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
 
   <!-- MailerLite boot -->
   <script>fetch("https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel")</script>
