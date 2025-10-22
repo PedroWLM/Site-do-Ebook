@@ -144,89 +144,66 @@
       }
     }
 
+    .font-lexend {
+      font-family: 'Lexend', sans-serif;
+    }
+
     .skip-link {
-      position: fixed;
+      position: absolute;
       left: 50%;
-      transform: translate(-50%, -150%);
-      top: 1rem;
+      transform: translateX(-50%);
+      top: 0.5rem;
       padding: 0.75rem 1.5rem;
       border-radius: 999px;
       background: var(--rox);
       color: var(--white);
-      font-weight: 700;
+      font-weight: 600;
       z-index: 100;
-      transition: transform 0.2s ease, opacity 0.2s ease;
       opacity: 0;
       pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .skip-link:focus-visible {
-      transform: translate(-50%, 0);
       opacity: 1;
       pointer-events: auto;
+      transform: translate(-50%, 0);
       outline: 3px solid var(--rosa);
       outline-offset: 4px;
     }
 
-    /* ===== Cloud cards ===== */
-    .cloud {
-      --bg: rgba(255, 255, 255, 0.93);
-      background:
-        radial-gradient(40px 30px at 15% 110%, var(--bg) 98%, transparent),
-        radial-gradient(36px 28px at 40% 110%, var(--bg) 98%, transparent),
-        radial-gradient(46px 32px at 65% 110%, var(--bg) 98%, transparent),
-        radial-gradient(42px 30px at 85% 110%, var(--bg) 98%, transparent),
-        var(--bg);
-      border-radius: 24px;
-      padding: 20px 22px;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 18px 48px rgba(82, 60, 173, 0.22);
-    }
-
-    .cloud--xl {
-      padding: 28px 26px;
-    }
-
-    .with-emoji {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      justify-content: center;
-    }
-
-    .with-emoji .e {
-      font-size: 1.2em;
-      line-height: 1;
-    }
-
-    /* ===== CTA neon roxo ===== */
-    .btn-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 14px 22px;
+    .pill-btn,
+    .cta-pill {
+      background: linear-gradient(120deg, var(--rox), var(--rosa) 65%);
+      color: var(--white);
       border-radius: 999px;
-      border: 0;
-      background: linear-gradient(135deg, #6E4AE6, #9C5CFF 55%, #FE76E1);
-      color: #FFFFFF;
-      font-weight: 900;
-      letter-spacing: 0.2px;
-      box-shadow: 0 10px 28px rgba(82, 60, 173, 0.35), 0 0 18px rgba(254, 118, 225, 0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(82, 60, 173, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn-cta:hover,
-    .btn-cta:focus-visible {
+    .pill-btn:hover,
+    .pill-btn:focus-visible,
+    .cta-pill:hover,
+    .cta-pill:focus-visible {
       transform: translateY(-2px);
-      filter: saturate(1.05);
-      box-shadow: 0 16px 36px rgba(82, 60, 173, 0.35);
+      box-shadow: 0 16px 40px rgba(82, 60, 173, 0.35);
     }
 
-    .hero-actions {
-      margin-top: 0.75rem;
-      gap: 0.6rem;
+    .cta-pill:focus-visible {
+      outline: 3px solid #FE76E1;
+      outline-offset: 3px;
+    }
+
+    .glow-title {
+      text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px var(--lilas);
+      border-radius: 9999px;
     }
 
     .badge-soft {
@@ -234,64 +211,31 @@
       color: var(--deep);
     }
 
-    .stars {
-      display: flex;
-      gap: 0.2rem;
+    .card-surface {
+      background: #FFFFFF;
+      border: 1px solid rgba(82, 60, 173, 0.08);
+      box-shadow: 0 20px 45px rgba(43, 23, 109, 0.08);
     }
 
-    .star {
-      width: 22px;
-      height: 22px;
-      color: var(--gold);
-    }
-
-    .testimonial {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 18px 44px rgba(43, 23, 109, 0.14);
-    }
-
-    .testimonial blockquote {
-      margin: 10px 0 8px;
-      line-height: 1.55;
-    }
-
-    .testimonial footer {
-      color: rgba(43, 23, 109, 0.78);
-      font-size: 0.95em;
-    }
-
-    .glow-title {
-      text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas);
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(8px);
-      background: rgba(255, 255, 255, 0.72);
-      border-bottom: 1px solid rgba(82, 60, 173, 0.12);
-    }
-
-    .site-footer {
-      background: #2B176D;
-      color: #FFFFFF;
-      padding: 38px 20px;
-      text-align: center;
-    }
-
-    .site-footer p {
-      font-weight: 700;
-      opacity: 0.92;
+    .section-soft {
+      background: linear-gradient(180deg, rgba(230, 204, 255, 0.45) 0%, rgba(255, 255, 255, 0.85) 100%);
     }
 
     .ml-form-embedSubmitLoad {
       display: inline-block;
       width: 20px;
       height: 20px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
 
     .ml-form-embedSubmitLoad:after {
@@ -416,19 +360,187 @@
       background: linear-gradient(135deg, #2B176D, #FE76E1) !important;
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
+    /* Balões translúcidos para destaque */
+    .cloud {
+      background:
+        radial-gradient(40px 30px at 15% 110%, rgba(255, 255, 255, 0.93) 98%, #0000),
+        radial-gradient(36px 28px at 40% 110%, rgba(255, 255, 255, 0.93) 98%, #0000),
+        radial-gradient(46px 32px at 65% 110%, rgba(255, 255, 255, 0.93) 98%, #0000),
+        radial-gradient(42px 30px at 85% 110%, rgba(255, 255, 255, 0.93) 98%, #0000),
+        rgba(255, 255, 255, 0.93);
+      border-radius: 24px;
+      padding: 20px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 18px 48px rgba(82, 60, 173, 0.22);
+      text-align: center;
+    }
+
+    .cloud--xl {
+      padding: 28px 26px;
+    }
+
+    .with-emoji {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+
+    .with-emoji .e {
+      font-size: 1.2em;
+      line-height: 1;
+    }
+
+    /* CTA Neon */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 14px 22px;
+      border-radius: 999px;
       border: 0;
+      color: #FFFFFF;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      background: linear-gradient(135deg, #6E4AE6, #9C5CFF 55%, #FE76E1);
+      box-shadow: 0 10px 28px rgba(82, 60, 173, 0.35), 0 0 18px rgba(254, 118, 225, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.05);
+    }
+
+    .hero-actions {
+      margin-top: 0.75rem;
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      white-space: nowrap;
+    }
+
+    .stars {
+      display: flex;
+      gap: 0.2rem;
+    }
+
+    .star {
+      width: 22px;
+      height: 22px;
+      color: var(--gold);
+    }
+
+    .testimonial {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 18px 44px rgba(43, 23, 109, 0.14);
+    }
+
+    .testimonial blockquote {
+      margin: 10px 0 8px;
+      line-height: 1.55;
+    }
+
+    .testimonial footer {
+      color: rgba(43, 23, 109, 0.78);
+      font-size: 0.95em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid rgba(82, 60, 173, 0.12);
+      color: #FFFFFF;
+    }
+
+    .site-header a {
+      color: #FFFFFF;
+    }
+
+    .site-header a:hover,
+    .site-header a:focus-visible {
+      color: var(--lilas);
+    }
+
+    .site-footer {
+      background: #2B176D;
+      color: #FFFFFF;
+      padding: 38px 20px;
+      text-align: center;
+    }
+
+    .site-footer p {
+      font-weight: 700;
+      opacity: 0.92;
+    }
+
+    .glow-title {
+      text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas);
+    }
+
+    .header-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .nav-main {
+      font-size: 1.05em;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cloud-narrow {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cloud-narrow-sm {
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #mlb2-30554077 .ml-form-embedWrapper.embedForm {
+      max-width: 480px !important;
+    }
+
+    .cloud-thin {
+      padding: 14px 18px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    #depoimentos .testimonial {
+      margin-bottom: 0.25rem;
+    }
+
+    #depoimentos {
+      padding-bottom: 2.5rem;
+    }
+
+    .band {
+      background: linear-gradient(180deg, rgba(230, 204, 255, 0.55), rgba(206, 160, 255, 0.55));
+      border-radius: 0;
+      padding: 26px 18px;
+    }
+
+    .band .btn-cta {
+      margin-top: 0.5rem;
     }
   </style>
 
-  <!-- Google Analytics 4 -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -461,21 +573,21 @@
   </script>
 </head>
 <body class="page-bg tw-text-brandDeep">
-  <a class="skip-link" href="#conteudo">Ir para conteúdo principal</a>
+  <a class="tw-sr-only" href="#conteudo">Ir para o conteúdo</a>
 
   <!-- Header -->
   <header class="site-header">
-    <div class="tw-container tw-mx-auto tw-max-w-6xl tw-px-4 tw-py-4 tw-flex tw-items-center tw-justify-between">
-      <a href="#topo" class="tw-flex tw-items-center tw-gap-3" aria-label="TDAH.Simples — topo">
-        <i data-lucide="brain" class="tw-w-8 tw-h-8 tw-text-brandPrimary" aria-hidden="true"></i>
+    <div class="tw-container tw-mx-auto tw-max-w-6xl tw-px-4 tw-py-4 tw-flex tw-items-center tw-justify-between md:tw-justify-center tw-gap-8">
+      <a href="#topo" class="header-brand" aria-label="TDAH.Simples — topo">
+        <i data-lucide="brain" class="tw-w-8 tw-h-8" aria-hidden="true"></i>
         <span class="tw-text-2xl tw-font-extrabold">TDAH.Simples</span>
       </a>
 
-      <nav class="tw-hidden md:tw-flex tw-gap-6" aria-label="Navegação principal">
-        <a href="#sobre" class="tw-transition hover:tw-text-brandPrimary">Sobre</a>
-        <a href="#beneficios" class="tw-transition hover:tw-text-brandPrimary">Benefícios</a>
-        <a href="#depoimentos" class="tw-transition hover:tw-text-brandPrimary">Depoimentos</a>
-        <a href="#contato" class="tw-transition hover:tw-text-brandPrimary">Contato</a>
+      <nav class="nav-main tw-hidden md:tw-flex" aria-label="Navegação principal">
+        <a href="#sobre" class="tw-transition">Sobre</a>
+        <a href="#beneficios" class="tw-transition">Benefícios</a>
+        <a href="#depoimentos" class="tw-transition">Depoimentos</a>
+        <a href="#contato" class="tw-transition">Contato</a>
       </nav>
     </div>
   </header>
@@ -484,35 +596,28 @@
     <!-- HERO -->
     <section class="tw-px-4 tw-pt-10" id="hero">
       <div class="tw-container tw-mx-auto tw-max-w-3xl tw-space-y-4">
-        <div class="cloud with-emoji">
+        <div class="cloud with-emoji cloud-narrow">
           <span class="e" aria-hidden="true">🧭</span>
           <strong>Dificuldade para criar ou ajustar sua rotina?</strong>
         </div>
 
-        <div class="cloud cloud--xl with-emoji">
+        <div class="cloud cloud--xl with-emoji cloud-narrow">
           <span class="e" aria-hidden="true">✅</span>
           <h1 class="glow-title">Não se preocupe — eu tenho a solução para os seus problemas!</h1>
         </div>
 
-        <div class="cloud with-emoji">
+        <div class="cloud with-emoji cloud-narrow-sm">
           <span class="e" aria-hidden="true">🌿</span>
-          <p>TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim.
-            Encontre um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia com mais gentileza.</p>
+          <p>TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim. Encontre um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia com mais gentileza.</p>
         </div>
 
-        <div class="hero-actions tw-flex tw-flex-col tw-items-center">
-          <a
-            id="cta-hero"
-            class="btn-cta"
-            href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-            target="_blank"
-            rel="noopener"
-            aria-label="Abrir página do guia TDAH.Simples">
+        <div class="hero-actions tw-flex tw-flex-col tw-items-center cloud-narrow">
+          <a id="cta-hero" class="btn-cta" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener">
             <span aria-hidden="true">👉</span>
             Clique aqui para a solução dos seus desafios com TDAH
           </a>
 
-          <div class="cloud with-emoji tw-mt-3">
+          <div class="cloud with-emoji tw-mt-3 cloud-narrow-sm">
             <span class="e" aria-hidden="true">🤝</span>
             <p>Feito por quem também tem TDAH — criado para te acompanhar com leveza nesse começo.</p>
           </div>
@@ -523,19 +628,19 @@
     <!-- Chips -->
     <section class="tw-px-4 tw-mt-8">
       <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-gap-3 tw-justify-center">
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-font-medium tw-flex tw-items-center tw-gap-2">
           <i data-lucide="sparkles" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Rotina leve e acolhedora
         </span>
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-font-medium tw-flex tw-items-center tw-gap-2">
           <i data-lucide="clock-3" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Micro-passos diários
         </span>
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-font-medium tw-flex tw-items-center tw-gap-2">
           <i data-lucide="feather" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Mentalidade gentil
         </span>
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-font-medium tw-flex tw-items-center tw-gap-2">
           <i data-lucide="target" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Resultados sustentáveis
         </span>
@@ -557,11 +662,12 @@
                     <div class="ml-form-formContent">
                       <div class="ml-form-fieldRow ml-last-item">
                         <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                          <label for="ml-email" class="sr-only">Seu melhor e-mail</label>
+                          <label for="ml-email" class="tw-sr-only">Seu melhor e-mail</label>
                           <input id="ml-email" aria-label="E-mail" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email" required>
                         </div>
                       </div>
                     </div>
+
                     <input type="hidden" name="ml-submit" value="1">
                     <div class="ml-form-embedSubmit">
                       <button type="submit" class="primary">Receber novidades com cuidado</button>
@@ -573,6 +679,7 @@
                     <input type="hidden" name="anticsrf" value="true">
                   </form>
                 </div>
+
                 <div class="ml-form-successBody row-success" style="display: none" aria-live="polite" role="status">
                   <div class="ml-form-successContent">
                     <h4>Obrigada por confiar na gente 💜</h4>
@@ -581,7 +688,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div><!-- /ml -->
         </div>
       </div>
     </section>
@@ -589,9 +696,12 @@
     <!-- Como funciona -->
     <section class="tw-px-4 tw-pt-12">
       <div class="tw-container tw-mx-auto tw-max-w-5xl">
-        <h2 class="tw-text-center">Comece no seu ritmo</h2>
-        <p class="tw-text-center tw-mb-6">Três passos para transformar intenção em cuidado cotidiano</p>
-        <div class="tw-grid lg:tw-grid-cols-3 tw-gap-4">
+        <div class="cloud cloud-thin cloud-narrow-sm">
+          <h2 class="tw-text-center">Comece no seu ritmo</h2>
+          <p class="tw-text-center tw-mb-0">Três passos para transformar intenção em cuidado cotidiano</p>
+        </div>
+
+        <div class="tw-grid lg:tw-grid-cols-3 tw-gap-4 tw-mt-6 cloud-narrow">
           <div class="cloud">
             <div class="with-emoji">
               <span class="e" aria-hidden="true">1️⃣</span>
@@ -626,32 +736,37 @@
     <!-- Benefícios -->
     <section id="beneficios" class="tw-px-4 tw-pt-14">
       <div class="tw-container tw-mx-auto tw-max-w-6xl">
-        <h2 class="tw-text-center">Dentro do TDAH.Simples</h2>
-        <p class="tw-text-center tw-mb-6">Recursos para trazer clareza, autocuidado e resultado real</p>
-        <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4">
-          <div class="cloud with-emoji">
-            <span class="e" aria-hidden="true">🧭</span>
-            <p>Mapas mentais para identificar gatilhos e caminhos de foco.</p>
-          </div>
-          <div class="cloud with-emoji">
-            <span class="e" aria-hidden="true">📅</span>
-            <p>Modelos de rotina flexível que respeitam seus ciclos de energia.</p>
-          </div>
-          <div class="cloud with-emoji">
-            <span class="e" aria-hidden="true">💜</span>
-            <p>Ferramentas de autocuidado para reduzir culpa e autocrítica.</p>
-          </div>
-          <div class="cloud with-emoji">
-            <span class="e" aria-hidden="true">🌞</span>
-            <p>Checklists de manhã e noite para ritmar seu dia sem pressão.</p>
-          </div>
-          <div class="cloud with-emoji">
-            <span class="e" aria-hidden="true">🎯</span>
-            <p>Técnicas focadas em objetivos curtos com feedback imediato.</p>
-          </div>
-          <div class="cloud with-emoji">
-            <span class="e" aria-hidden="true">🎁</span>
-            <p>Bônus: testes práticos para personalizar seu plano de ação.</p>
+        <div class="cloud cloud-thin cloud-narrow">
+          <h2 class="tw-text-center">Dentro do TDAH.Simples</h2>
+          <p class="tw-text-center tw-mb-0">Recursos para trazer clareza, autocuidado e resultado real</p>
+        </div>
+
+        <div class="cloud-narrow tw-mt-6">
+          <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4">
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🧭</span>
+              <p>Mapas mentais para identificar gatilhos e caminhos de foco.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">📅</span>
+              <p>Modelos de rotina flexível que respeitam seus ciclos de energia.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">💜</span>
+              <p>Ferramentas de autocuidado para reduzir culpa e autocrítica.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🌞</span>
+              <p>Checklists de manhã e noite para ritmar seu dia sem pressão.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🎯</span>
+              <p>Técnicas focadas em objetivos curtos com feedback imediato.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🎁</span>
+              <p>Bônus: testes práticos para personalizar seu plano de ação.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -660,7 +775,7 @@
     <!-- Sobre -->
     <section id="sobre" class="tw-px-4 tw-pt-14">
       <div class="tw-container tw-mx-auto tw-max-w-4xl">
-        <div class="cloud with-emoji">
+        <div class="cloud with-emoji cloud-narrow">
           <span class="e" aria-hidden="true">📖</span>
           <div>
             <h2>Sobre o guia</h2>
@@ -674,17 +789,19 @@
     <!-- Depoimentos -->
     <section id="depoimentos" class="tw-px-4 tw-pt-14 tw-pb-6">
       <div class="tw-container tw-mx-auto tw-max-w-5xl">
-        <h2 class="tw-text-center">Quem já encontrou calma</h2>
-        <p class="tw-text-center">Relatos simples e reais de quem trouxe mais gentileza para a rotina.</p>
+        <div class="cloud cloud-thin cloud-narrow">
+          <h2 class="tw-text-center">Quem já encontrou calma</h2>
+          <p class="tw-text-center tw-mb-0">Relatos simples e reais de quem trouxe mais gentileza para a rotina.</p>
+        </div>
 
-        <div class="tw-grid md:tw-grid-cols-2 tw-gap-4 tw-mt-6">
+        <div class="tw-grid md:tw-grid-cols-2 tw-gap-4 tw-mt-6 cloud-narrow">
           <article class="testimonial">
             <div class="stars" aria-hidden="true">
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
             </div>
             <blockquote>Eu vivia começando e parando. Com os micro-passos, finalmente consegui manter uma rotina sem me culpar.</blockquote>
             <footer>Marina Costa — Estudante, 27</footer>
@@ -692,11 +809,11 @@
 
           <article class="testimonial">
             <div class="stars" aria-hidden="true">
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
             </div>
             <blockquote>Os testes de energia me mostraram quando pausar. Parei de forçar e comecei a terminar o que importa.</blockquote>
             <footer>João Ribeiro — Analista de dados, 31</footer>
@@ -704,11 +821,11 @@
 
           <article class="testimonial md:tw-col-span-2">
             <div class="stars" aria-hidden="true">
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
             </div>
             <blockquote>Parecia que alguém descreveu minha cabeça. Hoje começo com menos resistência e termino com menos ansiedade.</blockquote>
             <footer>Letícia Ramos — Empreendedora, 35</footer>
@@ -717,26 +834,9 @@
       </div>
     </section>
 
-    <!-- Contato -->
-    <section id="contato" class="tw-px-4 tw-pb-16">
-      <div class="tw-container tw-mx-auto tw-max-w-4xl">
-        <div class="cloud with-emoji">
-          <span class="e" aria-hidden="true">✉️</span>
-          <div>
-            <h2>Fale com o TDAH.Simples</h2>
-            <p>Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
-            <a href="mailto:tdah.simples.oficial@gmail.com" class="btn-cta tw-mt-2" aria-label="Enviar email para tdah.simples.oficial@gmail.com">
-              <i data-lucide="send" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
-              tdah.simples.oficial@gmail.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA final -->
-    <section class="tw-px-4 tw-pb-20">
-      <div class="tw-container tw-mx-auto tw-max-w-3xl cloud with-emoji">
+    <section id="cta-final-bloco" class="tw-px-4 tw-pb-12">
+      <div class="tw-container tw-mx-auto tw-max-w-3xl cloud with-emoji cloud-narrow">
         <span class="e" aria-hidden="true">🚀</span>
         <div class="tw-w-full tw-text-center">
           <h2>Pronto para acolher sua rotina?</h2>
@@ -745,6 +845,21 @@
             <span aria-hidden="true">👉</span>
             Clique aqui para começar
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="tw-px-0 tw-pb-16">
+      <div class="band">
+        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-px-4">
+          <div class="tw-text-center">
+            <h2>Fale com o TDAH.Simples</h2>
+            <p>Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
+            <a href="mailto:tdah.simples.oficial@gmail.com" class="btn-cta" aria-label="Enviar email para tdah.simples.oficial@gmail.com">
+              tdah.simples.oficial@gmail.com
+            </a>
+          </div>
         </div>
       </div>
     </section>
