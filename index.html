@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<!-- hero-cloud-empty-pergunta-1920.webp: 1920x720 | hero-cloud-empty-solucao-1920.webp: 1920x660 -->
+<!-- hero-cloud-empty-pergunta.webp: 1920x720 | hero-cloud-empty-solucao.webp: 1920x660 -->
 <html lang="pt-BR" id="topo">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>TDAH.Simples — Guia de Produtividade leve para mentes inquietas</title>
   <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves. Baixe o guia de produtividade e comece pequeno, no seu tempo.">
-  <link rel="canonical" href="https://tdah-simples.vercel.app/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://tdah-simples.vercel.app/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -29,14 +30,16 @@
   <meta name="twitter:image:alt" content="Capa do TDAH.Simples — guia leve de produtividade">
   <meta name="twitter:site" content="@tdahsimples">
 
-  <!-- Favicons & PWA -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="/assets/favicon-192.png">
-  <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#523CAD">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
   <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,32 +50,16 @@
   <link rel="preconnect" href="https://pay.kirvano.com">
   <link rel="dns-prefetch" href="https://pay.kirvano.com">
   <link rel="preconnect" href="https://assets.mlcdn.com">
-
-  <!-- Preloads críticos -->
-  <link rel="preload" as="image" href="/assets/bg-magico-desktop.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="/assets/bg-magico-mobile.webp" media="(max-width:768px)" fetchpriority="high">
-
-  <link rel="preload" as="image" href="/assets/hero-cloud-empty-pergunta-1920.webp"
-        imagesrcset="/assets/hero-cloud-empty-pergunta-960.webp 960w, /assets/hero-cloud-empty-pergunta-1920.webp 1920w"
-        imagesizes="(max-width: 960px) 92vw, 960px" fetchpriority="high">
-
-  <link rel="preload" as="image" href="/assets/hero-cloud-empty-solucao-1920.webp"
-        imagesrcset="/assets/hero-cloud-empty-solucao-960.webp 960w, /assets/hero-cloud-empty-solucao-1920.webp 1920w"
-        imagesizes="(max-width: 960px) 92vw, 960px" fetchpriority="high">
-
-  <link rel="preload" as="image" href="/assets/logo-tdah-simples.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/bg-magico-desktop.webp">
+  <link rel="preload" as="image" href="/assets/bg-magico-mobile.webp" media="(max-width:768px)">
+  <link rel="preload" as="image" href="/assets/hero-cloud-empty-pergunta-1920.webp" imagesrcset="/assets/hero-cloud-empty-pergunta-960.webp 960w, /assets/hero-cloud-empty-pergunta-1920.webp 1920w" imagesizes="(max-width: 960px) 92vw, 960px">
+  <link rel="preload" as="image" href="/assets/hero-cloud-empty-solucao-1920.webp" imagesrcset="/assets/hero-cloud-empty-solucao-960.webp 960w, /assets/hero-cloud-empty-solucao-1920.webp 1920w" imagesizes="(max-width: 960px) 92vw, 960px">
 
   <!-- Fonts (preload não bloqueante + fallback) -->
-  <link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap">
   </noscript>
-
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
   <!-- Tailwind config DEVE vir antes do CDN -->
   <script>
@@ -104,6 +91,7 @@
   <style>
     :root {
       color-scheme: light;
+      font-synthesis-weight: none;
       --fs-body: clamp(18px, 2.6vw, 20px);
       --fs-h1: clamp(28px, 6.2vw, 44px);
       --fs-h2: clamp(24px, 5vw, 36px);
@@ -114,22 +102,27 @@
       --deep: #2B176D;
       --white: #FFFFFF;
       --gold: #FFD84D;
-      font-synthesis-weight: none;
     }
 
-    html, body { font-size: var(--fs-body); }
+    html,
+    body {
+      font-size: var(--fs-body);
+    }
+
     body {
       font-family: 'Lexend', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       color: var(--deep);
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     h1 { font-size: var(--fs-h1); font-weight: 800; }
     h2 { font-size: var(--fs-h2); font-weight: 800; }
     h3 { font-size: var(--fs-h3); font-weight: 800; }
+
     p, li, a, button { font-weight: 700; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
 
     /* ===== Fundo de nuvens modular - TDAH.Simples ===== */
     .page-bg {
@@ -140,12 +133,14 @@
       background-attachment: scroll;
       background-color: #DABEFF;
     }
+
     @media (min-width: 1024px) {
       .page-bg {
         background-attachment: fixed;
         background-position: center top;
       }
     }
+
     @media (max-width: 768px) {
       .page-bg {
         background:
@@ -196,9 +191,7 @@
     }
     .cloud--xl { padding: 28px 26px; }
 
-    .with-emoji {
-      display: flex; align-items: flex-start; gap: 0.6rem; justify-content: center;
-    }
+    .with-emoji { display: flex; align-items: flex-start; gap: 0.6rem; justify-content: center; }
     .with-emoji .e { font-size: 1.2em; line-height: 1; }
 
     /* ===== CTA neon roxo ===== */
@@ -212,12 +205,12 @@
       text-decoration: none;
     }
     .btn-cta:hover, .btn-cta:focus-visible {
-      transform: translateY(-2px);
-      filter: saturate(1.05);
+      transform: translateY(-2px); filter: saturate(1.05);
       box-shadow: 0 16px 36px rgba(82, 60, 173, 0.35);
     }
 
     .hero-actions { margin-top: 0.75rem; gap: 0.6rem; }
+
     .badge-soft {
       display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
       background: rgba(230, 204, 255, 0.9); color: var(--deep);
@@ -225,7 +218,7 @@
     }
 
     .stars { display: flex; gap: 0.2rem; }
-    .star  { width: 22px; height: 22px; color: var(--gold); }
+    .star { width: 22px; height: 22px; color: var(--gold); }
 
     .testimonial {
       background: rgba(255, 255, 255, 0.92);
@@ -238,31 +231,33 @@
 
     .glow-title { text-shadow: 0 0 0.5rem var(--rox), 0 0 1.2rem var(--rosa), 0 0 2rem var(--lilas); }
 
-    .site-footer {
-      background: #2B176D; color: #FFFFFF; padding: 38px 20px; text-align: center;
-    }
+    .site-footer { background: #2B176D; color: #FFFFFF; padding: 38px 20px; text-align: center; }
     .site-footer p { font-weight: 700; opacity: 0.92; }
 
     .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
     .ml-form-embedSubmitLoad:after {
-      content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%;
-      border: 4px solid #FFFFFF; border-color: #FFFFFF #FFFFFF #FFFFFF transparent;
+      content: " "; display: block; width: 11px; height: 11px; margin: 1px;
+      border-radius: 50%; border: 4px solid #FFFFFF;
+      border-color: #FFFFFF #FFFFFF #FFFFFF transparent;
       animation: ml-form-embedSubmitLoad 1.2s linear infinite;
     }
-    @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+    @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     #mlb2-30554077.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important; }
     #mlb2-30554077 .ml-form-embedWrapper { background-color: rgba(230, 204, 255, 0.35); border-width: 0; border-color: transparent; border-radius: 32px; border-style: solid; box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative; }
+    #mlb2-30554077 .ml-form-embedWrapper.embedForm { max-width: 420px !important; }
     #mlb2-30554077 .ml-form-embedBody { padding: 24px 24px 8px 24px; }
     #mlb2-30554077 .ml-form-embedContent { text-align: center; margin: 0 0 16px 0; }
     #mlb2-30554077 .ml-form-embedContent h4 { color: #2B176D; font-family: 'Lexend', sans-serif; font-size: 32px; font-weight: 600; margin: 0 0 10px 0; word-break: break-word; }
     #mlb2-30554077 .ml-form-embedContent p { color: #2B176D; font-family: 'Lexend', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; margin: 0 0 10px 0; }
     #mlb2-30554077 .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
     #mlb2-30554077 .ml-form-fieldRow input {
-      background-color: #FFFFFF !important; color: #2B176D !important; border-color: rgba(82, 60, 173, 0.25) !important;
-      border-radius: 999px !important; border-style: solid !important; border-width: 1px !important;
-      font-family: 'Lexend', sans-serif !important; font-size: 16px !important; height: auto; line-height: 24px !important;
-      margin: 0; padding: 14px 18px !important; width: 100% !important; box-sizing: border-box !important; max-width: 100% !important;
+      background-color: #FFFFFF !important; color: #2B176D !important;
+      border-color: rgba(82, 60, 173, 0.25) !important; border-radius: 999px !important;
+      border-style: solid !important; border-width: 1px !important;
+      font-family: 'Lexend', sans-serif !important; font-size: 16px !important;
+      height: auto; line-height: 24px !important; margin: 0; padding: 14px 18px !important;
+      width: 100% !important; box-sizing: border-box !important; max-width: 100% !important;
     }
     #mlb2-30554077 .ml-form-embedSubmit button {
       background: linear-gradient(135deg, #523CAD, #FE76E1) !important; border: none !important; border-radius: 999px !important;
@@ -273,7 +268,11 @@
     #mlb2-30554077 .ml-form-embedSubmit button:hover,
     #mlb2-30554077 .ml-form-embedSubmit button:focus-visible { transform: translateY(-1px); background: linear-gradient(135deg, #2B176D, #FE76E1) !important; }
 
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+      white-space: nowrap;
+    }
 
     /* ===== Larguras estreitas para clouds do herói ===== */
     .cloud-narrow { max-width: 720px; margin-left: auto; margin-right: auto; }
@@ -282,91 +281,170 @@
     /* ===== Clouds para subtítulos ===== */
     .cloud-thin { padding: 14px 18px; border-radius: 18px; text-align: center; }
 
-    /* ===== Depoimentos ===== */
-    #depoimentos .testimonial { margin-bottom: 0.25rem; }
-    #depoimentos { padding-bottom: 2.5rem; }
+    .hero-stack { gap: clamp(10px, 1.8vw, 14px); }
 
-    /* ===== Faixa de contato ===== */
-    .band {
-      background: linear-gradient(180deg, rgba(230, 204, 255, 0.55), rgba(206, 160, 255, 0.55));
-      border-radius: 0; padding: 26px 18px;
-    }
-    .band .btn-cta { margin-top: 0.5rem; }
-
-    /* ===== HERO com nuvem + texto vivo ===== */
-    .hero-bubble{
-      --hero-img: url('/assets/hero-cloud-empty-pergunta-1920.webp');
-      --hero-img-sm: var(--hero-img);
-      width: min(960px, 92vw);
-      margin: 0 auto;
-      display: grid; place-items: center;
-      padding: 0 4vw;
-      background: image-set(var(--hero-img) type('image/webp')) center/contain no-repeat;
-      filter: drop-shadow(0 18px 48px rgba(82,60,173,.22));
-    }
-    @media (max-width: 960px){
-      .hero-bubble{
-        background: image-set(var(--hero-img-sm) type('image/webp')) center/contain no-repeat;
-      }
-    }
-    .hero-bubble--pergunta{ aspect-ratio: 1920/720; }
-    .hero-bubble--solucao{  aspect-ratio: 1920/660; }
-
-    .bubble-text{
-      font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-      font-weight:900; text-align:center; line-height:1.05;
-      font-size:clamp(22px,4.5vw,52px); color:#fff;
-      -webkit-text-stroke:6px #523CAD;
-      text-shadow:
-        0 0 0 #523CAD, 0 0 0 #523CAD,
-        0 0 .75rem #FE76E1,
-        0 0 1.5rem rgba(254,118,225,.85);
-    }
-    @media (max-width:480px){ .bubble-text{ -webkit-text-stroke:4px #523CAD; } }
-    .bubble-text .bubble-line{ display:block; margin:.08em 0; }
-
-    /* ====== Header com logo e slogan ====== */
     .tdah-header {
       background: radial-gradient(1200px 600px at 50% 0%, #3A0D92 0%, #20005C 60%, #1A0050 100%);
-      color: #FFFFFF; padding: clamp(10px, 2vw, 16px) 0;
-      position: sticky; top: 0; z-index: 50;
+      color: #FFFFFF;
+      padding: clamp(10px, 2vw, 16px) 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
+
     .tdah-header__inner {
-      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
-      max-width: 1152px; margin: 0 auto; padding: 0 16px;
+      display: grid;
+      grid-template-columns: auto 1fr; /* será sobrescrito pelo patch no fim */
+      align-items: center;
+      gap: 16px;
+      max-width: 1152px;
+      margin: 0 auto;
+      padding: 0 16px;
     }
+
     .tdah-logo { display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
     .tdah-logo img { display: block; height: clamp(28px, 4.2vw, 44px); width: auto; }
 
     .tdah-slogan {
-      text-align: center; font-weight: 800;
-      font-family: 'Lexend', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-      color: #FFFFFF; font-size: clamp(14px, 2.2vw, 28px); line-height: 1.15;
+      text-align: center;
+      font-weight: 800;
+      font-family: 'Lexend', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #FFFFFF;
+      font-size: clamp(14px, 2.2vw, 28px);
+      line-height: 1.15;
       text-shadow: 3px 4px 0 #FE76E1, 0 1px 0 rgba(0, 0, 0, 0.08);
     }
 
-    .tdah-nav { justify-self: end; }
     .tdah-nav a { color: #FFFFFF; }
     .tdah-nav a:hover, .tdah-nav a:focus-visible { color: #E6CCFF; }
 
-    .hero-cloud { display: block; width: min(960px, 92vw); margin: 0 auto; height: auto; filter: drop-shadow(0 18px 48px rgba(82, 60, 173, 0.22)); }
-
     .hero-stack { display: grid; gap: clamp(12px, 2.6vw, 18px); justify-items: center; margin-top: clamp(8px, 1.5vw, 12px); }
-    .section-spacer { margin-top: clamp(12px, 2.4vw, 20px); }
 
-    /* formulário mais compacto (alinha com botão) */
-    #mlb2-30554077 .ml-form-embedWrapper.embedForm { max-width: 420px !important; }
+    /* ===== HERO com nuvem + texto vivo ===== */
+    .hero-bubble {
+      --hero-img: url('/assets/hero-cloud-empty-pergunta-1920.webp');
+      --hero-img-sm: var(--hero-img);
+      width: min(960px, 92vw);
+      margin: 0 auto;
+      background: image-set(var(--hero-img) type('image/webp')) center/contain no-repeat;
+      filter: drop-shadow(0 18px 48px rgba(82, 60, 173, 0.22)) drop-shadow(0 6px 16px rgba(71, 50, 154, 0.18));
+      display: grid; place-items: center; padding: 0 5.2vw;
+    }
+    @media (max-width: 960px) {
+      .hero-bubble { background: image-set(var(--hero-img-sm) type('image/webp')) center/contain no-repeat; }
+    }
+    .hero-bubble--pergunta { aspect-ratio: 1920/720; }
+    .hero-bubble--solucao  { aspect-ratio: 1920/660; }
 
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .bubble-text {
+      text-transform: uppercase; letter-spacing: 0.01em; text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; paint-order: stroke fill;
+      font-weight: 900; font-family: 'Lexend', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      text-align: center; line-height: 1.04; color: #FFFFFF;
+    }
+    .bubble-text--nome {
+      font-size: clamp(26px, 5vw, 66px);
+      -webkit-text-stroke: 10px #47329A;
+      text-shadow:
+        0 0 0 #47329A, 0 0 0 #47329A,
+        2px 4px 0 rgba(71, 50, 154, 0.85),
+        0 0 26px #FE77FD,
+        0 0 48px rgba(254, 119, 253, 0.95),
+        0 0 90px rgba(254, 119, 253, 0.55);
+    }
+    .bubble-text--marca {
+      font-size: clamp(26px, 5vw, 66px);
+      -webkit-text-stroke: 10px #47329A;
+      text-shadow:
+        0 0 0 #47329A, 0 0 0 #47329A,
+        1px 2px 0 rgba(71, 50, 154, 0.85),
+        0 0 18px #FE77FD,
+        0 0 36px rgba(254, 119, 253, 0.85),
+        0 0 72px rgba(254, 119, 253, 0.55);
+    }
+    .bubble-text .bubble-line { display: block; margin: 0.04em 0; }
+
+    @media (max-width: 480px) {
+      .bubble-text--nome, .bubble-text--marca { -webkit-text-stroke: 6px #47329A; }
     }
 
-    /* Preferências de contraste do usuário */
-    @media (prefers-contrast: more) {
-      .btn-cta { box-shadow: 0 0 0 3px rgba(255,255,255,.4), 0 0 0 6px rgba(82,60,173,.35); }
-      .skip-link:focus-visible { outline-width: 4px; }
+    .glow-boost .bubble-text--nome, .bubble-text--nome.glow-boost {
+      -webkit-text-stroke: 10px #47329A;
+      text-shadow:
+        0 0 0 #47329A, 0 0 0 #47329A,
+        3px 5px 0 rgba(71, 50, 154, 0.92),
+        0 0 32px #FE77FD,
+        0 0 64px rgba(254, 119, 253, 0.95),
+        0 0 120px rgba(254, 119, 253, 0.70),
+        0 0 180px rgba(254, 119, 253, 0.55);
     }
+    .glow-boost .bubble-text--marca, .bubble-text--marca.glow-boost {
+      -webkit-text-stroke: 10px #47329A;
+      text-shadow:
+        0 0 0 #47329A, 0 0 0 #47329A,
+        2px 3px 0 rgba(71, 50, 154, 0.90),
+        0 0 26px #FE77FD,
+        0 0 52px rgba(254, 119, 253, 0.90),
+        0 0 100px rgba(254, 119, 253, 0.70),
+        0 0 160px rgba(254, 119, 253, 0.55);
+    }
+
+    @media (max-width: 480px) {
+      .glow-boost .bubble-text--nome,
+      .glow-boost .bubble-text--marca,
+      .bubble-text--nome.glow-boost,
+      .bubble-text--marca.glow-boost { -webkit-text-stroke: 6px #47329A; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body:not(.no-auto-glow) #hero .bubble-text--nome {
+        -webkit-text-stroke: 10px #47329A;
+        text-shadow:
+          0 0 0 #47329A, 0 0 0 #47329A,
+          3px 5px 0 rgba(71, 50, 154, 0.92),
+          0 0 32px #FE77FD,
+          0 0 64px rgba(254, 119, 253, 0.95),
+          0 0 120px rgba(254, 119, 253, 0.70),
+          0 0 180px rgba(254, 119, 253, 0.55);
+      }
+      body:not(.no-auto-glow) #hero .bubble-text--marca {
+        -webkit-text-stroke: 10px #47329A;
+        text-shadow:
+          0 0 0 #47329A, 0 0 0 #47329A,
+          2px 3px 0 rgba(71, 50, 154, 0.90),
+          0 0 26px #FE77FD,
+          0 0 52px rgba(254, 119, 253, 0.90),
+          0 0 100px rgba(254, 119, 253, 0.70),
+          0 0 160px rgba(254, 119, 253, 0.55);
+      }
+    }
+
+    /* ===== HERO fallback noscript ===== */
+    .hero-cloud {
+      display: block; width: min(960px, 92vw); margin: 0 auto; height: auto;
+      filter: drop-shadow(0 18px 48px rgba(82, 60, 173, 0.22)) drop-shadow(0 6px 16px rgba(71, 50, 154, 0.18));
+    }
+
+    /* ====== PATCHES APLICADOS ====== */
+    /* Alias para caso tw-sr-only seja usado em algum lugar */
+    .tw-sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    /* Header em 3 colunas: logo | espaço | nav */
+    .tdah-header__inner { grid-template-columns: auto 1fr auto; }
+
+    /* Menu alinhado à direita */
+    .tdah-nav { justify-self: end; }
   </style>
 
   <!-- Google Analytics 4 -->
@@ -375,7 +453,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-1KS3167PQQ', { transport_url: 'https://www.google-analytics.com' });
+    gtag('config', 'G-1KS3167PQQ');
   </script>
 
   <!-- JSON-LD -->
@@ -415,7 +493,7 @@
   <header class="tdah-header">
     <div class="tdah-header__inner">
       <a href="#topo" class="tdah-logo" aria-label="TDAH.Simples — topo">
-        <img src="/assets/logo-tdah-simples.png" alt="TDAH.Simples" width="640" height="196" decoding="async" loading="eager">
+        <img src="/assets/logo-tdah-simples.png" alt="TDAH.Simples" width="640" height="196" decoding="async" loading="eager" fetchpriority="high">
       </a>
 
       <div class="tdah-slogan">
@@ -423,60 +501,41 @@
       </div>
 
       <nav class="tdah-nav tw-hidden md:tw-flex tw-gap-6 tw-justify-end" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#contato">Contato</a>
+        <a href="#sobre" rel="nofollow">Sobre</a>
+        <a href="#beneficios" rel="nofollow">Benefícios</a>
+        <a href="#depoimentos" rel="nofollow">Depoimentos</a>
+        <a href="#contato" rel="nofollow">Contato</a>
       </nav>
     </div>
   </header>
 
   <main id="conteudo">
-    <h1 class="tw-sr-only">TDAH.Simples — Guia de Produtividade leve para mentes inquietas</h1>
+    <h1 class="sr-only">TDAH.Simples — Guia de Produtividade leve para mentes inquietas</h1>
 
     <!-- HERO -->
     <section class="tw-px-4 tw-pt-10" id="hero">
       <div class="tw-container tw-mx-auto tw-max-w-3xl tw-space-y-4">
         <div class="hero-stack">
           <!-- PERGUNTA -->
-          <div class="hero-bubble hero-bubble--pergunta"
-               style="--hero-img: url('/assets/hero-cloud-empty-pergunta-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-pergunta-960.webp');"
-               role="img" aria-label="Está com problemas para criar ou ajustar a sua rotina?">
-            <h2 class="bubble-text">
+          <div class="hero-bubble hero-bubble--pergunta" style="--hero-img: url('/assets/hero-cloud-empty-pergunta-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-pergunta-960.webp');" role="img" aria-label="Está com problemas para criar ou ajustar a sua rotina?">
+            <h2 class="bubble-text bubble-text--nome">
               <span class="bubble-line">Está com problemas para criar</span>
               <span class="bubble-line">ou ajustar a sua rotina?</span>
             </h2>
           </div>
 
           <!-- SOLUÇÃO -->
-          <div class="hero-bubble hero-bubble--solucao"
-               style="--hero-img: url('/assets/hero-cloud-empty-solucao-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-solucao-960.webp');"
-               role="img" aria-label="Não se preocupe! Eu tenho a solução para seus problemas.">
-            <h2 class="bubble-text">
+          <div class="hero-bubble hero-bubble--solucao" style="--hero-img: url('/assets/hero-cloud-empty-solucao-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-solucao-960.webp');" role="img" aria-label="Não se preocupe! Eu tenho a solução para seus problemas.">
+            <h2 class="bubble-text bubble-text--marca">
               <span class="bubble-line">Não se preocupe!</span>
               <span class="bubble-line">Eu tenho a solução para seus problemas.</span>
             </h2>
           </div>
         </div>
-
-        <!-- Fallback sem JS/CSS para HERO -->
         <noscript>
-          <img
-            class="hero-cloud"
-            src="/assets/hero-cloud-empty-pergunta-1920.webp"
-            srcset="/assets/hero-cloud-empty-pergunta-960.webp 960w, /assets/hero-cloud-empty-pergunta-1920.webp 1920w"
-            sizes="(max-width: 960px) 92vw, 960px"
-            alt="Está com problemas para criar ou ajustar a sua rotina?"
-            width="1920" height="720" loading="eager" decoding="async">
-          <img
-            class="hero-cloud"
-            src="/assets/hero-cloud-empty-solucao-1920.webp"
-            srcset="/assets/hero-cloud-empty-solucao-960.webp 960w, /assets/hero-cloud-empty-solucao-1920.webp 1920w"
-            sizes="(max-width: 960px) 92vw, 960px"
-            alt="Não se preocupe! Eu tenho a solução para seus problemas."
-            width="1920" height="660" loading="eager" decoding="async">
+          <img class="hero-cloud" src="/assets/hero-cloud-empty-pergunta-1920.webp" srcset="/assets/hero-cloud-empty-pergunta-960.webp 960w, /assets/hero-cloud-empty-pergunta-1920.webp 1920w" sizes="(max-width: 960px) 92vw, 960px" alt="Está com problemas para criar ou ajustar a sua rotina?" width="1920" height="720">
+          <img class="hero-cloud" src="/assets/hero-cloud-empty-solucao-1920.webp" srcset="/assets/hero-cloud-empty-solucao-960.webp 960w, /assets/hero-cloud-empty-solucao-1920.webp 1920w" sizes="(max-width: 960px) 92vw, 960px" alt="Não se preocupe! Eu tenho a solução para seus problemas." width="1920" height="660">
         </noscript>
-
         <div class="section-spacer"></div>
 
         <div class="cloud with-emoji cloud-narrow-sm">
@@ -486,13 +545,7 @@
         </div>
 
         <div class="hero-actions tw-flex tw-flex-col tw-items-center cloud-narrow">
-          <a
-            id="cta-hero"
-            class="btn-cta"
-            href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Abrir página do guia TDAH.Simples">
+          <a id="cta-hero" class="btn-cta" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener noreferrer" aria-label="Abrir página do guia TDAH.Simples">
             <span aria-hidden="true">👉</span>
             Clique aqui para a solução dos seus desafios com TDAH
           </a>
@@ -508,19 +561,19 @@
     <!-- Chips -->
     <section class="tw-px-4 tw-mt-8">
       <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-gap-3 tw-justify-center">
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-text-sm tw-font-medium">
           <i data-lucide="sparkles" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Rotina leve e acolhedora
         </span>
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-text-sm tw-font-medium">
           <i data-lucide="clock-3" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Micro-passos diários
         </span>
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-text-sm tw-font-medium">
           <i data-lucide="feather" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Mentalidade gentil
         </span>
-        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
+        <span class="badge-soft tw-text-sm tw-font-medium">
           <i data-lucide="target" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Resultados sustentáveis
         </span>
@@ -547,6 +600,7 @@
                         </div>
                       </div>
                     </div>
+
                     <input type="hidden" name="ml-submit" value="1">
                     <div class="ml-form-embedSubmit">
                       <button type="submit" class="primary">Receber novidades com cuidado</button>
@@ -558,6 +612,7 @@
                     <input type="hidden" name="anticsrf" value="true">
                   </form>
                 </div>
+
                 <div class="ml-form-successBody row-success" style="display: none" aria-live="polite" role="status">
                   <div class="ml-form-successContent">
                     <h4>Obrigada por confiar na gente 💜</h4>
@@ -566,7 +621,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div><!-- /ml -->
         </div>
       </div>
     </section>
@@ -578,6 +633,7 @@
           <h2 class="tw-text-center">Comece no seu ritmo</h2>
           <p class="tw-text-center tw-mb-0">Três passos para transformar intenção em cuidado cotidiano</p>
         </div>
+
         <div class="tw-grid lg:tw-grid-cols-3 tw-gap-4 tw-mt-6">
           <div class="cloud">
             <div class="with-emoji">
@@ -588,6 +644,7 @@
               </div>
             </div>
           </div>
+
           <div class="cloud">
             <div class="with-emoji">
               <span class="e" aria-hidden="true">2️⃣</span>
@@ -597,6 +654,7 @@
               </div>
             </div>
           </div>
+
           <div class="cloud">
             <div class="with-emoji">
               <span class="e" aria-hidden="true">3️⃣</span>
@@ -617,14 +675,33 @@
           <h2 class="tw-text-center">Dentro do TDAH.Simples</h2>
           <p class="tw-text-center tw-mb-0">Recursos para trazer clareza, autocuidado e resultado real</p>
         </div>
+
         <div class="cloud-narrow tw-mt-6">
           <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4">
-            <div class="cloud with-emoji"><span class="e" aria-hidden="true">🧭</span><p>Mapas mentais para identificar gatilhos e caminhos de foco.</p></div>
-            <div class="cloud with-emoji"><span class="e" aria-hidden="true">📅</span><p>Modelos de rotina flexível que respeitam seus ciclos de energia.</p></div>
-            <div class="cloud with-emoji"><span class="e" aria-hidden="true">💜</span><p>Ferramentas de autocuidado para reduzir culpa e autocrítica.</p></div>
-            <div class="cloud with-emoji"><span class="e" aria-hidden="true">🌞</span><p>Checklists de manhã e noite para ritmar seu dia sem pressão.</p></div>
-            <div class="cloud with-emoji"><span class="e" aria-hidden="true">🎯</span><p>Técnicas focadas em objetivos curtos com feedback imediato.</p></div>
-            <div class="cloud with-emoji"><span class="e" aria-hidden="true">🎁</span><p>Bônus: testes práticos para personalizar seu plano de ação.</p></div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🧭</span>
+              <p>Mapas mentais para identificar gatilhos e caminhos de foco.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">📅</span>
+              <p>Modelos de rotina flexível que respeitam seus ciclos de energia.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">💜</span>
+              <p>Ferramentas de autocuidado para reduzir culpa e autocrítica.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🌞</span>
+              <p>Checklists de manhã e noite para ritmar seu dia sem pressão.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🎯</span>
+              <p>Técnicas focadas em objetivos curtos com feedback imediato.</p>
+            </div>
+            <div class="cloud with-emoji">
+              <span class="e" aria-hidden="true">🎁</span>
+              <p>Bônus: testes práticos para personalizar seu plano de ação.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -633,7 +710,7 @@
     <!-- Sobre -->
     <section id="sobre" class="tw-px-4 tw-pt-14">
       <div class="tw-container tw-mx-auto tw-max-w-4xl">
-        <div class="cloud with-emoji">
+        <div class="cloud with-emoji cloud-narrow">
           <span class="e" aria-hidden="true">📖</span>
           <div>
             <h2>Sobre o guia</h2>
@@ -652,14 +729,14 @@
           <p class="tw-text-center tw-mb-0">Relatos simples e reais de quem trouxe mais gentileza para a rotina.</p>
         </div>
 
-        <div class="tw-grid md:tw-grid-cols-2 tw-gap-4 tw-mt-6">
+        <div class="tw-grid md:tw-grid-cols-2 tw-gap-4 tw-mt-6 cloud-narrow">
           <article class="testimonial">
             <div class="stars" aria-hidden="true">
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
             </div>
             <blockquote>Eu vivia começando e parando. Com os micro-passos, finalmente consegui manter uma rotina sem me culpar.</blockquote>
             <footer>Marina Costa — Estudante, 27</footer>
@@ -667,11 +744,11 @@
 
           <article class="testimonial">
             <div class="stars" aria-hidden="true">
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
             </div>
             <blockquote>Os testes de energia me mostraram quando pausar. Parei de forçar e comecei a terminar o que importa.</blockquote>
             <footer>João Ribeiro — Analista de dados, 31</footer>
@@ -679,11 +756,11 @@
 
           <article class="testimonial md:tw-col-span-2">
             <div class="stars" aria-hidden="true">
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"></path></svg>
             </div>
             <blockquote>Parecia que alguém descreveu minha cabeça. Hoje começo com menos resistência e termino com menos ansiedade.</blockquote>
             <footer>Letícia Ramos — Empreendedora, 35</footer>
@@ -699,11 +776,7 @@
         <div class="tw-w-full tw-text-center">
           <h2>Pronto para acolher sua rotina?</h2>
           <p>Baixe agora o TDAH.Simples e ganhe ferramentas para planejar com calma.</p>
-          <a id="cta-final"
-             href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-             target="_blank" rel="noopener noreferrer"
-             class="btn-cta tw-mt-2"
-             aria-label="Abrir página do guia TDAH.Simples">
+          <a id="cta-final" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener noreferrer" class="btn-cta tw-mt-2">
             <span aria-hidden="true">👉</span>
             Clique aqui para começar
           </a>
@@ -744,15 +817,19 @@
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js" defer></script>
   <script>
     window.addEventListener('load', () => {
-      if (window.lucide) { lucide.createIcons(); }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     });
 
     function trackCTA(id) {
-      if (window.gtag) { gtag('event', 'cta_click', { event_label: id }); }
+      if (window.gtag) {
+        gtag('event', 'cta_click', { event_label: id });
+      }
     }
     function bindCTA(id) {
       const el = document.getElementById(id);
-      if (el) { el.addEventListener('click', () => trackCTA(id), { passive: true }); }
+      if (el) { el.addEventListener('click', () => trackCTA(id)); }
     }
     ['cta-hero', 'cta-final', 'cta-success'].forEach(bindCTA);
 
@@ -781,21 +858,20 @@
       if (formBody) { formBody.style.display = 'none'; }
     }
 
-    const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', event => {
         const targetId = anchor.getAttribute('href');
         if (!targetId || targetId === '#') return;
         const target = document.querySelector(targetId);
-        if (target) {
-          event.preventDefault();
-          target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-        }
-      }, { passive: true });
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+      });
     });
   </script>
   <noscript>
-    <!-- Sem JS: conteúdo estático permanece acessível -->
+    <!-- fallback de transparência: sem JavaScript não há GA4, apenas conteúdo estático -->
   </noscript>
 
   <!-- MailerLite boot -->
