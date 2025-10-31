@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- hero-cloud-empty-pergunta.webp: 1920x720 | hero-cloud-empty-solucao.webp: 1920x660 -->
+<!-- hero-cloud-empty-pergunta-1920.webp: 1920x720 | hero-cloud-empty-solucao-1920.webp: 1920x660 -->
 <html lang="pt-BR" id="topo">
 <head>
   <meta charset="UTF-8">
@@ -363,7 +363,10 @@
         0 0 36px rgba(254, 119, 253, 0.85),
         0 0 72px rgba(254, 119, 253, 0.55);
     }
-    .bubble-text .bubble-line { display: block; margin: 0.04em 0; }
+    .bubble-text .bubble-line {
+      display: block;
+      margin: 0.06em 0;
+    }
 
     @media (max-width: 480px) {
       .bubble-text--nome, .bubble-text--marca { -webkit-text-stroke: 6px #47329A; }
@@ -445,6 +448,90 @@
 
     /* Menu alinhado à direita */
     .tdah-nav { justify-self: end; }
+    /* ===== HOTFIX GERAL (header + performance + hero posicionamento) ===== */
+
+    /* HEADER */
+    .tdah-header {
+      position: static;       /* fixa o cabeçalho no topo */
+      height: 150px;          /* altura reduzida */
+      padding: 0 !important;
+      display: grid;
+      place-items: center;
+    }
+
+    /* remove o menu desnecessário */
+    .tdah-nav { display: none !important; }
+
+    /* corrige logo */
+    .tdah-logo img {
+      display: block !important;
+      height: 56px !important;
+      width: auto;
+    }
+
+    /* HERO - reduz sombras e brilho */
+    .hero-bubble {
+      filter: none !important;
+      box-shadow: 0 12px 28px rgba(82, 60, 173, 0.18);
+    }
+
+    /* HERO - texto mais suave */
+    .bubble-text--nome,
+    .bubble-text--marca {
+      -webkit-text-stroke: 10px #47329A;
+      text-shadow:
+        1px 2px 0 rgba(71, 50, 154, 0.75),
+        0 0 18px #FE77FD,
+        0 0 28px rgba(254, 119, 253, 0.65);
+    }
+
+    /* FUNDO - remove travamento */
+    .page-bg {
+      background-attachment: scroll !important;
+      filter: brightness(.95) saturate(.9) contrast(.98);
+    }
+
+    /* SISTEMA DE POSICIONAMENTO */
+    :root {
+      --col-0: 0px;
+      --col-1: 120px;
+      --col-2: 240px;
+      --col-3: 360px;
+      --col-4: 480px;
+      --col-5: 600px;
+      --col-6: 720px;
+      --col-7: 840px;
+      --col-8: 960px;
+      --col-9: 1080px;
+      --col-10: 1200px;
+      --col-11: 1320px;
+
+      --band-1-start: 0%;   --band-1-end: 20%;
+      --band-2-start: 21%;  --band-2-end: 40%;
+      --band-3-start: 41%;  --band-3-end: 60%;
+      --band-4-start: 61%;  --band-4-end: 80%;
+      --band-5-start: 81%;  --band-5-end: 100%;
+    }
+
+    #hero { position: relative; }
+
+    .pos {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
+    .pos[data-col="6"]  { left: var(--col-6); }
+    .pos[data-band="2"] { top: calc((var(--band-2-start) + var(--band-2-end)) / 2); }
+    .pos[data-band="3"] { top: calc((var(--band-3-start) + var(--band-3-end)) / 2); }
+
+    /* mobile */
+    @media (max-width: 768px) {
+      :root {
+        --mcol-0: 5vw;  --mcol-1: 17vw; --mcol-2: 29vw; --mcol-3: 41vw;
+        --mcol-4: 53vw; --mcol-5: 65vw; --mcol-6: 77vw; --mcol-7: 89vw;
+      }
+      .pos[data-col="6"] { left: var(--mcol-4); } /* centraliza no mobile */
+    }
   </style>
 
   <!-- Google Analytics 4 -->
@@ -493,31 +580,28 @@
   <header class="tdah-header">
     <div class="tdah-header__inner">
       <a href="#topo" class="tdah-logo" aria-label="TDAH.Simples — topo">
-        <img src="/assets/logo-tdah-simples.png" alt="TDAH.Simples" width="640" height="196" decoding="async" loading="eager" fetchpriority="high">
+        <img src="/assets/logo-tdah-simples.png" alt="TDAH.Simples" width="640" height="196" decoding="async" loading="eager">
       </a>
 
       <div class="tdah-slogan">
         Criando caminhos gentis de produtividade para mentes inquietas
       </div>
 
-      <nav class="tdah-nav tw-hidden md:tw-flex tw-gap-6 tw-justify-end" aria-label="Navegação principal">
-        <a href="#sobre" rel="nofollow">Sobre</a>
-        <a href="#beneficios" rel="nofollow">Benefícios</a>
-        <a href="#depoimentos" rel="nofollow">Depoimentos</a>
-        <a href="#contato" rel="nofollow">Contato</a>
-      </nav>
     </div>
   </header>
 
   <main id="conteudo">
-    <h1 class="sr-only">TDAH.Simples — Guia de Produtividade leve para mentes inquietas</h1>
+    <h1 class="tw-sr-only">TDAH.Simples — Guia de Produtividade leve para mentes inquietas</h1>
 
     <!-- HERO -->
     <section class="tw-px-4 tw-pt-10" id="hero">
       <div class="tw-container tw-mx-auto tw-max-w-3xl tw-space-y-4">
         <div class="hero-stack">
           <!-- PERGUNTA -->
-          <div class="hero-bubble hero-bubble--pergunta" style="--hero-img: url('/assets/hero-cloud-empty-pergunta-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-pergunta-960.webp');" role="img" aria-label="Está com problemas para criar ou ajustar a sua rotina?">
+          <div class="hero-bubble hero-bubble--pergunta pos"
+               data-col="6" data-band="2"
+               style="--hero-img: url('/assets/hero-cloud-empty-pergunta-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-pergunta-960.webp');"
+               role="img" aria-label="Está com problemas para criar ou ajustar a sua rotina?">
             <h2 class="bubble-text bubble-text--nome">
               <span class="bubble-line">Está com problemas para criar</span>
               <span class="bubble-line">ou ajustar a sua rotina?</span>
@@ -525,7 +609,10 @@
           </div>
 
           <!-- SOLUÇÃO -->
-          <div class="hero-bubble hero-bubble--solucao" style="--hero-img: url('/assets/hero-cloud-empty-solucao-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-solucao-960.webp');" role="img" aria-label="Não se preocupe! Eu tenho a solução para seus problemas.">
+          <div class="hero-bubble hero-bubble--solucao pos"
+               data-col="6" data-band="3"
+               style="--hero-img: url('/assets/hero-cloud-empty-solucao-1920.webp'); --hero-img-sm: url('/assets/hero-cloud-empty-solucao-960.webp');"
+               role="img" aria-label="Não se preocupe! Eu tenho a solução para seus problemas.">
             <h2 class="bubble-text bubble-text--marca">
               <span class="bubble-line">Não se preocupe!</span>
               <span class="bubble-line">Eu tenho a solução para seus problemas.</span>
@@ -561,19 +648,19 @@
     <!-- Chips -->
     <section class="tw-px-4 tw-mt-8">
       <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-gap-3 tw-justify-center">
-        <span class="badge-soft tw-text-sm tw-font-medium">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
           <i data-lucide="sparkles" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Rotina leve e acolhedora
         </span>
-        <span class="badge-soft tw-text-sm tw-font-medium">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
           <i data-lucide="clock-3" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Micro-passos diários
         </span>
-        <span class="badge-soft tw-text-sm tw-font-medium">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
           <i data-lucide="feather" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Mentalidade gentil
         </span>
-        <span class="badge-soft tw-text-sm tw-font-medium">
+        <span class="badge-soft tw-px-4 tw-py-2 tw-rounded-full tw-text-sm tw-flex tw-items-center tw-gap-2">
           <i data-lucide="target" class="tw-w-4 tw-h-4" aria-hidden="true"></i>
           Resultados sustentáveis
         </span>
@@ -621,7 +708,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- /ml -->
+          </div>
         </div>
       </div>
     </section>
@@ -858,15 +945,19 @@
       if (formBody) { formBody.style.display = 'none'; }
     }
 
-    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', event => {
         const targetId = anchor.getAttribute('href');
-        if (!targetId || targetId === '#') return;
+        if (!targetId || targetId === '#') {
+          return;
+        }
+
         const target = document.querySelector(targetId);
-        if (!target) return;
-        event.preventDefault();
-        target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+        }
       });
     });
   </script>
