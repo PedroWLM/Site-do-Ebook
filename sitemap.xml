@@ -1,8 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página principal -->
   <url>
     <loc>https://tdah-simples.vercel.app/</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Seções internas (âncoras principais do site) -->
+  <url>
+    <loc>https://tdah-simples.vercel.app/#beneficios</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://tdah-simples.vercel.app/#sobre</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tdah-simples.vercel.app/#depoimentos</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tdah-simples.vercel.app/#contato</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Página de pagamento (mantida com prioridade menor) -->
+  <url>
+    <loc>https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
