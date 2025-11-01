@@ -1,17 +1,35 @@
 {
-  "extends": ["html-validate:recommended"],
+  "root": true,
+  "extends": ["html-validate:recommended", "html-validate:a11y"],
   "rules": {
     "attribute-boolean-style": "error",
     "void-style": "error",
+
+    /* Temos variáveis CSS inline nos heróis (style="--hero-img: ..."),
+       então manter OFF para não acusar falso-positivo */
     "no-inline-style": "off",
+
+    /* Usamos CDN externo; manter OFF para não exigir SRI nos <script>/<link> */
     "require-sri": "off",
+
+    /* Evitar IDs duplicados na página */
+    "no-dup-id": "error",
+
+    /* Evitar onClick/onLoad inline etc — use addEventListener */
+    "no-restricted-attributes": [
+      "error",
+      { "pattern": "^on[a-z]+$", "message": "Evite manipuladores inline; use addEventListener." }
+    ],
+
+    /* Para todo link com target=_blank, exigir rel seguro.
+       Aceita as duas ordens: 'noopener noreferrer' OU 'noreferrer noopener' */
     "element-required-attributes": [
       "error",
       [
         {
           "element": "a[target=_blank]",
           "attributes": [
-            { "name": "rel", "pattern": "noopener noreferrer" }
+            { "name": "rel", "pattern": "^(?:noopener noreferrer|noreferrer noopener)$" }
           ]
         }
       ]
