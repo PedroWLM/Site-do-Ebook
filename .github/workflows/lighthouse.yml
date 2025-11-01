@@ -9,110 +9,15 @@ on:
 jobs:
   lhci:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Set npm registry
-        run: npm config set registry https://registry.npmjs.org/
-
-      - name: Install deps
-        run: npm ci || npm i
-
-      # ====== MOBILE ======
-      - name: LHCI Mobile (autorun)
-        run: npx lhci autorun --config=.lighthouserc.js
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # ====== DESKTOP ======
-      - name: LHCI Desktop (extra)
-        run: |
-          npx lhci collect --config=.lighthouserc.js \
-            --settings.preset=desktop \
-            --settings.formFactor=desktop \
-            --settings.screenEmulation.mobile=false
-          npx lhci assert --config=.lighthouserc.js
-          npx lhci upload --config=.lighthouserc.js
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # ====== ARTIFACTS ======
-      - name: Upload LHCI artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: lhci-reports
-          path: .lighthouseci
-          if-no-files-found: warn
-
-      # ====== RESUMO ======
-      - name: Build PR/Table summary
-        if: always()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const core = require('@actions/core');
-            const github = require('@actions/github');
-
-            const manifestPath = '.lighthouseci/manifest.json';
-            if (!fs.existsSync(manifestPath)) {
-              core.warning('Manifest .lighthouseci/manifest.json não encontrado. Pulando resumo.');
-              return;
-            }
-
-            const runs = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-            const groupBy = {};
-            for (const run of runs) {
-              const ff = (run?.environment?.settings?.formFactor || 'unknown').toLowerCase();
-              const sum = run?.summary || {};
-              (groupBy[ff] ||= []).push({
-                performance: sum.performance ?? null,
-                accessibility: sum.accessibility ?? null,
-                bestPractices: sum['best-practices'] ?? sum.bestPractices ?? null,
-                seo: sum.seo ?? null
-              });
-            }
-
-            const pct = v => v == null ? '—' : Math.round(v * 100) + '%';
-            let md = '### 🔎 Lighthouse – Resumo das notas\n\n';
-
-            for (const [ff, entries] of Object.entries(groupBy)) {
-              if (!entries.length) continue;
-              const avg = key => {
-                const nums = entries.map(e => e[key]).filter(v => typeof v === 'number');
-                return nums.length ? pct(nums.reduce((a,b)=>a+b,0)/nums.length) : '—';
-              };
-              md += `**${ff.toUpperCase()}**\n\n| Métrica | Nota média |\n|---|---|\n`;
-              md += `| Performance | ${avg('performance')} |\n`;
-              md += `| Acessibilidade | ${avg('accessibility')} |\n`;
-              md += `| Best Practices | ${avg('bestPractices')} |\n`;
-              md += `| SEO | ${avg('seo')} |\n\n`;
-            }
-
-            md += `> Relatórios completos em **Artifacts → lhci-reports**.\n`;
-            await core.summary.addRaw(md).write();
-
-            if (github.context.eventName === 'pull_request') {
-              const { owner, repo } = github.context.repo;
-              const issue_number = github.context.payload.pull_request.number;
-              const tag = '<!-- lhci-summary-comment -->';
-              const octokit = github.getOctokit(process.env.GITHUB_TOKEN || process.env.LHCI_GITHUB_APP_TOKEN);
-              const { data: comments } = await octokit.rest.issues.listComments({ owner, repo, issue_number });
-              const previous = comments.find(c => c.body?.includes(tag));
-              const body = `${tag}\n${md}`;
-              if (previous) {
-                await octokit.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
-              } else {
-                await octokit.rest.issues.createComment({ owner, repo, issue_number, body });
-              }
-            }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Roda o Lighthouse CI via npx (evita npm install e lockfile)
+      - name: Lighthouse CI (autorun)
+        run: npx --yes @lhci/cli@0.13.0 autorun --collect.staticDistDir=.
