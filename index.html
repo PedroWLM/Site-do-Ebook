@@ -50,7 +50,8 @@
   <link rel="preconnect" href="https://pay.kirvano.com">
   <link rel="dns-prefetch" href="https://pay.kirvano.com">
   <link rel="preconnect" href="https://assets.mlcdn.com">
-  <!-- Prioridade de carregamento das imagens principais -->
+
+  <!-- Preloads críticos -->
   <link rel="preload" as="image" href="/assets/logo-tdah-simples.png" imagesrcset="/assets/logo-tdah-simples.png" fetchpriority="high">
   <link rel="preload" as="image" href="/assets/bg-magico-desktop.webp" fetchpriority="high" media="(min-width: 769px)">
   <link rel="preload" as="image" href="/assets/bg-magico-mobile.webp" fetchpriority="high" media="(max-width: 768px)">
@@ -59,9 +60,7 @@
 
   <!-- Fonts (preload não bloqueante + fallback) -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap">
-  </noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap"></noscript>
 
   <!-- Tailwind config DEVE vir antes do CDN -->
   <script>
@@ -75,11 +74,13 @@
             brandNeon: '#FE76E1',
             brandLilac: '#E6CCFF',
             brandDeep: '#2B176D',
-            brandWhite: '#FFFFFF'
+            brandWhite: '#FFFFFF',
+            gold: '#FFD84D'
           },
           fontFamily: {
             lexend: ['Lexend', 'Inter', 'system-ui', 'sans-serif']
-          }
+          },
+          container: { center: true, padding: '1rem' }
         }
       }
     };
@@ -89,89 +90,155 @@
   <!-- MailerLite base fonts -->
   <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
 
-  <!-- Estilos adicionais -->
-<style>
-  :root{
-    color-scheme: light;
-    font-synthesis-weight: none;
-    --fs-body: clamp(18px,2.6vw,20px);
-    --fs-h1: clamp(28px,6.2vw,44px);
-    --fs-h2: clamp(24px,5vw,36px);
-    --fs-h3: clamp(20px,3.6vw,24px);
-    --rox:#523CAD; --rosa:#FE76E1; --lilas:#E6CCFF; --deep:#2B176D; --white:#FFFFFF; --gold:#FFD84D;
-    /* grid de posição do herói */
-    --col-0:0px; --col-1:120px; --col-2:240px; --col-3:360px; --col-4:480px; --col-5:600px; --col-6:720px; --col-7:840px; --col-8:960px; --col-9:1080px; --col-10:1200px; --col-11:1320px;
-    --band-1-start:0%; --band-1-end:20%; --band-2-start:21%; --band-2-end:40%;
-    --band-3-start:41%; --band-3-end:60%; --band-4-start:61%; --band-4-end:80%;
-    --band-5-start:81%; --band-5-end:100%;
-  }
-  html{scroll-behavior:smooth;content-visibility:auto;contain-intrinsic-size:5000px}
-  html,body{font-size:var(--fs-body)}
-  body{font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--deep)}
-  h1{font-size:var(--fs-h1);font-weight:800} h2{font-size:var(--fs-h2);font-weight:800} h3{font-size:var(--fs-h3);font-weight:800}
-  p,li,a,button{font-weight:700}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  <!-- ===== Estilos do site (único bloco) ===== -->
+  <style>
+    :root{
+      color-scheme: light;
+      font-synthesis-weight: none;
+      --fs-body: clamp(18px,2.6vw,20px);
+      --fs-h1: clamp(28px,6.2vw,44px);
+      --fs-h2: clamp(24px,5vw,36px);
+      --fs-h3: clamp(20px,3.6vw,24px);
+      --rox:#523CAD; --rosa:#FE76E1; --lilas:#E6CCFF; --deep:#2B176D; --white:#FFFFFF; --gold:#FFD84D;
 
-  /* Fundo */
-  .page-bg{
-    min-height:100vh;
-    background:image-set(url('/assets/bg-magico-desktop.webp') type('image/webp')) center top/cover no-repeat,
-               linear-gradient(180deg,#E4CFFF,#CFA3FF);
-    background-color:#DABEFF;
-  }
-  @media (min-width:1024px){.page-bg{background-attachment:fixed;background-position:center top;filter:brightness(.95) saturate(.9) contrast(.98)}}
-  @media (max-width:768px){
-    .page-bg{
-      background:image-set(url('/assets/bg-magico-mobile.webp') type('image/webp')) center top/cover no-repeat,
-                 linear-gradient(180deg,#E4CFFF,#CFA3FF);
-      background-attachment:scroll;
+      /* grid de posição do herói */
+      --col-0:0px; --col-1:120px; --col-2:240px; --col-3:360px; --col-4:480px; --col-5:600px; --col-6:720px; --col-7:840px; --col-8:960px; --col-9:1080px; --col-10:1200px; --col-11:1320px;
+      --band-1-start:0%; --band-1-end:20%; --band-2-start:21%; --band-2-end:40%;
+      --band-3-start:41%; --band-3-end:60%; --band-4-start:61%; --band-4-end:80%;
+      --band-5-start:81%; --band-5-end:100%;
     }
-  }
+    html{scroll-behavior:smooth;content-visibility:auto;contain-intrinsic-size:5000px}
+    html,body{font-size:var(--fs-body)}
+    body{font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--deep)}
+    h1{font-size:var(--fs-h1);font-weight:800} h2{font-size:var(--fs-h2);font-weight:800} h3{font-size:var(--fs-h3);font-weight:800}
+    p,li,a,button{font-weight:700}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-  .skip-link{position:fixed;left:50%;transform:translate(-50%,-150%);top:1rem;padding:.75rem 1.5rem;border-radius:999px;background:var(--rox);color:var(--white);font-weight:700;z-index:100;transition:transform .2s,opacity .2s;opacity:0;pointer-events:none}
-  .skip-link:focus-visible{transform:translate(-50%,0);opacity:1;outline:3px solid var(--rosa);outline-offset:4px}
+    /* ===== Fundo ===== */
+    .page-bg{
+      min-height:100vh;
+      background:
+        image-set(url('/assets/bg-magico-desktop.webp') type('image/webp')) center top/cover no-repeat,
+        linear-gradient(180deg,#E4CFFF,#CFA3FF);
+      background-color:#DABEFF;
+    }
+    @media (min-width:1024px){.page-bg{background-attachment:fixed;background-position:center top}}
+    @media (max-width:768px){
+      .page-bg{
+        background:
+          image-set(url('/assets/bg-magico-mobile.webp') type('image/webp')) center top/cover no-repeat,
+          linear-gradient(180deg,#E4CFFF,#CFA3FF);
+        background-attachment:scroll;
+      }
+    }
 
-  /* Header */
-  .tdah-header{position:static;height:150px;display:grid;place-items:center;background:radial-gradient(1200px 600px at 50% 0%,#3A0D92 0%,#20005C 60%,#1A0050 100%);color:#fff;padding:clamp(10px,2vw,16px) 0;border-bottom:1px solid rgba(255,255,255,.15)}
-  .tdah-header__inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;max-width:1152px;margin:0 auto;padding:0 16px;text-align:center}
-  .tdah-logo img{display:block!important;height:56px!important;width:auto}
-  .tdah-nav{display:none!important}
-  .tdah-slogan{text-align:center;font-weight:800;font-family:'Lexend',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff;font-size:clamp(14px,2.2vw,28px);line-height:1.15;text-shadow:3px 4px 0 #FE76E1,0 1px 0 rgba(0,0,0,.08)}
+    /* ===== A11y ===== */
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;white-space:nowrap
+    }
+    .skip-link{position:fixed;left:50%;transform:translate(-50%,-150%);top:1rem;padding:.75rem 1.5rem;border-radius:999px;background:var(--rox);color:var(--white);font-weight:700;z-index:100;transition:transform .2s,opacity .2s;opacity:0;pointer-events:none}
+    .skip-link:focus-visible{transform:translate(-50%,0);opacity:1;outline:3px solid var(--rosa);outline-offset:4px}
 
-  /* Herói */
-  .hero-stack{display:grid;gap:clamp(12px,2.6vw,18px);justify-items:center;margin-top:clamp(8px,1.5vw,12px)}
-  #hero{position:relative;min-height:clamp(620px,62vh,760px)}
-  .hero-bubble{
-    --hero-img:url('/assets/hero-cloud-empty-pergunta-1920.webp');
-    --hero-img-sm:var(--hero-img);
-    width:min(960px,92vw);margin:0 auto;display:grid;place-items:center;padding:0 5.2vw;
-    background:image-set(var(--hero-img) type('image/webp')) center/contain no-repeat;
-    box-shadow:0 12px 28px rgba(82,60,173,.18);
-  }
-  @media (max-width:960px){.hero-bubble{background:image-set(var(--hero-img-sm) type('image/webp')) center/contain no-repeat}}
-  .hero-bubble--pergunta{aspect-ratio:1920/720}
-  .hero-bubble--solucao{aspect-ratio:1920/660}
+    /* ===== Header ===== */
+    .tdah-header{position:sticky;top:0;background:radial-gradient(1200px 600px at 50% 0%,#3A0D92 0%,#20005C 60%,#1A0050 100%);color:#fff;padding:clamp(10px,2vw,16px) 0;border-bottom:1px solid rgba(255,255,255,.15);z-index:10}
+    .tdah-header__inner{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;max-width:1152px;margin:0 auto;padding:0 16px}
+    .tdah-logo img{display:block;height:clamp(28px,4.2vw,44px);width:auto}
+    .tdah-slogan{text-align:center;font-weight:800;font-family:'Lexend',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff;font-size:clamp(14px,2.2vw,28px);line-height:1.15;text-shadow:3px 4px 0 #FE76E1,0 1px 0 rgba(0,0,0,.08)}
 
-  .bubble-text{text-transform:uppercase;letter-spacing:.01em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;paint-order:stroke fill;font-weight:900;font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;line-height:1.04;color:#fff}
-  .bubble-text--nome,.bubble-text--marca{font-size:clamp(26px,5vw,66px);-webkit-text-stroke:10px #47329A;text-shadow:1px 2px 0 rgba(71,50,154,.85),0 0 18px #FE77FD,0 0 28px rgba(254,119,253,.65)}
-  .bubble-text .bubble-line{display:block;margin:.06em 0}
-  @media (max-width:480px){.bubble-text--nome,.bubble-text--marca{-webkit-text-stroke:6px #47329A}}
+    /* ===== Hero ===== */
+    .hero-stack{display:grid;gap:clamp(12px,2.6vw,18px);justify-items:center;margin-top:clamp(8px,1.5vw,12px)}
+    #hero{position:relative;min-height:clamp(620px,62vh,760px)}
+    .hero-bubble{
+      --hero-img:url('/assets/hero-cloud-empty-pergunta-1920.webp');
+      --hero-img-sm:var(--hero-img);
+      width:min(960px,92vw);margin:0 auto;display:grid;place-items:center;padding:0 5.2vw;
+      background:image-set(var(--hero-img) type('image/webp')) center/contain no-repeat;
+      filter:drop-shadow(0 18px 48px rgba(82,60,173,.22)) drop-shadow(0 6px 16px rgba(71,50,154,.18));
+    }
+    @media (max-width:960px){.hero-bubble{background:image-set(var(--hero-img-sm) type('image/webp')) center/contain no-repeat}}
+    .hero-bubble--pergunta{aspect-ratio:1920/720}
+    .hero-bubble--solucao{aspect-ratio:1920/660}
+    .bubble-text{text-transform:uppercase;letter-spacing:.01em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;paint-order:stroke fill;font-weight:900;font-family:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;line-height:1.04;color:#fff}
+    .bubble-text--nome,.bubble-text--marca{-webkit-text-stroke:10px #47329A;text-shadow:1px 2px 0 rgba(71,50,154,.85),0 0 18px #FE77FD,0 0 28px rgba(254,119,253,.65)}
+    .bubble-text--nome,.bubble-text--marca{font-size:clamp(26px,5vw,66px)}
+    .bubble-text .bubble-line{display:block;margin:.06em 0}
+    @media (max-width:480px){.bubble-text--nome,.bubble-text--marca{-webkit-text-stroke:6px #47329A}}
+    .hero-cloud{display:block;width:min(960px,92vw);margin:0 auto;height:auto;filter:drop-shadow(0 18px 48px rgba(82,60,173,.22)) drop-shadow(0 6px 16px rgba(71,50,154,.18))}
 
-  /* Posicionamento das bolhas por “coluna” e “faixa” */
-  .pos{position:absolute;transform:translate(-50%,-50%);z-index:1}
-  .pos[data-col="6"]{left:var(--col-6)}
-  .pos[data-band="2"]{top:calc((var(--band-2-start)+var(--band-2-end))/2)}
-  .pos[data-band="3"]{top:calc((var(--band-3-start)+var(--band-3-end))/2)}
-  @media (max-width:960px){.pos[data-col="6"]{left:50%}}
-</style>
-  <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1KS3167PQQ');
-</script>
+    /* ===== Posicionamento de bolhas ===== */
+    .pos{position:absolute;transform:translate(-50%,-50%);z-index:1}
+    .pos[data-col="6"]{left:var(--col-6)}
+    .pos[data-band="2"]{top:calc((var(--band-2-start)+var(--band-2-end))/2)}
+    .pos[data-band="3"]{top:calc((var(--band-3-start)+var(--band-3-end))/2)}
+    @media (max-width:960px){.pos[data-col="6"]{left:50%}}
+
+    /* ===== Cloud cards ===== */
+    .cloud{
+      --bg: rgba(255,255,255,.93);
+      background:
+        radial-gradient(40px 30px at 15% 110%, var(--bg) 98%, transparent),
+        radial-gradient(36px 28px at 40% 110%, var(--bg) 98%, transparent),
+        radial-gradient(46px 32px at 65% 110%, var(--bg) 98%, transparent),
+        radial-gradient(42px 30px at 85% 110%, var(--bg) 98%, transparent),
+        var(--bg);
+      border-radius:24px;padding:20px 22px;text-align:center;border:1px solid rgba(255,255,255,.7);
+      box-shadow:0 18px 48px rgba(82,60,173,.22)
+    }
+    .cloud--xl{padding:28px 26px}
+    .with-emoji{display:flex;align-items:flex-start;gap:.6rem;justify-content:center}
+    .with-emoji .e{font-size:1.2em;line-height:1}
+    .cloud-narrow{max-width:720px;margin-left:auto;margin-right:auto}
+    .cloud-narrow-sm{max-width:560px;margin-left:auto;margin-right:auto}
+    .cloud-thin{padding:14px 18px;border-radius:18px;text-align:center}
+
+    /* ===== CTA neon roxo ===== */
+    .btn-cta{
+      display:inline-flex;align-items:center;gap:.6rem;padding:14px 22px;border-radius:999px;border:0;
+      background:linear-gradient(135deg,#6E4AE6,#9C5CFF 55%,#FE76E1);color:#fff;font-weight:900;letter-spacing:.2px;
+      box-shadow:0 10px 28px rgba(82,60,173,.35),0 0 18px rgba(254,118,225,.35);
+      transition:transform .15s,box-shadow .15s,filter .15s;text-decoration:none
+    }
+    .btn-cta:hover,.btn-cta:focus-visible{transform:translateY(-2px);filter:saturate(1.05);box-shadow:0 16px 36px rgba(82,60,173,.35)}
+
+    /* ===== Chips / badges ===== */
+    .badge-soft{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;background:rgba(230,204,255,.9);color:var(--deep);border-radius:999px;padding:.25rem .75rem}
+
+    /* ===== Depoimentos ===== */
+    .stars{display:flex;gap:.2rem;justify-content:center}
+    .star{width:22px;height:22px;color:var(--gold)}
+    .testimonial{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:18px;box-shadow:0 18px 44px rgba(43,23,109,.14)}
+    .testimonial blockquote{margin:10px 0 8px;line-height:1.55}
+    .testimonial footer{color:rgba(43,23,109,.78);font-size:.95em}
+
+    /* ===== Rodapé ===== */
+    .site-footer{background:#2B176D;color:#fff;padding:38px 20px;text-align:center}
+    .site-footer p{font-weight:700;opacity:.92}
+
+    /* ===== MailerLite ===== */
+    .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px}
+    .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-form-embedSubmitLoad 1.2s linear infinite}
+    @keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    #mlb2-30554077.ml-form-embedContainer{box-sizing:border-box;display:table;margin:0 auto;position:static;width:100%!important}
+    #mlb2-30554077 .ml-form-embedWrapper{background-color:rgba(230,204,255,.35);border-width:0;border-color:transparent;border-radius:32px;border-style:solid;box-sizing:border-box;display:inline-block!important;margin:0;padding:0;position:relative}
+    #mlb2-30554077 .ml-form-embedWrapper.embedForm{max-width:420px!important}
+    #mlb2-30554077 .ml-form-embedBody{padding:24px 24px 8px 24px}
+    #mlb2-30554077 .ml-form-embedContent{text-align:center;margin:0 0 16px 0}
+    #mlb2-30554077 .ml-form-embedContent h4{color:#2B176D;font-family:'Lexend',sans-serif;font-size:32px;font-weight:600;margin:0 0 10px 0;word-break:break-word}
+    #mlb2-30554077 .ml-form-embedContent p{color:#2B176D;font-family:'Lexend',sans-serif;font-size:16px;font-weight:400;line-height:1.5;margin:0 0 10px 0}
+    #mlb2-30554077 .ml-form-fieldRow{margin:0 0 10px 0;width:100%}
+    #mlb2-30554077 .ml-form-fieldRow input{background-color:#fff!important;color:#2B176D!important;border-color:rgba(82,60,173,.25)!important;border-radius:999px!important;border-style:solid!important;border-width:1px!important;font-family:'Lexend',sans-serif!important;font-size:16px!important;height:auto;line-height:24px!important;margin:0;padding:14px 18px!important;width:100%!important;box-sizing:border-box!important;max-width:100%!important}
+    #mlb2-30554077 .ml-form-embedSubmit button{background:linear-gradient(135deg,#523CAD,#FE76E1)!important;border:none!important;border-radius:999px!important;box-shadow:0 10px 25px rgba(82,60,173,.25)!important;color:#fff!important;cursor:pointer;font-family:'Lexend',sans-serif!important;font-size:18px!important;font-weight:600!important;line-height:24px!important;height:auto;padding:14px!important;width:100%!important;box-sizing:border-box!important;transition:transform .2s ease!important}
+    #mlb2-30554077 .ml-form-embedSubmit button:hover,#mlb2-30554077 .ml-form-embedSubmit button:focus-visible{transform:translateY(-1px);background:linear-gradient(135deg,#2B176D,#FE76E1)!important}
+  </style>
+
+  <!-- Google Analytics 4 (único) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1KS3167PQQ');
+  </script>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -203,6 +270,7 @@
     }
   </script>
 </head>
+
 <body class="page-bg tw-text-brandDeep">
   <a class="skip-link" href="#conteudo">Ir para conteúdo principal</a>
 
@@ -212,11 +280,7 @@
       <a href="#topo" class="tdah-logo" aria-label="TDAH.Simples — topo">
         <img src="/assets/logo-tdah-simples.png" alt="TDAH.Simples" width="640" height="196" decoding="async" loading="eager">
       </a>
-
-      <div class="tdah-slogan">
-        Criando caminhos gentis de produtividade para mentes inquietas
-      </div>
-
+      <div class="tdah-slogan">Criando caminhos gentis de produtividade para mentes inquietas</div>
     </div>
   </header>
 
@@ -249,16 +313,15 @@
             </h2>
           </div>
         </div>
+
         <noscript>
           <img class="hero-cloud" src="/assets/hero-cloud-empty-pergunta-1920.webp" srcset="/assets/hero-cloud-empty-pergunta-960.webp 960w, /assets/hero-cloud-empty-pergunta-1920.webp 1920w" sizes="(max-width: 960px) 92vw, 960px" alt="Está com problemas para criar ou ajustar a sua rotina?" width="1920" height="720">
           <img class="hero-cloud" src="/assets/hero-cloud-empty-solucao-1920.webp" srcset="/assets/hero-cloud-empty-solucao-960.webp 960w, /assets/hero-cloud-empty-solucao-1920.webp 1920w" sizes="(max-width: 960px) 92vw, 960px" alt="Não se preocupe! Eu tenho a solução para seus problemas." width="1920" height="660">
         </noscript>
-        <div class="section-spacer"></div>
 
         <div class="cloud with-emoji cloud-narrow-sm">
           <span class="e" aria-hidden="true">🌿</span>
-          <p>TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim.
-            Encontre um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia com mais gentileza.</p>
+          <p>TDAH não é falta de foco — é um cérebro que funciona diferente. Está tudo bem ser assim. Encontre um espaço leve para entender sua mente, aliviar a culpa e lidar com o dia a dia com mais gentileza.</p>
         </div>
 
         <div class="hero-actions tw-flex tw-flex-col tw-items-center cloud-narrow">
@@ -424,20 +487,6 @@
       </div>
     </section>
 
-    <!-- Sobre -->
-    <section id="sobre" class="tw-px-4 tw-pt-14">
-      <div class="tw-container tw-mx-auto tw-max-w-4xl">
-        <div class="cloud with-emoji cloud-narrow">
-          <span class="e" aria-hidden="true">📖</span>
-          <div>
-            <h2>Sobre o guia</h2>
-            <p>O Guia de Produtividade TDAH.Simples nasceu para ser companhia diária de quem se sente sobrecarregado com técnicas tradicionais. Em linguagem clara, você encontra trilhas que reconhecem distrações, abraçam seu ritmo e oferecem ferramentas que cabem na sua agenda.</p>
-            <p>Aqui você não precisa caber em caixas. Cada capítulo convida a experimentar, observar e ajustar, com exercícios, reflexões e testes bônus que inspiram autonomia e gentileza consigo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Depoimentos -->
     <section id="depoimentos" class="tw-px-4 tw-pt-14 tw-pb-6">
       <div class="tw-container tw-mx-auto tw-max-w-5xl">
@@ -503,15 +552,13 @@
 
     <!-- Contato -->
     <section id="contato" class="tw-px-0 tw-pb-16">
-      <div class="band">
-        <div class="tw-container tw-mx-auto tw-max-w-4xl tw-px-4">
-          <div class="tw-text-center">
-            <h2>Fale com o TDAH.Simples</h2>
-            <p>Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
-            <a href="mailto:tdah.simples.oficial@gmail.com" class="btn-cta" aria-label="Enviar email para tdah.simples.oficial@gmail.com">
-              tdah.simples.oficial@gmail.com
-            </a>
-          </div>
+      <div class="tw-container tw-mx-auto tw-max-w-4xl tw-px-4">
+        <div class="tw-text-center">
+          <h2>Fale com o TDAH.Simples</h2>
+          <p>Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
+          <a href="mailto:tdah.simples.oficial@gmail.com" class="btn-cta" aria-label="Enviar email para tdah.simples.oficial@gmail.com">
+            tdah.simples.oficial@gmail.com
+          </a>
         </div>
       </div>
     </section>
@@ -534,66 +581,51 @@
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js" defer></script>
   <script>
     window.addEventListener('load', () => {
-      if (window.lucide) {
-        lucide.createIcons();
-      }
+      if (window.lucide) { lucide.createIcons(); }
     });
 
-    function trackCTA(id) {
-      if (window.gtag) {
-        gtag('event', 'cta_click', { event_label: id });
-      }
-    }
-    function bindCTA(id) {
-      const el = document.getElementById(id);
-      if (el) { el.addEventListener('click', () => trackCTA(id)); }
-    }
-    ['cta-hero', 'cta-final', 'cta-success'].forEach(bindCTA);
+    function trackCTA(id){ if (window.gtag){ gtag('event','cta_click',{ event_label:id }); } }
+    ['cta-hero','cta-final','cta-success'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){ el.addEventListener('click',()=>trackCTA(id)); }
+    });
 
-    function ml_webform_success_30554077() {
-      const wrapper = document.querySelector('.ml-subscribe-form-30554077');
-      const successBody = wrapper?.querySelector('.row-success');
-      const formBody = wrapper?.querySelector('.row-form');
-
-      if (successBody) {
-        successBody.style.display = 'block';
-        const box = successBody.querySelector('.ml-form-successContent');
-        if (box && !box.querySelector('#cta-success')) {
+    function ml_webform_success_30554077(){
+      const wrapper=document.querySelector('.ml-subscribe-form-30554077');
+      const successBody=wrapper?.querySelector('.row-success');
+      const formBody=wrapper?.querySelector('.row-form');
+      if(successBody){
+        successBody.style.display='block';
+        const box=successBody.querySelector('.ml-form-successContent');
+        if(box && !box.querySelector('#cta-success')){
           box.innerHTML = `
             <h4>Seu guia está a um clique! ✨</h4>
             <p>Olhe seu e-mail (incluindo spam). Se quiser, abra o pagamento agora mesmo.</p>
             <a id="cta-success" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener noreferrer"
-               class="btn-cta tw-mt-3"
-               aria-label="Abrir página de pagamento do guia">
-              <span aria-hidden="true">👉</span>
-              Abrir pagamento do guia
+               class="btn-cta tw-mt-3" aria-label="Abrir página de pagamento do guia">
+              <span aria-hidden="true">👉</span> Abrir pagamento do guia
             </a>`;
-          if (window.lucide) { lucide.createIcons(); }
-          bindCTA('cta-success');
+          if(window.lucide){ lucide.createIcons(); }
+          const btn=document.getElementById('cta-success'); if(btn){ btn.addEventListener('click',()=>trackCTA('cta-success')); }
         }
       }
-      if (formBody) { formBody.style.display = 'none'; }
+      if(formBody){ formBody.style.display='none'; }
     }
 
     const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', event => {
-        const targetId = anchor.getAttribute('href');
-        if (!targetId || targetId === '#') {
-          return;
-        }
-
-        const target = document.querySelector(targetId);
-        if (target) {
-          event.preventDefault();
-          target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+      anchor.addEventListener('click', ev=>{
+        const targetId=anchor.getAttribute('href');
+        if(!targetId || targetId==='#') return;
+        const target=document.querySelector(targetId);
+        if(target){
+          ev.preventDefault();
+          target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block:'start' });
         }
       });
     });
   </script>
-  <noscript>
-    <!-- fallback de transparência: sem JavaScript não há GA4, apenas conteúdo estático -->
-  </noscript>
+  <noscript><!-- sem JS: sem GA4; conteúdo permanece acessível --></noscript>
 
   <!-- MailerLite boot -->
   <script>fetch('https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel');</script>
