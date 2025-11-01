@@ -1,4 +1,9 @@
+# robots.txt — TDAH.Simples
+# Política simples: permitir rastreamento total do site público
+# Observação: este arquivo só vale para o domínio tdah-simples.vercel.app
+
 User-agent: *
 Allow: /
 
+# Mapa do site (ajuda mecanismos de busca a descobrir URLs)
 Sitemap: https://tdah-simples.vercel.app/sitemap.xml
