@@ -9,9 +9,6 @@ on:
 jobs:
   lhci:
     runs-on: ubuntu-latest
-    env:
-      # Evita erro de sandbox do Chrome no CI
-      LHCI_NO_SANDBOX: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,16 +19,20 @@ jobs:
           node-version: '20.19.x'
 
       - name: Lighthouse CI (autorun)
+        continue-on-error: true
+        env:
+          LHCI_NO_SANDBOX: true
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx --yes @lhci/cli@0.13.0 autorun \
             --collect.staticDistDir=. \
-            --upload.target=temporary-public-storage
-        # enquanto ajustamos as métricas, não quebra o job
-        continue-on-error: true
+            --collect.settings.chromeFlags="--no-sandbox --headless" \
+            --upload.target=temporary-public-storage \
+            --assert.preset=lighthouse:recommended || true
 
-      - name: Upload LHCI artifacts
+      - name: Upload Lighthouse report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-ci
-          path: ./.lighthouseci/**
+          name: lighthouse-report
+          path: '.lighthouseci/*'
