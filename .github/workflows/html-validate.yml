@@ -16,9 +16,7 @@ jobs:
       - name: Setup Node 20.19
         uses: actions/setup-node@v4
         with:
-          node-version: '20.19.x'
-          cache: 'npm'
+          node-version: '20.19.x'   # <- sem cache
 
-      # npx usa a versão do projeto (sem instalar globalmente)
       - name: Validate HTML
         run: npx -y html-validate@10 "**/*.html" --config .htmlvalidate.json
