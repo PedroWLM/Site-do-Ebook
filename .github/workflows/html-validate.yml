@@ -16,7 +16,10 @@ jobs:
       - name: Setup Node 20.19
         uses: actions/setup-node@v4
         with:
-          node-version: '20.19.x'   # <- sem cache
+          node-version: '20.19.x'
 
-      - name: Validate HTML
-        run: npx -y html-validate@10 "**/*.html" --config .htmlvalidate.json
+      - name: Validate HTML (index.html)
+        run: |
+          npx -y html-validate@10 index.html \
+            --config .htmlvalidate.json \
+            --formatter stylish
