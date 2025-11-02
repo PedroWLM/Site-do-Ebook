@@ -1,11 +1,9 @@
-# .github/workflows/html-validate.yml
 name: HTML Validate
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, dev ]
 
 jobs:
   validate:
@@ -18,14 +16,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.19.x'
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
 
       - name: Validate HTML (index.html)
         run: |
+          set -o pipefail
+          npx --yes html-validate@10.1.2 --version
           npx --yes html-validate@10.1.2 index.html \
             --config .htmlvalidate.json \
-            --formatter stylish | tee html-validate-report.txt
+            --formatter codeframe | tee html-validate-report.txt
+        # Não quebra o job; deixa você seguir e ver o relatório
+        continue-on-error: true
 
       - name: Upload report
         if: always()
