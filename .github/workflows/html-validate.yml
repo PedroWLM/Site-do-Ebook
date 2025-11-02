@@ -1,3 +1,4 @@
+# .github/workflows/html-validate.yml
 name: HTML Validate
 
 on:
@@ -13,13 +14,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node 20.19
+      - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
           node-version: '20.19.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Validate HTML (index.html)
         run: |
-          npx -y html-validate@10 index.html \
+          npx --yes html-validate@10.1.2 index.html \
             --config .htmlvalidate.json \
-            --formatter stylish
+            --formatter stylish | tee html-validate-report.txt
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-validate-report
+          path: html-validate-report.txt
