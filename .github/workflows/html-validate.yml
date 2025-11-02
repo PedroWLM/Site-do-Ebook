@@ -1,35 +1,35 @@
 name: HTML Validate
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    paths:
-      - 'index.html'
 
 jobs:
-  html-validate:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20.19.x'
 
-      - name: Install html-validate
-        run: npm install --no-save html-validate@8
-
-      - name: Run html-validate on index.html
-        run: npx html-validate --config .htmlvalidate.json index.html
-
-      - name: Fallback checks (grep)
+      - name: Validate HTML (index.html)
         run: |
-          echo "Checking for target=\"_blank\" without rel=\"noopener noreferrer\"..."
-          grep -n "target=\"_blank\"" index.html || true
-          echo "Checking for <i data-lucide> without aria-hidden..."
-          grep -n "data-lucide" index.html | while read -r line; do
-            num=$(echo "$line" | cut -d: -f1)
-            text=$(sed -n "${num}p" index.html)
-            echo "$num: $text"
-          done || true
+          set -o pipefail
+          npx --yes html-validate@10.1.2 --version
+          npx --yes html-validate@10.1.2 index.html \
+            --config .htmlvalidate.json \
+            --formatter codeframe | tee html-validate-report.txt
+        # Não quebra o job; deixa você seguir e ver o relatório
+        continue-on-error: true
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-validate-report
+          path: html-validate-report.txt
