@@ -1,5 +1,51 @@
-﻿.DS_Store
+# ⚙️ SO / Explorer / Finder
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# 🧑‍💻 Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 📦 Node & logs (não versionamos dependências neste repo)
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+*.log
+*.log.*
+
+# 🔒 Lockfiles (mantemos o projeto sem lockfile)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# 🏗️ Builds e distribuições
 dist/
 build/
+.out/
+.cache/
+.tmp/
+.temp/
+.parcel-cache/
+.next/
+.svelte-kit/
+.vite/
 
+# 🧪 Cobertura e artefatos de ferramentas
+coverage/
+.lighthouseci/
+
+# 🌐 Vercel (artefatos locais)
+.vercel/
+
+# 🔐 Variáveis de ambiente (mantém exemplo)
+.env
+.env.*
+!.env.example
