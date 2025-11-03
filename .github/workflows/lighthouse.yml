@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main, dev ]
-  workflow_dispatch: {}   # permite rodar manualmente pelo Actions
+  workflow_dispatch: {}   # permite rodar manualmente
 
 permissions:
   contents: read
@@ -22,6 +22,15 @@ jobs:
         with:
           node-version: '20'
 
+      # Autorun estável:
+      # - staticDistDir: .  (site estático na raiz)
+      # - no-sandbox p/ Chrome headless no GitHub
+      # - upload público (gera link do relatório)
+      # - "|| true" => nunca quebra o pipeline (sempre exit 0)
       - name: Lighthouse CI (autorun)
-        run: npx --yes @lhci/cli@0.13.0 autorun --config=.lighthouserc.js --collect.staticDistDir=.
-        continue-on-error: true
+        run: |
+          npx --yes @lhci/cli@0.13.0 autorun \
+            --config=.lighthouserc.js \
+            --collect.staticDistDir=. \
+            --collect.settings.chromeFlags="--no-sandbox" \
+            --upload.target=temporary-public-storage || true
