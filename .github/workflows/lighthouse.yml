@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main, dev ]
+  workflow_dispatch: {}   # permite rodar manualmente pelo Actions
 
 permissions:
   contents: read
@@ -21,6 +22,6 @@ jobs:
         with:
           node-version: '20'
 
-      # Usa o config local e garante exit 0 mesmo se der nota baixa
       - name: Lighthouse CI (autorun)
-        run: npx --yes @lhci/cli@0.13.0 autorun --config=.lighthouserc.js --collect.staticDistDir=. || true
+        run: npx --yes @lhci/cli@0.13.0 autorun --config=.lighthouserc.js --collect.staticDistDir=.
+        continue-on-error: true
