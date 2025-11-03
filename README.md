@@ -7,10 +7,8 @@ Site otimizado com **Lighthouse CI**, deploy contínuo via **Vercel**, e verific
 
 ## Status do Projeto
 
-[![HTML Validate](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml)
-
-[![Lighthouse CI](https://img.shields.io/github/actions/workflow/status/PedroWLM/Site-do-Ebook/lighthouse.yml?branch=main&event=push&label=Lighthouse%20CI&cacheSeconds=60)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml)
-
+[![HTML Validate](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml?query=branch%3Amain)
+[![Lighthouse CI](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml?query=branch%3Amain+event%3Apush)
 [![Deploy – Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://tdah-simples.vercel.app)
 
 ---
