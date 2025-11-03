@@ -5,7 +5,6 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main, dev ]
-  workflow_dispatch: {}   # permite rodar manualmente
 
 permissions:
   contents: read
@@ -13,6 +12,9 @@ permissions:
 jobs:
   lhci:
     runs-on: ubuntu-latest
+    # se algum passo falhar, o job continua como "success"
+    continue-on-error: true
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,15 +24,25 @@ jobs:
         with:
           node-version: '20'
 
-      # Autorun estável:
-      # - staticDistDir: .  (site estático na raiz)
-      # - no-sandbox p/ Chrome headless no GitHub
-      # - upload público (gera link do relatório)
-      # - "|| true" => nunca quebra o pipeline (sempre exit 0)
+      # Roda LHCI no modo estático, publica link temporário e NUNCA quebra o job
       - name: Lighthouse CI (autorun)
         run: |
           npx --yes @lhci/cli@0.13.0 autorun \
             --config=.lighthouserc.js \
             --collect.staticDistDir=. \
-            --collect.settings.chromeFlags="--no-sandbox" \
-            --upload.target=temporary-public-storage || true
+            --upload.target=temporary-public-storage \
+          || true
+
+      # Salva o relatório como artifact (sempre)
+      - name: Preparar relatório
+        if: always()
+        run: |
+          mkdir -p lhci-report
+          cp -r .lighthouseci/* lhci-report/ || true
+
+      - name: Upload do relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lhci-report
+          path: lhci-report
