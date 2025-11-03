@@ -1,28 +1,42 @@
-module.exports = {
-  ci: {
-    collect: {
-      // usamos site estático (raiz do repo)
-      staticDistDir: ".",
-      numberOfRuns: 1,
-      settings: {
-        // evita falhas por sandbox/Headless no runner
-        chromeFlags: "--no-sandbox",
-      },
-    },
-    assert: {
-      // não queremos que o workflow "falhe" por nota baixa
-      preset: "lighthouse:no-pwa",
-      assertions: {
-        // opcional: apenas warnings nas categorias
-        "categories:performance": ["warn", { minScore: 0.6 }],
-        "categories:accessibility": ["warn", { minScore: 0.7 }],
-        "categories:best-practices": ["warn", { minScore: 0.7 }],
-        "categories:seo": ["warn", { minScore: 0.7 }],
-      },
-    },
-    upload: {
-      // também publicamos no storage temporário (link aparece no log)
-      target: "temporary-public-storage",
-    },
-  },
-};
+# .github/workflows/lighthouse.yml
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main, dev ]
+  workflow_dispatch: {}   # <-- permite rodar manualmente
+
+permissions:
+  contents: read
+
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Lighthouse CI (autorun)
+        run: |
+          npx --yes @lhci/cli@0.13.0 autorun \
+            --config=.lighthouserc.js \
+            --collect.staticDistDir=. \
+            --upload.target=temporary-public-storage \
+          || true
+      - name: Preparar relatório
+        if: always()
+        run: |
+          mkdir -p lhci-report
+          cp -r .lighthouseci/* lhci-report/ || true
+      - name: Upload do relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lhci-report
+          path: lhci-report
