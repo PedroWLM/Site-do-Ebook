@@ -1,48 +1,27 @@
-name: Lighthouse CI
+# 🌟 TDAH.Simples
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main, dev ]
+Guia de produtividade leve e acolhedor para mentes inquietas — um projeto feito para quem busca **organizar a rotina com gentileza e praticidade**.  
+Site otimizado com **Lighthouse CI**, deploy contínuo via **Vercel**, e verificação automática de acessibilidade e HTML semântico.
 
-permissions:
-  contents: read
+---
 
-jobs:
-  lhci:
-    runs-on: ubuntu-latest
-    # se algum passo falhar, o job continua como "success"
-    continue-on-error: true
+## Status do Projeto
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+[![HTML Validate](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml)
+[![Lighthouse CI](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml)
+[![Deploy – Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 
-      - name: Setup Node 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+---
 
-      # Roda LHCI no modo estático, publica link temporário e NUNCA quebra o job
-      - name: Lighthouse CI (autorun)
-        run: |
-          npx --yes @lhci/cli@0.13.0 autorun \
-            --config=.lighthouserc.js \
-            --collect.staticDistDir=. \
-            --upload.target=temporary-public-storage \
-          || true
+## 🚀 Deploy (Vercel)
+- **Deploys automáticos** em cada commit/pull request via integração **Vercel + GitHub**.  
+- **Preview URLs** nas PRs aparecem como *checks* da Vercel.  
+- **Produção** é publicada automaticamente a partir da branch `main`.  
+- Workflow de **Lighthouse CI** garante performance e boas práticas (sem quebrar a pipeline).  
+- Workflow de **HTML Validate** mantém a acessibilidade e semântica em dia.
 
-      # Salva o relatório como artifact (sempre)
-      - name: Preparar relatório
-        if: always()
-        run: |
-          mkdir -p lhci-report
-          cp -r .lighthouseci/* lhci-report/ || true
+🔗 **Site:** [tdah-simples.vercel.app](https://tdah-simples.vercel.app)
 
-      - name: Upload do relatório
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lhci-report
-          path: lhci-report
+---
+
+## 🛠️ Estrutura do Projeto
