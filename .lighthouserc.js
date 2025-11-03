@@ -1,30 +1,28 @@
-/** Config do Lighthouse CI — assert desligado para nunca quebrar o workflow */
 module.exports = {
   ci: {
     collect: {
+      // usamos site estático (raiz do repo)
       staticDistDir: ".",
       numberOfRuns: 1,
       settings: {
-        output: "html",
-        locale: "pt-BR",
-        formFactor: "desktop",
-        screenEmulation: {
-          mobile: false,
-          width: 1366,
-          height: 768,
-          deviceScaleFactor: 1,
-          disabled: false
-        }
-      }
-    },
-    upload: {
-      target: "temporary-public-storage"
+        // evita falhas por sandbox/Headless no runner
+        chromeFlags: "--no-sandbox",
+      },
     },
     assert: {
-      // Desliga todas as checagens que retornam exit code != 0
+      // não queremos que o workflow "falhe" por nota baixa
+      preset: "lighthouse:no-pwa",
       assertions: {
-        "*": "off"
-      }
-    }
-  }
+        // opcional: apenas warnings nas categorias
+        "categories:performance": ["warn", { minScore: 0.6 }],
+        "categories:accessibility": ["warn", { minScore: 0.7 }],
+        "categories:best-practices": ["warn", { minScore: 0.7 }],
+        "categories:seo": ["warn", { minScore: 0.7 }],
+      },
+    },
+    upload: {
+      // também publicamos no storage temporário (link aparece no log)
+      target: "temporary-public-storage",
+    },
+  },
 };
