@@ -5,15 +5,16 @@ Site otimizado com **Lighthouse CI**, deploy contínuo via **Vercel**, e verific
 
 ---
 
-## Status do Projeto
+## 📊 Status do Projeto
 
-[![HTML Validate](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml)
-[![Lighthouse CI](https://img.shields.io/github/actions/workflow/status/PedroWLM/Site-do-Ebook/lighthouse.yml?branch=main&label=Lighthouse%20CI)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml)
+[![HTML Validate](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml/badge.svg?branch=main&cacheBust=1)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml)
+[![Lighthouse CI](https://img.shields.io/github/actions/workflow/status/PedroWLM/Site-do-Ebook/lighthouse.yml?branch=main&label=Lighthouse%20CI&logo=lighthouse&cacheSeconds=60)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml)
 [![Deploy – Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 
 ---
 
 ## 🚀 Deploy (Vercel)
+
 - **Deploys automáticos** em cada commit/pull request via integração **Vercel + GitHub**.  
 - **Preview URLs** nas PRs aparecem como *checks* da Vercel.  
 - **Produção** é publicada automaticamente a partir da branch `main`.  
@@ -25,5 +26,4 @@ Site otimizado com **Lighthouse CI**, deploy contínuo via **Vercel**, e verific
 ---
 
 ## 🛠️ Estrutura do Projeto
-
 
