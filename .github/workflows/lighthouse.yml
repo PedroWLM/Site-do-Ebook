@@ -2,10 +2,12 @@ name: Lighthouse CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
     branches: [ main, dev ]
-  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   lhci:
@@ -17,31 +19,8 @@ jobs:
       - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20.19.x'
+          node-version: '20'
 
-      # Roda o Lighthouse em modo no-sandbox; não quebra o job se der nota baixa
+      # Usa o config local e garante exit 0 mesmo se der nota baixa
       - name: Lighthouse CI (autorun)
-        id: lhci
-        continue-on-error: true
-        env:
-          LHCI_NO_SANDBOX: true
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npx --yes @lhci/cli@0.13.0 autorun \
-            --collect.staticDistDir=. \
-            --collect.settings.chromeFlags="--no-sandbox --headless" \
-            --upload.target=temporary-public-storage \
-            --assert.preset=none || true
-
-      # Faz upload do relatório só se existir (evita falha)
-      - name: Upload Lighthouse report
-        if: always() && hashFiles('.lighthouseci/*') != ''
-        uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-report
-          path: '.lighthouseci/*'
-
-      # Marca o job como sucesso mesmo se o passo do LHCI tiver “failure”
-      - name: Mark success
-        if: always()
-        run: echo "Done."
+        run: npx --yes @lhci/cli@0.13.0 autorun --config=.lighthouserc.js --collect.staticDistDir=. || true
