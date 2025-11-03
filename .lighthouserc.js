@@ -1,42 +1,23 @@
-# .github/workflows/lighthouse.yml
-name: Lighthouse CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main, dev ]
-  workflow_dispatch: {}   # <-- permite rodar manualmente
-
-permissions:
-  contents: read
-
-jobs:
-  lhci:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Lighthouse CI (autorun)
-        run: |
-          npx --yes @lhci/cli@0.13.0 autorun \
-            --config=.lighthouserc.js \
-            --collect.staticDistDir=. \
-            --upload.target=temporary-public-storage \
-          || true
-      - name: Preparar relatório
-        if: always()
-        run: |
-          mkdir -p lhci-report
-          cp -r .lighthouseci/* lhci-report/ || true
-      - name: Upload do relatório
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lhci-report
-          path: lhci-report
+module.exports = {
+  ci: {
+    collect: {
+      staticDistDir: ".",
+      numberOfRuns: 1,
+      settings: {
+        chromeFlags: "--no-sandbox --headless",
+      },
+    },
+    assert: {
+      preset: "lighthouse:no-pwa",
+      assertions: {
+        "categories:performance": "off",
+        "categories:accessibility": "off",
+        "categories:best-practices": "off",
+        "categories:seo": "off",
+      },
+    },
+    upload: {
+      target: "temporary-public-storage",
+    },
+  },
+};
