@@ -22,27 +22,29 @@ jobs:
         with:
           node-version: '20'
 
-      # Roda o Lighthouse CI com segurança, nunca quebra o build
+      # Executa LHCI sem quebrar o build (mesmo se métricas forem baixas)
       - name: Run Lighthouse CI
         id: lhci
         continue-on-error: true
         run: |
-          echo "Executando Lighthouse CI (com tolerância a erro)..."
+          echo "▶️ Executando Lighthouse CI…"
           npx --yes @lhci/cli@0.13.0 autorun \
             --config=.lighthouserc.js \
             --collect.staticDistDir=. \
             --upload.target=temporary-public-storage || true
-          echo "Lighthouse CI concluído (mesmo se falhar nas métricas)."
+          echo "✅ LHCI finalizado."
 
-      # Garante que o job nunca retorne exit code diferente de 0
-      - name: Force success
-        if: always()
-        run: echo "✅ Forçando status final como sucesso (exit 0)."
-
-      # Salva relatório
+      # Faz upload dos relatórios se existirem (sem marcar como falha se não houver)
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lhci-report
-          path: .lighthouseci
+          path: .lighthouseci/**
+          if-no-files-found: ignore
+          retention-days: 5
+
+      # Garante conclusão SUCCESS sempre
+      - name: Force success
+        if: always()
+        run: echo "✅ Forçando status final como sucesso."
