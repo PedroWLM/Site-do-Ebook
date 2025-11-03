@@ -8,7 +8,7 @@ Site otimizado com **Lighthouse CI**, deploy contínuo via **Vercel**, e verific
 ## Status do Projeto
 
 [![HTML Validate](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/html-validate.yml)
-[![Lighthouse CI](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml/badge.svg?branch=main)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml)
+[![Lighthouse CI](https://img.shields.io/github/actions/workflow/status/PedroWLM/Site-do-Ebook/lighthouse.yml?branch=main&label=Lighthouse%20CI)](https://github.com/PedroWLM/Site-do-Ebook/actions/workflows/lighthouse.yml)
 [![Deploy – Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 
 ---
@@ -25,4 +25,5 @@ Site otimizado com **Lighthouse CI**, deploy contínuo via **Vercel**, e verific
 ---
 
 ## 🛠️ Estrutura do Projeto
+
 
