@@ -38,7 +38,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  <!-- Preconnects -->
+  <!-- Conexões -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://unpkg.com">
@@ -77,8 +77,12 @@
   <!-- MailerLite base fonts -->
   <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
 
-  <!-- ===== CSS do site (organizado e polido) ===== -->
+  <!-- ===== CSS do site ===== -->
   <style>
+    /* =========================
+       HOTFIX v2 - 2025-11-03
+       ========================= */
+
     /* 1) TOKENS / BASE */
     :root{
       color-scheme: light;
@@ -87,11 +91,16 @@
       --fs-h1: clamp(28px,6.2vw,44px);
       --fs-h2: clamp(24px,5vw,36px);
       --fs-h3: clamp(20px,3.6vw,24px);
+
       --rox:#523CAD; --rosa:#FE76E1; --lilas:#E6CCFF; --deep:#2B176D; --white:#FFFFFF; --gold:#FFD84D;
+
+      /* limites de largura e espaçamentos */
+      --max-hero: 1152px;
+      --max-text: 720px;
+      --section-gap: 56px;
+
+      /* tema hero */
       --tdah-roxo:#14006D; --tdah-rosa:#FE76E1; --tdah-lilas:#523CAD; --tdah-branco:#FFFFFF;
-      --max-hero: 1152px;      /* largura máxima para a área de topo */
-      --max-text: 720px;       /* largura máxima para textos longos */
-      --section-gap: 56px;     /* distância padrão entre seções */
     }
     html{scroll-behavior:smooth}
     html,body{font-size:var(--fs-body)}
@@ -129,7 +138,7 @@
     .tdah-logo img{display:block;height:clamp(28px,4.2vw,44px);width:auto}
     .tdah-slogan{text-align:center;font-weight:800;color:#fff;font-size:clamp(14px,2.2vw,28px);line-height:1.15;text-shadow:2px 3px 0 #FE76E1,0 1px 0 rgba(0,0,0,.06)}
 
-    /* 5) HERO (centralizado e com respiro) */
+    /* 5) HERO */
     .hero{position:relative;color:var(--tdah-branco);overflow:hidden;background:radial-gradient(1200px 400px at 50% -200px,#2a0aa3 0%,var(--tdah-roxo) 55%,#0c0045 100%)}
     .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff33 1px,transparent 1px);background-size:22px 22px;opacity:.25;pointer-events:none}
     .hero .wrap{padding:96px 24px 72px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;max-width:var(--max-hero);margin-inline:auto}
@@ -140,9 +149,8 @@
     .btn-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:999px;font-weight:800;color:var(--tdah-branco);background:linear-gradient(90deg,#5B2BC9 0%,#C32CF0 50%,var(--tdah-rosa) 100%);text-decoration:none;box-shadow:0 10px 30px #b437ff55,inset 0 -2px 0 #ffffff44;transition:transform .15s,box-shadow .15s}
     .btn-cta:hover{transform:translateY(-1px);box-shadow:0 14px 40px #b437ff66,inset 0 -2px 0 #ffffff66}
     .btn-cta:focus-visible{outline:3px solid var(--rosa);outline-offset:2px}
-    @media (min-width:1024px){ .hero p.lead{font-size:1.05em;max-width:62ch} }
 
-    /* 6) CHIPS */
+    /* 6) CHIPS (centrado) */
     .chips{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:var(--max-hero);margin:0 auto}
     @media (max-width:480px){
       .chips{flex-wrap:nowrap;overflow-x:auto;padding:6px 2px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
@@ -157,13 +165,11 @@
         radial-gradient(46px 32px at 65% 110%,var(--bg) 98%,transparent),
         radial-gradient(42px 30px at 85% 110%,var(--bg) 98%,transparent),
         var(--bg);border-radius:24px;padding:20px 22px;text-align:center;border:1px solid rgba(255,255,255,.7);box-shadow:0 18px 48px rgba(82,60,173,.22)}
-    .cloud--xl{padding:26px}
     .cloud-narrow{max-width:var(--max-text);margin-inline:auto}
     .cloud-narrow-sm{max-width:560px;margin-inline:auto}
     .cloud-thin{padding:14px 18px;border-radius:18px;text-align:center}
     .with-emoji{display:flex;align-items:flex-start;gap:.6rem;justify-content:center}
     .with-emoji .e{font-size:1.2em;line-height:1}
-    @media (min-width:1024px){ .cloud{padding:22px 24px} }
 
     /* 8) DEPOIMENTOS */
     .stars{display:flex;gap:.2rem;justify-content:center}
@@ -171,7 +177,6 @@
     .testimonial{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:18px;box-shadow:0 18px 44px rgba(43,23,109,.14)}
     .testimonial blockquote{margin:10px 0 10px;line-height:1.6;font-size:1.02em}
     .testimonial footer{color:rgba(43,23,109,.78);font-size:1em}
-    @media (min-width:1024px){ .testimonial blockquote{font-size:1.05em} }
 
     /* 9) RODAPÉ */
     .site-footer{background:#2B176D;color:#fff;padding:34px 20px;text-align:center}
@@ -179,7 +184,7 @@
     .footer-mail{display:inline-flex;align-items:center;gap:.6rem;padding:10px 16px;border-radius:999px;background:#ffffff12;color:#fff;text-decoration:none}
     .footer-mail:focus-visible{outline:3px solid var(--rosa);outline-offset:2px}
 
-    /* 10) MailerLite (integração) */
+    /* 10) MailerLite */
     .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px}
     .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-form-embedSubmitLoad 1.2s linear infinite}
     @keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
@@ -194,6 +199,17 @@
     #mlb2-30554077 .ml-form-fieldRow input{background-color:#fff!important;color:#2B176D!important;border-color:rgba(82,60,173,.25)!important;border-radius:999px!important;border-style:solid!important;border-width:1px!important;font-family:'Lexend',sans-serif!important;font-size:16px!important;height:auto;line-height:24px!important;margin:0;padding:14px 18px!important;width:100%!important;box-sizing:border-box!important;max-width:100%!important}
     #mlb2-30554077 .ml-form-embedSubmit button{background:linear-gradient(135deg,#523CAD,#FE76E1)!important;border:none!important;border-radius:999px!important;box-shadow:0 10px 25px rgba(82,60,173,.25)!important;color:#fff!important;cursor:pointer;font-family:'Lexend',sans-serif!important;font-size:18px!important;line-height:24px!important;height:auto;padding:14px!important;width:100%!important;box-sizing:border-box!important;transition:transform .2s ease!important}
     #mlb2-30554077 .ml-form-embedSubmit button:hover,#mlb2-30554077 .ml-form-embedSubmit button:focus-visible{transform:translateY(-1px);background:linear-gradient(135deg,#2B176D,#FE76E1)!important;outline:3px solid var(--rosa);outline-offset:2px}
+
+    /* 11) OVERRIDES FORTES (garantir mudança) */
+    /* força largura máxima e centralização dos blocos principais no desktop */
+    @media (min-width: 1024px){
+      .chips, .cloud-narrow, .cloud-narrow-sm, .cloud-thin, .testimonial, .ml-form-embedWrapper.embedForm {
+        margin-left:auto !important; margin-right:auto !important;
+      }
+      .cloud-narrow{ max-width: var(--max-text) !important; }
+      .cloud-narrow-sm{ max-width: 560px !important; }
+      .ml-form-embedWrapper.embedForm{ max-width: 420px !important; }
+    }
   </style>
 
   <!-- GA4 -->
