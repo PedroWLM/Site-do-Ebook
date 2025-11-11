@@ -45,75 +45,107 @@
   <style>
     :root { color-scheme: light; }
 
-    /*  Fundo mágico (MOBILE primeiro)  */
-    .page-bg {
-      background-image: url("./assets/bg-magico-mobile.webp");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-color: #E6CCFF;
-    }
-    /*  Versão DESKTOP */
-    @media (min-width: 1024px) {
-      .page-bg {
-        background-image: url("./assets/bg-magico-desktop.webp");
-        background-position: center top;
-      }
-    }
-
+    /* =========================================================
+       (8) Fundo global da página — Desktop e Mobile
+       ---------------------------------------------------------
+       - A primeira camada é a imagem (desktop ou mobile)
+       - A segunda camada é um gradiente suave de fallback
+       - background-size: 100% auto preserva a proporção
+         (se quiser mostrar MAIS da arte, troque para "cover")
+       ========================================================= */
     body {
       font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       color: #2B176D;
+
+      /* Camada 1: imagem (desktop) | Camada 2: gradiente de fallback */
+      background-image: url('assets/bg-magico-desktop.webp'), linear-gradient(180deg, #E6CCFF 0%, #FFFFFF 60%);
+      background-repeat: no-repeat, no-repeat;
+      background-position: top center, top center;
+      background-size: 100% auto, 100% 100%;
+      /* Dica: se preferir “preencher tela toda” mesmo cortando um pouco,
+         troque o 100% auto por "cover". */
+    }
+    @media (max-width: 768px){
+      body{
+        background-image: url('assets/bg-magico-mobile.webp'), linear-gradient(180deg, #E6CCFF 0%, #FFFFFF 60%);
+        background-size: 100% auto, 100% 100%;
+      }
     }
 
     .font-lexend { font-family: 'Lexend', sans-serif; }
 
-    .skip-link{
-      position:absolute;left:50%;transform:translateX(-50%);top:.5rem;
-      padding:.75rem 1.5rem;border-radius:999px;background:#523CAD;color:#FFF;font-weight:600;z-index:100;
-      opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;
+    .skip-link {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      top: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 999px;
+      background: #523CAD; color: #FFFFFF; font-weight: 600; z-index: 100;
+      opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease;
     }
-    .skip-link:focus{opacity:1;pointer-events:auto;transform:translate(-50%,0);outline:3px solid #FE76E1;outline-offset:4px;}
-
-    .cta-pill{
-      background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
-      color:#FFF;border-radius:999px;font-weight:600;box-shadow:0 10px 30px rgba(82,60,173,.25);
-      transition:transform .2s ease, box-shadow .2s ease;
+    .skip-link:focus {
+      opacity: 1; pointer-events: auto; transform: translate(-50%, 0);
+      outline: 3px solid #FE76E1; outline-offset: 4px;
     }
-    .cta-pill:hover,.cta-pill:focus-visible{transform:translateY(-2px);box-shadow:0 16px 40px rgba(82,60,173,.35);}
-    .cta-pill:focus-visible{outline:3px solid #FE76E1;outline-offset:4px;}
 
-    .badge-soft{background:rgba(82,60,173,.1);color:#2B176D;}
-    .card-surface{background:#FFF;border:1px solid rgba(82,60,173,.08);box-shadow:0 20px 45px rgba(43,23,109,.08);}
-    .section-soft{background:linear-gradient(180deg, rgba(230,204,255,.45) 0%, rgba(255,255,255,.85) 100%);}
-
-    .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px;}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
-    .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #FFF;border-color:#FFF #FFF #FFF transparent;animation:ml-form-embedSubmitLoad 1.2s linear infinite;}
-    @keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-
-    #mlb2-30554077.ml-form-embedContainer{box-sizing:border-box;display:table;margin:0 auto;position:static;width:100%!important;}
-    #mlb2-30554077 .ml-form-embedWrapper{background-color:rgba(230,204,255,.35);border-width:0;border-color:transparent;border-radius:32px;border-style:solid;box-sizing:border-box;display:inline-block!important;margin:0;padding:0;position:relative;}
-    #mlb2-30554077 .ml-form-embedWrapper.embedForm{max-width:730px;width:100%;}
-    #mlb2-30554077 .ml-form-embedBody{padding:24px 24px 8px 24px;}
-    #mlb2-30554077 .ml-form-embedContent{text-align:center;margin:0 0 16px 0;}
-    #mlb2-30554077 .ml-form-embedContent h4{color:#2B176D;font-family:'Lexend',sans-serif;font-size:32px;font-weight:600;margin:0 0 10px 0;word-break:break-word;}
-    #mlb2-30554077 .ml-form-embedContent p{color:#2B176D;font-family:'Lexend',sans-serif;font-size:16px;font-weight:400;line-height:1.5;margin:0 0 10px 0;}
-    #mlb2-30554077 .ml-form-fieldRow{margin:0 0 10px 0;width:100%;}
-    #mlb2-30554077 .ml-form-fieldRow input{
-      background-color:#FFF!important;color:#2B176D!important;border-color:rgba(82,60,173,.25)!important;border-radius:999px!important;border-style:solid!important;border-width:1px!important;
-      font-family:'Lexend',sans-serif!important;font-size:16px!important;height:auto;line-height:24px!important;margin:0;padding:14px 18px!important;width:100%!important;box-sizing:border-box!important;max-width:100%!important;
+    .cta-pill {
+      background: linear-gradient(135deg, #523CAD 0%, #FE76E1 100%);
+      color: #FFFFFF; border-radius: 999px; font-weight: 600;
+      box-shadow: 0 10px 30px rgba(82, 60, 173, 0.25);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    #mlb2-30554077 .ml-form-embedSubmit button{
-      background:linear-gradient(135deg,#523CAD,#FE76E1)!important;border:none!important;border-radius:999px!important;box-shadow:0 10px 25px rgba(82,60,173,.25)!important;color:#FFF!important;cursor:pointer;
-      font-family:'Lexend',sans-serif!important;font-size:18px!important;font-weight:600!important;line-height:24px!important;height:auto;padding:14px!important;width:100%!important;box-sizing:border-box!important;transition:transform .2s ease!important;
+    .cta-pill:hover, .cta-pill:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(82, 60, 173, 0.35);
+    }
+    .cta-pill:focus-visible { outline: 3px solid #FE76E1; outline-offset: 4px; }
+
+    .badge-soft { background: rgba(82, 60, 173, 0.1); color: #2B176D; }
+    .card-surface {
+      background: #FFFFFF; border: 1px solid rgba(82, 60, 173, 0.08);
+      box-shadow: 0 20px 45px rgba(43, 23, 109, 0.08);
+    }
+    .section-soft {
+      background: linear-gradient(180deg, rgba(230, 204, 255, 0.45) 0%, rgba(255, 255, 255, 0.85) 100%);
+    }
+
+    .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); border: 0;
+    }
+    .ml-form-embedSubmitLoad:after {
+      content: " "; display: block; width: 11px; height: 11px; margin: 1px;
+      border-radius: 50%; border: 4px solid #FFFFFF;
+      border-color: #FFFFFF #FFFFFF #FFFFFF transparent;
+      animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+    }
+    @keyframes ml-form-embedSubmitLoad { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+
+    #mlb2-30554077.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important; }
+    #mlb2-30554077 .ml-form-embedWrapper { background-color: rgba(230, 204, 255, 0.35); border-width: 0; border-color: transparent; border-radius: 32px; border-style: solid; box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative; }
+    #mlb2-30554077 .ml-form-embedWrapper.embedForm { max-width: 730px; width: 100%; }
+    #mlb2-30554077 .ml-form-embedBody { padding: 24px 24px 8px 24px; }
+    #mlb2-30554077 .ml-form-embedContent { text-align: center; margin: 0 0 16px 0; }
+    #mlb2-30554077 .ml-form-embedContent h4 { color: #2B176D; font-family: 'Lexend', sans-serif; font-size: 32px; font-weight: 600; margin: 0 0 10px 0; word-break: break-word; }
+    #mlb2-30554077 .ml-form-embedContent p { color: #2B176D; font-family: 'Lexend', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; margin: 0 0 10px 0; }
+    #mlb2-30554077 .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
+    #mlb2-30554077 .ml-form-fieldRow input {
+      background-color: #FFFFFF !important; color: #2B176D !important; border-color: rgba(82,60,173,.25) !important;
+      border-radius: 999px !important; border-style: solid !important; border-width: 1px !important;
+      font-family: 'Lexend', sans-serif !important; font-size: 16px !important; height: auto; line-height: 24px !important;
+      margin: 0; padding: 14px 18px !important; width: 100% !important; box-sizing: border-box !important; max-width: 100% !important;
+    }
+    #mlb2-30554077 .ml-form-embedSubmit button {
+      background: linear-gradient(135deg, #523CAD, #FE76E1) !important; border: none !important; border-radius: 999px !important;
+      box-shadow: 0 10px 25px rgba(82, 60, 173, 0.25) !important; color: #FFFFFF !important; cursor: pointer;
+      font-family: 'Lexend', sans-serif !important; font-size: 18px !important; font-weight: 600 !important; line-height: 24px !important;
+      height: auto; padding: 14px !important; width: 100% !important; box-sizing: border-box !important; transition: transform .2s ease !important;
     }
     #mlb2-30554077 .ml-form-embedSubmit button:hover,
-    #mlb2-30554077 .ml-form-embedSubmit button:focus-visible{transform:translateY(-1px);background:linear-gradient(135deg,#2B176D,#FE76E1)!important;}
-
-    @media only screen and (max-width: 730px){
-      .ml-form-embedWrapper.embedDefault,
-      .ml-form-embedWrapper.embedPopup{width:100%!important;}
+    #mlb2-30554077 .ml-form-embedSubmit button:focus-visible {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, #2B176D, #FE76E1) !important;
+    }
+    @media (max-width: 730px){
+      .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100% !important; }
     }
   </style>
 
@@ -146,12 +178,12 @@
   </script>
 </head>
 
-<body class="tw-min-h-screen tw-text-brandDeep" id="topo">
+<body class="tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- AQUI A GENTE APLICA O FUNDO (classe .page-bg) -->
-  <div class="page-bg tw-min-h-screen">
-    <!-- Header (2) -->
+  <!-- Removi o gradiente do wrapper para não cobrir o novo fundo -->
+  <div class="tw-min-h-screen">
+    <!-- Header -->
     <header class="tw-sticky tw-top-0 tw-z-40 tw-bg-brandWhite/80 tw-backdrop-blur tw-border-b tw-border-brandPrimary/10">
       <div class="tw-container tw-mx-auto tw-max-w-6xl tw-px-4 tw-py-4">
         <div class="tw-flex tw-items-center tw-justify-between">
@@ -170,25 +202,21 @@
     </header>
 
     <main id="conteudo" class="tw-relative tw-z-10">
-      <!-- Hero (3,4,5,6,7) -->
+      <!-- Hero -->
       <section class="tw-px-4 tw-py-20">
         <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8">
-          <!-- 3 -->
           <div class="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-full badge-soft tw-text-sm tw-font-medium">
             <span>Um guia seguro para quem vive com TDAH</span>
           </div>
 
-          <!-- 4 -->
           <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight">
             Isso tem um nome: TDAH.
           </h1>
 
-          <!-- 5 -->
           <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/80 tw-max-w-2xl tw-mx-auto">
             Um espaço leve e acolhedor para entender sua mente e começar pequeno, do seu jeito.
           </p>
 
-          <!-- 6 + 7 -->
           <div class="tw-flex tw-flex-col tw-items-center tw-gap-6">
             <a
               id="cta-hero"
@@ -205,7 +233,7 @@
         </div>
       </section>
 
-      <!-- Chips (8) -->
+      <!-- Chips -->
       <section class="tw-px-4 tw-pb-12">
         <div class="tw-container tw-mx-auto tw-max-w-4xl tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-3">
           <div class="tw-flex tw-items-center tw-gap-2 tw-bg-brandWhite/80 tw-rounded-full tw-px-4 tw-py-2 tw-shadow-sm tw-border tw-border-brandPrimary/10">
@@ -273,7 +301,7 @@
         </div>
       </section>
 
-      <!-- Como funciona (8) -->
+      <!-- Como funciona -->
       <section class="tw-py-16 tw-px-4 section-soft">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="tw-text-center tw-mb-12">
@@ -303,7 +331,7 @@
         </div>
       </section>
 
-      <!-- Benefícios (8) -->
+      <!-- Benefícios -->
       <section id="beneficios" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
@@ -357,7 +385,7 @@
         </div>
       </section>
 
-      <!-- Sobre (8 mantém spacing/padrão) -->
+      <!-- Sobre -->
       <section id="sobre" class="tw-py-20 tw-px-4 section-soft">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="card-surface tw-rounded-3xl tw-overflow-hidden">
@@ -376,7 +404,7 @@
         </div>
       </section>
 
-      <!-- Depoimentos (8) -->
+      <!-- Depoimentos -->
       <section id="depoimentos" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
