@@ -45,25 +45,14 @@
   <style>
     :root { color-scheme: light; }
 
-    /* =========================================================
-       (8) Fundo global da página — Desktop e Mobile
-       ---------------------------------------------------------
-       - A primeira camada é a imagem (desktop ou mobile)
-       - A segunda camada é um gradiente suave de fallback
-       - background-size: 100% auto preserva a proporção
-         (se quiser mostrar MAIS da arte, troque para "cover")
-       ========================================================= */
+    /* Fundo global (8) */
     body {
       font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       color: #2B176D;
-
-      /* Camada 1: imagem (desktop) | Camada 2: gradiente de fallback */
       background-image: url('assets/bg-magico-desktop.webp'), linear-gradient(180deg, #E6CCFF 0%, #FFFFFF 60%);
       background-repeat: no-repeat, no-repeat;
       background-position: top center, top center;
       background-size: 100% auto, 100% 100%;
-      /* Dica: se preferir “preencher tela toda” mesmo cortando um pouco,
-         troque o 100% auto por "cover". */
     }
     @media (max-width: 768px){
       body{
@@ -102,8 +91,22 @@
       background: #FFFFFF; border: 1px solid rgba(82, 60, 173, 0.08);
       box-shadow: 0 20px 45px rgba(43, 23, 109, 0.08);
     }
+
+    /* Faixa suave para seções inteiras */
     .section-soft {
       background: linear-gradient(180deg, rgba(230, 204, 255, 0.45) 0%, rgba(255, 255, 255, 0.85) 100%);
+    }
+
+    /* NOVO: desfocado só atrás do texto (para "Comece no seu ritmo") */
+    .soft-box{
+      display:inline-block;
+      border-radius: 24px;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.55);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 12px 30px rgba(43, 23, 109, 0.12);
     }
 
     .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
@@ -181,7 +184,7 @@
 <body class="tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- Removi o gradiente do wrapper para não cobrir o novo fundo -->
+  <!-- Sem gradiente no wrapper, para o fundo aparecer -->
   <div class="tw-min-h-screen">
     <!-- Header -->
     <header class="tw-sticky tw-top-0 tw-z-40 tw-bg-brandWhite/80 tw-backdrop-blur tw-border-b tw-border-brandPrimary/10">
@@ -255,58 +258,14 @@
         </div>
       </section>
 
-      <!-- Captura de e-mail -->
+      <!-- Como funciona (sem section-soft; soft-box só no texto) -->
       <section class="tw-py-16 tw-px-4">
-        <div class="tw-container tw-mx-auto tw-max-w-2xl">
-          <div id="mlb2-30554077" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-30554077">
-            <div class="ml-form-align-center">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <div class="ml-form-embedContent">
-                    <h4>Receba lembretes gentis</h4>
-                    <p>Pequenos e-mails com dicas de foco, autocuidado e atualizações do TDAH.Simples.</p>
-                  </div>
-
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/subscribe" method="post" target="_blank">
-                    <div class="ml-form-formContent">
-                      <div class="ml-form-fieldRow ml-last-item">
-                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                          <label for="ml-email" class="sr-only">Seu melhor e-mail</label>
-                          <input id="ml-email" aria-label="E-mail" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Seu melhor e-mail" autocomplete="email" required>
-                        </div>
-                      </div>
-                    </div>
-
-                    <input type="hidden" name="ml-submit" value="1">
-                    <div class="ml-form-embedSubmit">
-                      <button type="submit" class="primary">Receber novidades com cuidado</button>
-                      <button disabled style="display: none;" type="button" class="loading">
-                        <div class="ml-form-embedSubmitLoad"></div>
-                        <span class="sr-only">Carregando...</span>
-                      </button>
-                    </div>
-                    <input type="hidden" name="anticsrf" value="true">
-                  </form>
-                </div>
-
-                <div class="ml-form-successBody row-success" style="display: none">
-                  <div class="ml-form-successContent">
-                    <h4>Obrigada por confiar na gente 💜</h4>
-                    <p>Em instantes você recebe um e-mail confirmando sua inscrição.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Como funciona -->
-      <section class="tw-py-16 tw-px-4 section-soft">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="tw-text-center tw-mb-12">
-            <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold tw-mb-4">Comece no seu ritmo</h2>
-            <p class="tw-text-xl tw-text-brandDeep/80">Três passos para transformar intenção em cuidado cotidiano</p>
+            <div class="soft-box">
+              <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold">Comece no seu ritmo</h2>
+              <p class="tw-text-xl tw-text-brandDeep/80">Três passos para transformar intenção em cuidado cotidiano</p>
+            </div>
           </div>
 
           <div class="tw-grid md:tw-grid-cols-3 tw-gap-8">
@@ -331,7 +290,7 @@
         </div>
       </section>
 
-      <!-- Benefícios -->
+      <!-- Benefícios (sem mudanças) -->
       <section id="beneficios" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
@@ -385,8 +344,8 @@
         </div>
       </section>
 
-      <!-- Sobre -->
-      <section id="sobre" class="tw-py-20 tw-px-4 section-soft">
+      <!-- Sobre (2ª marcação: sem “caixa desfocada”) -->
+      <section id="sobre" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="card-surface tw-rounded-3xl tw-overflow-hidden">
             <div class="tw-p-10 md:tw-p-14 tw-text-center tw-space-y-6">
@@ -404,8 +363,8 @@
         </div>
       </section>
 
-      <!-- Depoimentos -->
-      <section id="depoimentos" class="tw-py-20 tw-px-4">
+      <!-- Depoimentos (3ª marcação: com fundo desfocado da seção) -->
+      <section id="depoimentos" class="tw-py-20 tw-px-4 section-soft">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
             <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold tw-mb-4">Quem já encontrou calma</h2>
