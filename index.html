@@ -6,18 +6,11 @@
   <title>TDAH.Simples — Guia de Produtividade leve para mentes inquietas</title>
   <meta name="description" content="TDAH.Simples é um espaço acolhedor para entender o TDAH e criar rotinas suaves. Baixe o guia de produtividade e comece pequeno, no seu tempo." />
 
-  <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Tailwind config -->
   <script>
     tailwind.config = {
       prefix: 'tw-',
@@ -30,42 +23,41 @@
             brandDeep: '#2B176D',
             brandWhite: '#FFFFFF'
           },
-          fontFamily: {
-            lexend: ['Lexend', 'Inter', 'system-ui', 'sans-serif']
-          }
+          fontFamily: { lexend: ['Lexend','Inter','system-ui','sans-serif'] }
         }
       }
     };
   </script>
-
-  <!-- MailerLite base fonts -->
   <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
 
-  <!-- Estilos -->
   <style>
     :root { color-scheme: light; }
 
-    /* Fundo global (8) */
+    /* FUNDO: agora repete verticalmente (repeat-y) para não “acabar” no meio da página */
     body{
-      font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-family:'Lexend',-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
       color:#2B176D;
+      /* camada 1: imagem; camada 2: degradê sutil por baixo (fallback) */
       background-image: url('assets/bg-magico-desktop.webp'), linear-gradient(180deg,#E6CCFF 0%,#FFFFFF 60%);
-      background-repeat: no-repeat, no-repeat;
+      background-repeat: repeat-y, no-repeat;         /* <= AQUI */
       background-position: top center, top center;
-      background-size: 100% auto, 100% 100%;
+      background-size: 100% auto, 100% 100%;          /* <= largura 100%, altura automática p/ azulejar */
+      background-attachment: scroll, scroll;
     }
     @media (max-width:768px){
       body{
         background-image: url('assets/bg-magico-mobile.webp'), linear-gradient(180deg,#E6CCFF 0%,#FFFFFF 60%);
+        background-repeat: repeat-y, no-repeat;       /* <= AQUI também no mobile */
+        background-position: top center, top center;
         background-size: 100% auto, 100% 100%;
       }
     }
 
     .font-lexend{font-family:'Lexend',sans-serif;}
-    .skip-link{position:absolute;left:50%;transform:translateX(-50%);top:.5rem;padding:.75rem 1.5rem;border-radius:999px;background:#523CAD;color:#fff;font-weight:600;z-index:100;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;}
+    .skip-link{position:absolute;left:50%;transform:translateX(-50%);top:.5rem;padding:.75rem 1.5rem;border-radius:999px;background:#523CAD;color:#fff;font-weight:600;z-index:100;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;}
     .skip-link:focus{opacity:1;pointer-events:auto;transform:translate(-50%,0);outline:3px solid #FE76E1;outline-offset:4px;}
 
-    .cta-pill{background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);color:#fff;border-radius:999px;font-weight:600;box-shadow:0 10px 30px rgba(82,60,173,.25);transition:transform .2s ease,box-shadow .2s ease;}
+    .cta-pill{background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);color:#fff;border-radius:999px;font-weight:600;box-shadow:0 10px 30px rgba(82,60,173,.25);transition:transform .2s,box-shadow .2s;}
     .cta-pill:hover,.cta-pill:focus-visible{transform:translateY(-2px);box-shadow:0 16px 40px rgba(82,60,173,.35);}
     .cta-pill:focus-visible{outline:3px solid #FE76E1;outline-offset:4px;}
 
@@ -99,30 +91,14 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1KS3167PQQ');
+    gtag('js', new Date()); gtag('config', 'G-1KS3167PQQ');
   </script>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Book",
-      "name": "Guia de Produtividade TDAH.Simples",
-      "description": "Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
-      "author": { "@type": "Organization", "name": "TDAH.Simples" },
-      "publisher": { "@type": "Organization", "name": "TDAH.Simples" },
-      "offers": {
-        "@type": "Offer",
-        "price": "35.00",
-        "priceCurrency": "BRL",
-        "availability": "https://schema.org/InStock",
-        "url": "https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-      }
-    }
+    {"@context":"https://schema.org","@type":"Book","name":"Guia de Produtividade TDAH.Simples","description":"Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.","author":{"@type":"Organization","name":"TDAH.Simples"},"publisher":{"@type":"Organization","name":"TDAH.Simples"},"offers":{"@type":"Offer","price":"35.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"}}
   </script>
 </head>
-
 <body class="tw-min-h-screen tw-text-brandDeep tw-bg-transparent" id="topo">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
@@ -153,9 +129,7 @@
             <span>Um guia seguro para quem vive com TDAH</span>
           </div>
 
-          <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight">
-            Isso tem um nome: TDAH.
-          </h1>
+          <h1 class="tw-text-4xl md:tw-text-6xl tw-font-semibold tw-leading-tight">Isso tem um nome: TDAH.</h1>
 
           <p class="tw-text-xl md:tw-text-2xl tw-text-brandDeep/80 tw-max-w-2xl tw-mx-auto">
             Um espaço leve e acolhedor para entender sua mente e começar pequeno, do seu jeito.
@@ -209,13 +183,11 @@
               <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Baixe o guia</h3>
               <p class="tw-text-brandDeep/80">Acesso imediato com orientações práticas e acolhedoras.</p>
             </div>
-
             <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
               <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">2</div>
               <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha um micro-passos</h3>
               <p class="tw-text-brandDeep/80">Use exercícios de 10 minutos para construir confiança.</p>
             </div>
-
             <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
               <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">3</div>
               <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Crie sua rotina afetiva</h3>
@@ -238,37 +210,37 @@
           <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
             <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
               <div class="tw-flex tw-items-start tw-gap-3">
-                <i data-lucide="compass" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
+                <i data-lucide="compass" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
                 <p class="tw-text-brandDeep/90">Mapas mentais para identificar gatilhos e caminhos de foco.</p>
               </div>
             </div>
             <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
               <div class="tw-flex tw-items-start tw-gap-3">
-                <i data-lucide="calendar" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
+                <i data-lucide="calendar" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
                 <p class="tw-text-brandDeep/90">Modelos de rotina flexível que respeitam seus ciclos de energia.</p>
               </div>
             </div>
             <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
               <div class="tw-flex tw-items-start tw-gap-3">
-                <i data-lucide="heart" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
+                <i data-lucide="heart" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
                 <p class="tw-text-brandDeep/90">Ferramentas de autocuidado para reduzir culpa e autocrítica.</p>
               </div>
             </div>
             <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
               <div class="tw-flex tw-items-start tw-gap-3">
-                <i data-lucide="sun" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
+                <i data-lucide="sun" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
                 <p class="tw-text-brandDeep/90">Checklists de manhã e noite para ritmar seu dia sem pressão.</p>
               </div>
             </div>
             <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
               <div class="tw-flex tw-items-start tw-gap-3">
-                <i data-lucide="target" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
+                <i data-lucide="target" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
                 <p class="tw-text-brandDeep/90">Técnicas focadas em objetivos curtos com feedback imediato.</p>
               </div>
             </div>
             <div class="card-surface tw-rounded-2xl tw-p-6 tw-space-y-3">
               <div class="tw-flex tw-items-start tw-gap-3">
-                <i data-lucide="gift" class="tw-w-6 tw-h-6 tw-text-brandPrimary" aria-hidden="true"></i>
+                <i data-lucide="gift" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
                 <p class="tw-text-brandDeep/90">Bônus: testes práticos para personalizar seu plano de ação.</p>
               </div>
             </div>
@@ -281,7 +253,7 @@
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="card-surface tw-rounded-3xl tw-overflow-hidden">
             <div class="tw-p-10 md:tw-p-14 tw-text-center tw-space-y-6">
-              <i data-lucide="book-open" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto" aria-hidden="true"></i>
+              <i data-lucide="book-open" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto"></i>
               <h2 class="tw-text-3xl tw-font-semibold">Sobre o guia</h2>
               <p class="tw-text-lg tw-text-brandDeep/80 tw-leading-relaxed">
                 O Guia de Produtividade TDAH.Simples nasceu para ser companhia diária de quem se sente sobrecarregado com técnicas tradicionais.
@@ -295,7 +267,7 @@
         </div>
       </section>
 
-      <!-- Depoimentos (AGORA TRANSPARENTE) -->
+      <!-- Depoimentos -->
       <section id="depoimentos" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
@@ -306,11 +278,7 @@
           <div class="tw-grid md:tw-grid-cols-2 tw-gap-6 tw-mb-12">
             <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
               <div class="tw-flex tw-gap-1" aria-hidden="true">
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
               </div>
               <p class="tw-text-brandDeep/90 tw-italic">"Achei um jeito de estudar sem me culpar. A cada micro-vitória eu me sinto abraçada."</p>
               <div class="tw-border-t tw-border-brandPrimary/15 tw-pt-4 tw-text-brandDeep/70">
@@ -321,11 +289,7 @@
 
             <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
               <div class="tw-flex tw-gap-1" aria-hidden="true">
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+                <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
               </div>
               <p class="tw-text-brandDeep/90 tw-italic">"Os testes bônus me ajudaram a entender quando pausar. Nunca tinha conseguido manter um planejamento por tanto tempo."</p>
               <div class="tw-border-t tw-border-brandPrimary/15 tw-pt-4 tw-text-brandDeep/70">
@@ -337,11 +301,7 @@
 
           <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
             <div class="tw-flex tw-gap-1" aria-hidden="true">
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
             </div>
             <p class="tw-text-brandDeep/90 tw-italic">"Senti que alguém descreveu exatamente minha mente inquieta. Hoje consigo começar tarefas com menos resistência."</p>
             <div class="tw-border-t tw-border-brandPrimary/15 tw-pt-4 tw-text-brandDeep/70">
@@ -352,14 +312,14 @@
         </div>
       </section>
 
-      <!-- CTA FINAL (TRANSPARENTE EM SOFT-BOX) -->
+      <!-- CTA FINAL em soft-box translúcido -->
       <section class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-3xl tw-text-center">
           <div class="soft-box tw-w-full">
             <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold">Pronto para acolher sua rotina?</h2>
             <p class="tw-text-xl tw-text-brandDeep/80 tw-mt-2">Baixe agora o TDAH.Simples e ganhe ferramentas para planejar com calma.</p>
             <a id="cta-final" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener" class="tw-inline-flex tw-items-center tw-gap-3 tw-px-10 tw-py-4 tw-text-lg tw-mt-5 cta-pill">
-              <i data-lucide="external-link" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
+              <i data-lucide="external-link" class="tw-w-5 tw-h-5"></i>
               Quero meu guia TDAH.Simples
             </a>
           </div>
@@ -370,15 +330,11 @@
       <section id="contato" class="tw-py-20 tw-px-4 section-soft">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="card-surface tw-rounded-3xl tw-p-10 tw-text-center tw-space-y-6">
-            <i data-lucide="mail" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto" aria-hidden="true"></i>
+            <i data-lucide="mail" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto"></i>
             <h2 class="tw-text-3xl tw-font-semibold">Fale com o TDAH.Simples</h2>
             <p class="tw-text-xl tw-text-brandDeep/80">Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
-            <a
-              href="mailto:tdah.simples.oficial@gmail.com"
-              class="tw-inline-flex tw-items-center tw-gap-2 tw-px-8 tw-py-4 tw-rounded-full tw-font-semibold tw-text-lg tw-text-brandWhite tw-bg-brandPrimary hover:tw-bg-brandDeep tw-transition"
-              aria-label="Enviar email para tdah.simples.oficial@gmail.com"
-            >
-              <i data-lucide="send" class="tw-w-5 tw-h-5" aria-hidden="true"></i>
+            <a href="mailto:tdah.simples.oficial@gmail.com" class="tw-inline-flex tw-items-center tw-gap-2 tw-px-8 tw-py-4 tw-rounded-full tw-font-semibold tw-text-lg tw-text-brandWhite tw-bg-brandPrimary hover:tw-bg-brandDeep tw-transition">
+              <i data-lucide="send" class="tw-w-5 tw-h-5"></i>
               tdah.simples.oficial@gmail.com
             </a>
           </div>
@@ -390,7 +346,7 @@
     <footer class="tw-bg-brandDeep tw-text-brandWhite tw-py-12 tw-px-4">
       <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-6">
         <div class="tw-flex tw-items-center tw-justify-center tw-gap-2">
-          <i data-lucide="brain" class="tw-w-8 tw-h-8 tw-text-brandNeon" aria-hidden="true"></i>
+          <i data-lucide="brain" class="tw-w-8 tw-h-8 tw-text-brandNeon"></i>
           <span class="tw-text-xl tw-font-semibold">TDAH.Simples</span>
         </div>
         <p class="tw-text-brandWhite/70">Criando caminhos gentis de produtividade para mentes inquietas.</p>
@@ -407,24 +363,11 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" defer></script>
-
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.lucide) lucide.createIcons();
-    });
-
-    function trackCta(id){
-      const el=document.getElementById(id);
-      if(!el) return;
-      el.addEventListener('click',function(){
-        if(typeof gtag==='function'){
-          gtag('event','cta_click',{event_category:'engagement',event_label:id});
-        }
-      });
-    }
+    document.addEventListener('DOMContentLoaded',()=>{ if(window.lucide) lucide.createIcons(); });
+    function trackCta(id){ const el=document.getElementById(id); if(!el) return; el.addEventListener('click',()=>{ if(typeof gtag==='function'){ gtag('event','cta_click',{event_category:'engagement',event_label:id}); } }); }
     ['cta-hero','cta-final'].forEach(trackCta);
 
     function ml_webform_success_30554077(){
@@ -435,15 +378,7 @@
         successBody.style.display='block';
         const box=successBody.querySelector('.ml-form-successContent');
         if(box && !box.querySelector('#cta-success')){
-          box.innerHTML=`
-            <h4>Seu guia está a um clique! ✨</h4>
-            <p>Olhe seu e-mail (incluindo spam). Se quiser, abra o pagamento agora mesmo.</p>
-            <a id="cta-success" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener"
-               class="tw-inline-flex tw-items-center tw-gap-2 tw-mt-4 tw-px-6 tw-py-3 tw-rounded-full tw-font-semibold tw-text-brandWhite"
-               style="background:linear-gradient(135deg,#523CAD,#FE76E1);box-shadow:0 12px 25px rgba(82,60,173,.3);"
-               aria-label="Abrir página de pagamento do guia">
-              <i data-lucide="external-link" class="tw-w-4 tw-h-4" aria-hidden="true"></i> Abrir pagamento do guia
-            </a>`;
+          box.innerHTML=`<h4>Seu guia está a um clique! ✨</h4><p>Olhe seu e-mail (incluindo spam). Se quiser, abra o pagamento agora mesmo.</p><a id="cta-success" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener" class="tw-inline-flex tw-items-center tw-gap-2 tw-mt-4 tw-px-6 tw-py-3 tw-rounded-full tw-font-semibold tw-text-brandWhite" style="background:linear-gradient(135deg,#523CAD,#FE76E1);box-shadow:0 12px 25px rgba(82,60,173,.3);"><i data-lucide='external-link' class='tw-w-4 tw-h-4'></i> Abrir pagamento do guia</a>`;
           if(window.lucide) lucide.createIcons();
           trackCta('cta-success');
         }
@@ -461,8 +396,6 @@
       });
     });
   </script>
-
-  <!-- MailerLite boot -->
   <script>fetch("https://assets.mailerlite.com/jsonp/1780970/forms/164745349580194953/takel")</script>
 </body>
 </html>
