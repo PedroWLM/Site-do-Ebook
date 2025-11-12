@@ -97,7 +97,7 @@
       background: linear-gradient(180deg, rgba(230, 204, 255, 0.45) 0%, rgba(255, 255, 255, 0.85) 100%);
     }
 
-    /* NOVO: desfocado só atrás do texto (para "Comece no seu ritmo") */
+    /* Moldura translúcida aplicada somente atrás do texto */
     .soft-box{
       display:inline-block;
       border-radius: 24px;
@@ -110,10 +110,7 @@
     }
 
     .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); border: 0;
-    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
     .ml-form-embedSubmitLoad:after {
       content: " "; display: block; width: 11px; height: 11px; margin: 1px;
       border-radius: 50%; border: 4px solid #FFFFFF;
@@ -258,7 +255,7 @@
         </div>
       </section>
 
-      <!-- Como funciona (sem section-soft; soft-box só no texto) -->
+      <!-- Como funciona (soft-box só no texto) -->
       <section class="tw-py-16 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="tw-text-center tw-mb-12">
@@ -290,12 +287,14 @@
         </div>
       </section>
 
-      <!-- Benefícios (sem mudanças) -->
+      <!-- Benefícios (AGORA com soft-box no título/subtítulo) -->
       <section id="beneficios" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
-            <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold tw-mb-4">Dentro do TDAH.Simples</h2>
-            <p class="tw-text-xl tw-text-brandDeep/80">Recursos para trazer clareza, autocuidado e resultado real</p>
+            <div class="soft-box">
+              <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold tw-mb-1">Dentro do TDAH.Simples</h2>
+              <p class="tw-text-xl tw-text-brandDeep/80">Recursos para trazer clareza, autocuidado e resultado real</p>
+            </div>
           </div>
 
           <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
@@ -344,7 +343,7 @@
         </div>
       </section>
 
-      <!-- Sobre (2ª marcação: sem “caixa desfocada”) -->
+      <!-- Sobre -->
       <section id="sobre" class="tw-py-20 tw-px-4">
         <div class="tw-container tw-mx-auto tw-max-w-4xl">
           <div class="card-surface tw-rounded-3xl tw-overflow-hidden">
@@ -363,7 +362,7 @@
         </div>
       </section>
 
-      <!-- Depoimentos (3ª marcação: com fundo desfocado da seção) -->
+      <!-- Depoimentos (com fundo desfocado da seção) -->
       <section id="depoimentos" class="tw-py-20 tw-px-4 section-soft">
         <div class="tw-container tw-mx-auto tw-max-w-6xl">
           <div class="tw-text-center tw-mb-12">
@@ -532,11 +531,12 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       });
     });
