@@ -78,14 +78,14 @@
   </script>
 </head>
 <body class="tw-min-h-screen tw-text-brandDeep" id="topo">
-  <!-- HEADER com faixa 2880x150px sem corte -->
+  <!-- HEADER -->
   <header class="tw-relative tw-w-full tw-overflow-hidden">
     <picture>
       <source srcset="./assets/imagem-1-mobile.webp" media="(max-width: 768px)" />
       <img
         src="./assets/imagem-1-desktop.webp"
         alt="TDAH.Simples — Cabeçalho visual"
-        class="tw-w-full tw-block tw-h-auto"
+        class="tw-w-full tw-block tw-object-cover tw-h-[150px]"
         loading="eager" fetchpriority="high"
       />
     </picture>
@@ -98,7 +98,15 @@
         <div class="tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full pill-title">
           <h2 class="tw-text-2xl md:tw-text-3xl tw-font-semibold">Comece no seu ritmo</h2>
         </div>
-        <p class="tw-text-brandDeep/80">Três passos para transformar intenção em cuidado cotidiano</p>
+
+        <!-- subtítulo em caixa (1) -->
+        <div class="tw-flex tw-justify-center">
+          <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
+            <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
+              Três passos para transformar intenção em cuidado cotidiano
+            </p>
+          </div>
+        </div>
 
         <div class="tw-grid md:tw-grid-cols-3 tw-gap-8 tw-mt-6">
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
@@ -127,16 +135,54 @@
           <div class="tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full pill-title">
             <h2 class="tw-text-2xl md:tw-text-3xl tw-font-semibold">Dentro do TDAH.Simples</h2>
           </div>
-          <p class="tw-mt-2 tw-text-brandDeep/80">Recursos para trazer clareza, autocuidado e resultado real</p>
+
+          <!-- subtítulo em caixa (2) -->
+          <div class="tw-flex tw-justify-center tw-mt-3">
+            <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
+              <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
+                Recursos para trazer clareza, autocuidado e resultado real
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
-          <div class="card-surface tw-rounded-2xl tw-p-6"><div class="tw-flex tw-items-start tw-gap-3"><i data-lucide="compass" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i><p>Mapas mentais para identificar gatilhos e caminhos de foco.</p></div></div>
-          <div class="card-surface tw-rounded-2xl tw-p-6"><div class="tw-flex tw-items-start tw-gap-3"><i data-lucide="calendar" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i><p>Modelos de rotina flexível que respeitam seus ciclos de energia.</p></div></div>
-          <div class="card-surface tw-rounded-2xl tw-p-6"><div class="tw-flex tw-items-start tw-gap-3"><i data-lucide="heart" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i><p>Ferramentas de autocuidado para reduzir culpa e autocrítica.</p></div></div>
-          <div class="card-surface tw-rounded-2xl tw-p-6"><div class="tw-flex tw-items-start tw-gap-3"><i data-lucide="sun" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i><p>Checklists de manhã e noite para ritmar seu dia sem pressão.</p></div></div>
-          <div class="card-surface tw-rounded-2xl tw-p-6"><div class="tw-flex tw-items-start tw-gap-3"><i data-lucide="target" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i><p>Técnicas focadas em objetivos curtos com feedback imediato.</p></div></div>
-          <div class="card-surface tw-rounded-2xl tw-p-6"><div class="tw-flex tw-items-start tw-gap-3"><i data-lucide="gift" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i><p>Bônus: testes práticos para personalizar seu plano de ação.</p></div></div>
+          <div class="card-surface tw-rounded-2xl tw-p-6">
+            <div class="tw-flex tw-items-start tw-gap-3">
+              <i data-lucide="compass" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
+              <p>Mapas mentais para identificar gatilhos e caminhos de foco.</p>
+            </div>
+          </div>
+          <div class="card-surface tw-rounded-2xl tw-p-6">
+            <div class="tw-flex tw-items-start tw-gap-3">
+              <i data-lucide="calendar" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
+              <p>Modelos de rotina flexível que respeitam seus ciclos de energia.</p>
+            </div>
+          </div>
+          <div class="card-surface tw-rounded-2xl tw-p-6">
+            <div class="tw-flex tw-items-start tw-gap-3">
+              <i data-lucide="heart" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
+              <p>Ferramentas de autocuidado para reduzir culpa e autocrítica.</p>
+            </div>
+          </div>
+          <div class="card-surface tw-rounded-2xl tw-p-6">
+            <div class="tw-flex tw-items-start tw-gap-3">
+              <i data-lucide="sun" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
+              <p>Checklists de manhã e noite para ritmar seu dia sem pressão.</p>
+            </div>
+          </div>
+          <div class="card-surface tw-rounded-2xl tw-p-6">
+            <div class="tw-flex tw-items-start tw-gap-3">
+              <i data-lucide="target" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
+              <p>Técnicas focadas em objetivos curtos com feedback imediato.</p>
+            </div>
+          </div>
+          <div class="card-surface tw-rounded-2xl tw-p-6">
+            <div class="tw-flex tw-items-start tw-gap-3">
+              <i data-lucide="gift" class="tw-w-6 tw-h-6 tw-text-brandPrimary"></i>
+              <p>Bônus: testes práticos para personalizar seu plano de ação.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -165,15 +211,29 @@
       <div class="tw-container tw-mx-auto tw-max-w-6xl">
         <div class="tw-text-center tw-mb-8">
           <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold">Quem já encontrou calma</h2>
-          <p class="tw-text-xl tw-text-brandDeep/80">Relatos de pessoas que escolheram cuidar da mente com leveza</p>
+
+          <!-- subtítulo em caixa (3) -->
+          <div class="tw-flex tw-justify-center tw-mt-3">
+            <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
+              <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
+                Relatos de pessoas que escolheram cuidar da mente com leveza
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="tw-grid md:tw-grid-cols-2 tw-gap-6 tw-mb-12">
           <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
             <div class="tw-flex tw-gap-1">
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
             </div>
-            <p class="tw-text-brandDeep/90 tw-italic">"Achei um jeito de estudar sem me culpar. A cada micro-vitória eu me sinto abraçada."</p>
+            <p class="tw-text-brandDeep/90 tw-italic">
+              "Achei um jeito de estudar sem me culpar. A cada micro-vitória eu me sinto abraçada."
+            </p>
             <div class="tw-border-t tw-border-brandPrimary/15 tw-pt-4 tw-text-brandDeep/70">
               <p class="tw-font-semibold tw-text-brandDeep">Marina Costa</p>
               <p class="tw-text-sm">Estudante de Psicologia, 27 anos — Compra verificada</p>
@@ -182,9 +242,15 @@
 
           <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
             <div class="tw-flex tw-gap-1">
-              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+              <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
             </div>
-            <p class="tw-text-brandDeep/90 tw-italic">"Os testes bônus me ajudaram a entender quando pausar. Nunca tinha conseguido manter um planejamento por tanto tempo."</p>
+            <p class="tw-text-brandDeep/90 tw-italic">
+              "Os testes bônus me ajudaram a entender quando pausar. Nunca tinha conseguido manter um planejamento por tanto tempo."
+            </p>
             <div class="tw-border-t tw-border-brandPrimary/15 tw-pt-4 tw-text-brandDeep/70">
               <p class="tw-font-semibold tw-text-brandDeep">João Ribeiro</p>
               <p class="tw-text-sm">Analista de Dados, 31 anos — Compra verificada</p>
@@ -194,9 +260,15 @@
 
         <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
           <div class="tw-flex tw-gap-1">
-            <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i><i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+            <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+            <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+            <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+            <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
+            <i data-lucide="star" class="tw-w-5 tw-h-5 tw-text-brandNeon tw-fill-brandNeon"></i>
           </div>
-          <p class="tw-text-brandDeep/90 tw-italic">"Senti que alguém descreveu exatamente minha mente inquieta. Hoje consigo começar tarefas com menos resistência."</p>
+          <p class="tw-text-brandDeep/90 tw-italic">
+            "Senti que alguém descreveu exatamente minha mente inquieta. Hoje consigo começar tarefas com menos resistência."
+          </p>
           <div class="tw-border-t tw-border-brandPrimary/15 tw-pt-4 tw-text-brandDeep/70">
             <p class="tw-font-semibold tw-text-brandDeep">Letícia Ramos</p>
             <p class="tw-text-sm">Empreendedora, 35 anos — Compra verificada</p>
@@ -209,22 +281,37 @@
     <section class="tw-py-12 tw-px-4">
       <div class="tw-container tw-mx-auto tw-max-w-3xl tw-text-center tw-text-brandDeep tw-space-y-6 card-surface tw-rounded-3xl tw-p-10">
         <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold">Pronto para acolher sua rotina?</h2>
-        <p class="tw-text-xl tw-text-brandDeep/80">Baixe agora o TDAH.Simples e ganhe ferramentas para planejar com calma.</p>
-        <a id="cta-final" href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086" target="_blank" rel="noopener" class="tw-inline-flex tw-items-center tw-gap-3 tw-px-10 tw-py-4 tw-text-lg cta-pill">
-          <i data-lucide="external-link" class="tw-w-5 tw-h-5"></i>Quero meu guia TDAH.Simples
+        <p class="tw-text-xl tw-text-brandDeep/80">
+          Baixe agora o TDAH.Simples e ganhe ferramentas para planejar com calma.
+        </p>
+        <a
+          id="cta-final"
+          href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
+          target="_blank"
+          rel="noopener"
+          class="tw-inline-flex tw-items-center tw-gap-3 tw-px-10 tw-py-4 tw-text-lg cta-pill"
+        >
+          <i data-lucide="external-link" class="tw-w-5 tw-h-5"></i>
+          Quero meu guia TDAH.Simples
         </a>
       </div>
     </section>
 
-    <!-- Contato -->
-    <section id="contato" class="tw-py-12 tw-px-4">
+    <!-- Contato em faixa própria (4) -->
+    <section id="contato" class="tw-py-12 tw-px-4 tw-bg-brandDeep">
       <div class="tw-container tw-mx-auto tw-max-w-4xl">
         <div class="card-surface tw-rounded-3xl tw-p-10 tw-text-center tw-space-y-6">
           <i data-lucide="mail" class="tw-w-16 tw-h-16 tw-text-brandPrimary tw-mx-auto"></i>
           <h2 class="tw-text-3xl tw-font-semibold">Fale com o TDAH.Simples</h2>
-          <p class="tw-text-xl tw-text-brandDeep/80">Dúvidas, sugestões ou relatos são sempre bem-vindos.</p>
-          <a href="mailto:tdah.simples.oficial@gmail.com" class="tw-inline-flex tw-items-center tw-gap-2 tw-px-8 tw-py-4 tw-rounded-full tw-font-semibold tw-text-lg tw-text-brandWhite tw-bg-brandPrimary hover:tw-bg-brandDeep tw-transition">
-            <i data-lucide="send" class="tw-w-5 tw-h-5"></i>tdah.simples.oficial@gmail.com
+          <p class="tw-text-xl tw-text-brandDeep/80">
+            Dúvidas, sugestões ou relatos são sempre bem-vindos.
+          </p>
+          <a
+            href="mailto:tdah.simples.oficial@gmail.com"
+            class="tw-inline-flex tw-items-center tw-gap-2 tw-px-8 tw-py-4 tw-rounded-full tw-font-semibold tw-text-lg tw-text-brandWhite tw-bg-brandPrimary hover:tw-bg-brandDeep tw-transition"
+          >
+            <i data-lucide="send" class="tw-w-5 tw-h-5"></i>
+            tdah.simples.oficial@gmail.com
           </a>
         </div>
       </div>
@@ -237,7 +324,9 @@
         <i data-lucide="brain" class="tw-w-8 tw-h-8 tw-text-brandNeon"></i>
         <span class="tw-text-xl tw-font-semibold">TDAH.Simples</span>
       </div>
-      <p class="tw-text-brandWhite/70">Criando caminhos gentis de produtividade para mentes inquietas.</p>
+      <p class="tw-text-brandWhite/70">
+        Criando caminhos gentis de produtividade para mentes inquietas.
+      </p>
       <div class="tw-flex tw-justify-center tw-gap-6 tw-text-sm tw-text-brandWhite/70">
         <a href="#sobre" class="hover:tw-text-brandWhite">Sobre</a>
         <a href="#beneficios" class="hover:tw-text-brandWhite">Benefícios</a>
@@ -252,16 +341,25 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
     function trackCta(id){
       const el=document.getElementById(id); if(!el) return;
-      el.addEventListener('click',()=>{ if(typeof gtag==='function'){ gtag('event','cta_click',{event_category:'engagement',event_label:id}); } });
+      el.addEventListener('click',()=>{ 
+        if(typeof gtag==='function'){
+          gtag('event','cta_click',{event_category:'engagement',event_label:id});
+        }
+      });
     }
     ['cta-final'].forEach(trackCta);
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         const id=a.getAttribute('href'); if(!id||id==='#') return;
-        const t=document.querySelector(id); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+        const t=document.querySelector(id); if(t){
+          e.preventDefault();
+          t.scrollIntoView({behavior:'smooth'});
+        }
       });
     });
   </script>
