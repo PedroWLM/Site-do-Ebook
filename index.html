@@ -56,6 +56,38 @@
       border:1px solid rgba(255,255,255,.45); color:#2B176D;
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
+
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (MUDANÇAS 5 e 7) === */
+    .hero-bubbles{
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1rem 5rem;
+      min-height: 420px;
+      pointer-events: none; /* só imagem decorativa, não atrapalha clique */
+    }
+    .hero-bubble{
+      position: absolute;
+      left: calc(var(--x,50) * 1%);
+      top: calc(var(--y,50) * 1%);
+      transform: translate(-50%, -50%);
+    }
+    .hero-bubble img{
+      width: 100%;
+      height: auto;
+      max-width: 420px;
+      pointer-events: auto;
+    }
+    @media (max-width:768px){
+      .hero-bubbles{
+        min-height: 360px;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+      }
+      .hero-bubble img{
+        max-width: 320px;
+      }
+    }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
@@ -91,33 +123,48 @@
     </picture>
   </header>
 
-  <!-- BANNER DE PERGUNTA (ITEM 3 AJUSTADO) -->
-  <section class="tw-flex tw-justify-center tw-px-4 tw-mt-[-2.5rem] md:tw-mt-[-3.5rem]">
-    <div class="tw-w-full tw-flex tw-justify-center">
+  <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
+  <section class="hero-bubbles tw-px-4">
+    <!-- Imagem 2: pergunta principal -->
+    <div class="hero-bubble" style="--x:50; --y:18;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
-        class="tw-w-full tw-max-w-[900px] tw-h-auto tw-object-contain tw-mx-auto"
         loading="eager"
+      />
+    </div>
+
+    <!-- Imagem 3: CALMA, RESPIRA... -->
+    <div class="hero-bubble" style="--x:50; --y:46;">
+      <img
+        src="./assets/imagem-3.webp"
+        alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Imagem 4: nuvem lateral esquerda (mudança 5) -->
+    <div class="hero-bubble" style="--x:22; --y:32;">
+      <img
+        src="./assets/imagem-4.webp"
+        alt="Elemento visual complementar à esquerda do hero"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Imagem 5: nuvem lateral direita (mudança 7) -->
+    <div class="hero-bubble" style="--x:78; --y:32;">
+      <img
+        src="./assets/imagem-5.webp"
+        alt="Elemento visual complementar à direita do hero"
+        loading="lazy"
       />
     </div>
   </section>
 
   <main id="conteudo" class="tw-relative tw-z-10">
-    <!-- IMAGEM-3 BEM MAIS PRÓXIMA DO BANNER (ITEM 4) -->
-    <section class="tw-flex tw-justify-center tw-px-4 tw-mt-[-10rem] md:tw-mt-[-12rem]">
-      <div class="tw-w-full tw-flex tw-justify-center">
-        <img
-          src="./assets/imagem-3.webp"
-          alt="Ilustração complementar do TDAH.Simples"
-          class="tw-w-full tw-max-w-[900px] tw-h-auto tw-object-contain tw-mx-auto"
-          loading="lazy"
-        />
-      </div>
-    </section>
-
     <!-- Comece no seu ritmo -->
-    <section class="tw-px-4 tw-pt-8 tw-pb-10">
+    <section class="tw-px-4 tw-pt-4 tw-pb-10">
       <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8">
         <div class="tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full pill-title">
           <h2 class="tw-text-2xl md:tw-text-3xl tw-font-semibold">Comece no seu ritmo</h2>
