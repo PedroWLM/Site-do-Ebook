@@ -57,14 +57,14 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (MUDANÇAS 5 e 7) === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
     .hero-bubbles{
       position: relative;
       max-width: 1100px;
       margin: 0 auto;
       padding: 3rem 1rem 5rem;
-      min-height: 420px;
-      pointer-events: none; /* só imagem decorativa, não atrapalha clique */
+      min-height: 520px; /* mais alto pra caber as duas “linhas” de nuvens */
+      pointer-events: none;
     }
     .hero-bubble{
       position: absolute;
@@ -75,17 +75,17 @@
     .hero-bubble img{
       width: 100%;
       height: auto;
-      max-width: 420px;
+      max-width: 630px; /* ~50% maior que antes (420px) */
       pointer-events: auto;
     }
     @media (max-width:768px){
       .hero-bubbles{
-        min-height: 360px;
+        min-height: 460px;
         padding-top: 2rem;
         padding-bottom: 4rem;
       }
       .hero-bubble img{
-        max-width: 320px;
+        max-width: 360px; /* maior, mas ainda dentro do mobile */
       }
     }
   </style>
@@ -125,8 +125,8 @@
 
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
-    <!-- Imagem 2: pergunta principal -->
-    <div class="hero-bubble" style="--x:50; --y:18;">
+    <!-- Imagem 2: pergunta principal (esquerda, “linha” de cima) -->
+    <div class="hero-bubble" style="--x:25; --y:22;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -134,8 +134,8 @@
       />
     </div>
 
-    <!-- Imagem 3: CALMA, RESPIRA... -->
-    <div class="hero-bubble" style="--x:50; --y:46;">
+    <!-- Imagem 3: CALMA, RESPIRA... (direita, “linha” de cima) -->
+    <div class="hero-bubble" style="--x:75; --y:22;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -143,8 +143,8 @@
       />
     </div>
 
-    <!-- Imagem 4: nuvem lateral esquerda (mudança 5) -->
-    <div class="hero-bubble" style="--x:22; --y:32;">
+    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) -->
+    <div class="hero-bubble" style="--x:25; --y:42;">
       <img
         src="./assets/imagem-4.webp"
         alt="Elemento visual complementar à esquerda do hero"
@@ -152,8 +152,8 @@
       />
     </div>
 
-    <!-- Imagem 5: nuvem lateral direita (mudança 7) -->
-    <div class="hero-bubble" style="--x:78; --y:32;">
+    <!-- Imagem 5: nuvem complementar direita (linha de baixo) -->
+    <div class="hero-bubble" style="--x:75; --y:42;">
       <img
         src="./assets/imagem-5.webp"
         alt="Elemento visual complementar à direita do hero"
