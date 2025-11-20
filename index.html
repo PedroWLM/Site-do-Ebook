@@ -57,46 +57,60 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* --- Hero com nuvens extras (imagens 2,3,4,5) --- */
-    header.hero-wrapper {
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
+    .hero-bubbles{
       position: relative;
-    }
-    .hero-bubbles {
-      position: absolute;
-      inset: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1rem 5rem;
+      min-height: 520px;
       pointer-events: none;
     }
-    .hero-bubble {
+    .hero-bubble{
       position: absolute;
+      left: calc(var(--x,50) * 1%);
+      top: calc(var(--y,50) * 1%);
       transform: translate(-50%, -50%);
     }
-    .hero-bubble img {
+    /* tamanho base */
+    .hero-bubble img{
+      width: 100%;
       height: auto;
-      display: block;
-    }
-    /* posições em porcentagem (X/Y) */
-    .hero-bubble-2 { left: 20%; top: 30%; }
-    .hero-bubble-3 { left: 80%; top: 30%; }
-    .hero-bubble-4 { left: 20%; top: 60%; }
-    .hero-bubble-5 { left: 80%; top: 60%; }
-
-    /* tamanhos: agora TODAS as nuvens 2,3,4,5 têm o mesmo tamanho */
-    .hero-bubble-lg img,
-    .hero-bubble-sm img {
-      width: 26vw;
-      max-width: 440px;
+      max-width: 630px;
+      pointer-events: auto;
+      display:block;
     }
 
-    @media (max-width: 768px) {
-      .hero-bubble-2 { left: 22%; top: 32%; }
-      .hero-bubble-3 { left: 78%; top: 32%; }
-      .hero-bubble-4 { left: 22%; top: 64%; }
-      .hero-bubble-5 { left: 78%; top: 64%; }
+    /* maior (referência: mesma largura em 2, 3 e 5) */
+    .hero-bubble--large{
+      width: min(48vw, 640px);
+    }
+    .hero-bubble--large img{
+      max-width: 100%;
+    }
 
-      .hero-bubble-lg img,
-      .hero-bubble-sm img {
-        width: 42vw;
+    /* ainda existe, mas não está sendo usada agora */
+    .hero-bubble--xlarge img{
+      max-width: 780px;
+    }
+
+    @media (max-width:768px){
+      .hero-bubbles{
+        min-height: 460px;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+      }
+      .hero-bubble img{
         max-width: 360px;
+      }
+      .hero-bubble--large{
+        width: min(90vw, 400px);
+      }
+      .hero-bubble--large img{
+        max-width: 100%;
+      }
+      .hero-bubble--xlarge img{
+        max-width: 420px;
       }
     }
   </style>
@@ -122,7 +136,7 @@
 </head>
 <body class="tw-min-h-screen tw-text-brandDeep" id="topo">
   <!-- HEADER -->
-  <header class="hero-wrapper tw-relative tw-w-full tw-overflow-hidden">
+  <header class="tw-relative tw-w-full tw-overflow-hidden">
     <picture>
       <source srcset="./assets/imagem-1-mobile.webp" media="(max-width: 768px)" />
       <img
@@ -132,50 +146,50 @@
         loading="eager" fetchpriority="high"
       />
     </picture>
-
-    <!-- Nuvens 2, 3, 4 e 5 posicionadas no hero -->
-    <div class="hero-bubbles">
-      <!-- imagem-2 -->
-      <div class="hero-bubble hero-bubble-2 hero-bubble-lg">
-        <img
-          src="./assets/imagem-2.webp"
-          alt=""
-          loading="eager"
-        />
-      </div>
-
-      <!-- imagem-3 -->
-      <div class="hero-bubble hero-bubble-3 hero-bubble-sm">
-        <img
-          src="./assets/imagem-3.webp"
-          alt=""
-          loading="eager"
-        />
-      </div>
-
-      <!-- imagem-4 -->
-      <div class="hero-bubble hero-bubble-4 hero-bubble-lg">
-        <img
-          src="./assets/imagem-4.webp"
-          alt=""
-          loading="eager"
-        />
-      </div>
-
-      <!-- imagem-5 -->
-      <div class="hero-bubble hero-bubble-5 hero-bubble-sm">
-        <img
-          src="./assets/imagem-5.webp"
-          alt=""
-          loading="eager"
-        />
-      </div>
-    </div>
   </header>
+
+  <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
+  <section class="hero-bubbles tw-px-4">
+    <!-- Imagem 2: pergunta principal (esquerda, linha de cima) - Y 30% -->
+    <div class="hero-bubble hero-bubble--large" style="--x:20; --y:30;">
+      <img
+        src="./assets/imagem-2.webp"
+        alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Imagem 3: CALMA, RESPIRA... (direita, linha de cima) - Y 30% -->
+    <div class="hero-bubble hero-bubble--large" style="--x:80; --y:30;">
+      <img
+        src="./assets/imagem-3.webp"
+        alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) -->
+    <div class="hero-bubble" style="--x:20; --y:80;">
+      <img
+        src="./assets/imagem-4.webp"
+        alt="Elemento visual complementar à esquerda do hero"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Imagem 5: nuvem complementar direita (linha de baixo) -->
+    <div class="hero-bubble hero-bubble--large" style="--x:80; --y:80;">
+      <img
+        src="./assets/imagem-5.webp"
+        alt="Elemento visual complementar à direita do hero"
+        loading="lazy"
+      />
+    </div>
+  </section>
 
   <main id="conteudo" class="tw-relative tw-z-10">
     <!-- Comece no seu ritmo -->
-    <section class="tw-px-4 tw-pt-8 tw-pb-10">
+    <section class="tw-px-4 tw-pt-4 tw-pb-10">
       <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8">
         <div class="tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full pill-title">
           <h2 class="tw-text-2xl md:tw-text-3xl tw-font-semibold">Comece no seu ritmo</h2>
@@ -292,6 +306,7 @@
     <section id="depoimentos" class="tw-py-12 tw-px-4">
       <div class="tw-container tw-mx-auto tw-max-w-6xl">
         <div class="tw-text-center tw-mb-8">
+          <!-- título agora com caixa igual C1 e C2 -->
           <div class="tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-px-5 tw-py-3 tw-rounded-full pill-title">
             <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold">Quem já encontrou calma</h2>
           </div>
