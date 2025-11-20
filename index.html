@@ -76,19 +76,13 @@
     .hero-bubble img{
       width: 100%;
       height: auto;
-      max-width: 630px;
+      max-width: 420px;
       pointer-events: auto;
-      display:block;
     }
-
-    /* maior (referência: mesma largura em 2, 3 e 5) */
-    .hero-bubble--large{
-      width: min(48vw, 640px);
-    }
+    /* maior (referência) */
     .hero-bubble--large img{
-      max-width: 100%;
+      max-width: 520px;
     }
-
     /* ainda existe, mas não está sendo usada agora */
     .hero-bubble--xlarge img{
       max-width: 780px;
@@ -96,21 +90,18 @@
 
     @media (max-width:768px){
       .hero-bubbles{
-        min-height: 460px;
+        min-height: 420px;
         padding-top: 2rem;
         padding-bottom: 4rem;
       }
       .hero-bubble img{
-        max-width: 360px;
-      }
-      .hero-bubble--large{
-        width: min(90vw, 400px);
+        max-width: 260px;
       }
       .hero-bubble--large img{
-        max-width: 100%;
+        max-width: 320px;
       }
       .hero-bubble--xlarge img{
-        max-width: 420px;
+        max-width: 340px;
       }
     }
   </style>
@@ -168,8 +159,8 @@
       />
     </div>
 
-    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) -->
-    <div class="hero-bubble" style="--x:20; --y:80;">
+    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) - Y 90% -->
+    <div class="hero-bubble" style="--x:20; --y:90;">
       <img
         src="./assets/imagem-4.webp"
         alt="Elemento visual complementar à esquerda do hero"
@@ -177,8 +168,8 @@
       />
     </div>
 
-    <!-- Imagem 5: nuvem complementar direita (linha de baixo) -->
-    <div class="hero-bubble hero-bubble--large" style="--x:80; --y:80;">
+    <!-- Imagem 5: nuvem complementar direita (linha de baixo) - Y 90% -->
+    <div class="hero-bubble hero-bubble--large" style="--x:80; --y:90;">
       <img
         src="./assets/imagem-5.webp"
         alt="Elemento visual complementar à direita do hero"
