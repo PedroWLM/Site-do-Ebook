@@ -88,6 +88,16 @@
       max-width: 780px;
     }
 
+    /* correções de tamanho específicas para 3 (igual 2) e 5 (igual 4) */
+    .hero-bubble--match-2 img{
+      width: 720px;
+      max-width: 720px;
+    }
+    .hero-bubble--match-4 img{
+      width: 630px;
+      max-width: 630px;
+    }
+
     @media (max-width:768px){
       .hero-bubbles{
         min-height: 460px;
@@ -102,6 +112,14 @@
       }
       .hero-bubble--xlarge img{
         max-width: 420px;
+      }
+      .hero-bubble--match-2 img{
+        width: 360px;
+        max-width: 360px;
+      }
+      .hero-bubble--match-4 img{
+        width: 320px;
+        max-width: 320px;
       }
     }
   </style>
@@ -150,8 +168,8 @@
       />
     </div>
 
-    <!-- Imagem 3: CALMA, RESPIRA... (direita, linha de cima) - Y 30% -->
-    <div class="hero-bubble hero-bubble--large" style="--x:80; --y:30;">
+    <!-- Imagem 3: CALMA, RESPIRA... (direita, linha de cima) - Y 30%, tamanho igual à 2 -->
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:30;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -168,8 +186,8 @@
       />
     </div>
 
-    <!-- Imagem 5: nuvem complementar direita (linha de baixo) - Y 90%, mesmo tamanho da 4 -->
-    <div class="hero-bubble" style="--x:80; --y:90;">
+    <!-- Imagem 5: nuvem complementar direita (linha de baixo) - Y 90%, tamanho igual à 4 -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:80; --y:90;">
       <img
         src="./assets/imagem-5.webp"
         alt="Elemento visual complementar à direita do hero"
