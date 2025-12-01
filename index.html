@@ -79,7 +79,7 @@
       max-width: 630px;
       pointer-events: auto;
     }
-    /* maior (referência) */
+    /* maior (referência) – usada nas nuvens 2 e 3 */
     .hero-bubble--large img{
       max-width: 720px;
     }
@@ -88,14 +88,14 @@
       max-width: 780px;
     }
 
-    /* correções de tamanho específicas para 3 (igual 2) e 5 (igual 4) */
+    /* correções de tamanho específicas para 3 (igual 2) e 4/5 (iguais entre si, um pouco menores) */
     .hero-bubble--match-2 img{
       width: 720px;
       max-width: 720px;
     }
     .hero-bubble--match-4 img{
-      width: 630px;
-      max-width: 630px;
+      width: 560px;
+      max-width: 560px;
     }
 
     @media (max-width:768px){
@@ -118,8 +118,8 @@
         max-width: 360px;
       }
       .hero-bubble--match-4 img{
-        width: 320px;
-        max-width: 320px;
+        width: 300px;
+        max-width: 300px;
       }
     }
   </style>
@@ -177,11 +177,11 @@
       />
     </div>
 
-    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) - Y 90% -->
-    <div class="hero-bubble" style="--x:20; --y:90;">
+    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) - Y 90%, tamanho reduzido -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:20; --y:90;">
       <img
         src="./assets/imagem-4.webp"
-        alt="Elemento visual complementar à esquerda do hero"
+        alt="Mensagem acolhedora para quem acabou de descobrir o TDAH ou ainda não sabe lidar com ele."
         loading="lazy"
       />
     </div>
@@ -190,7 +190,7 @@
     <div class="hero-bubble hero-bubble--match-4" style="--x:80; --y:90;">
       <img
         src="./assets/imagem-5.webp"
-        alt="Elemento visual complementar à direita do hero"
+        alt="Mensagem sobre como o guia acompanha com leveza esse início desafiador com TDAH."
         loading="lazy"
       />
     </div>
