@@ -127,15 +127,25 @@
       }
     }
 
-    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) — NOVO ESTILO */
+    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) — AJUSTADO */
     .cta-hero-section{
-      margin-top: 1.5rem;   /* desce o bloco todo um pouco */
-      margin-bottom: 1.5rem;
+      margin-top: 2.8rem;   /* desce mais o bloco do CTA */
+      margin-bottom: 2rem;
     }
 
     .cta-hero-wrapper{
       display:flex;
+      align-items:center;
       justify-content:center;
+    }
+
+    .cta-hero-dot{
+      width:1.1rem;
+      height:1.1rem;
+      border-radius:999px;
+      background:#FE76E1;
+      opacity:0.75;
+      box-shadow:0 0 12px rgba(254,118,225,0.7);
     }
 
     .cta-hero-button{
@@ -143,51 +153,46 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:0.75rem;
-      padding:1rem 2.9rem;
+      padding:1rem 2.8rem;
       border-radius:999px;
       font-weight:600;
       font-size:1.02rem;
       text-decoration:none;
-      color:#FFFFFF;
-      background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
+      color:#2B176D;
+
+      /* degradê mais suave, combinando com o fundo */
+      background:linear-gradient(135deg,#DEC4FF 0%,#F7C7F3 100%);
+      border:2px solid rgba(255,255,255,0.9);
+
       box-shadow:
-        0 10px 30px rgba(43,23,109,.35),
-        0 0 18px rgba(254,118,225,.55);
-      border:2px solid rgba(255,255,255,.85);
+        0 4px 18px rgba(82,60,173,0.25),
+        0 0 12px rgba(254,118,225,0.35);
+
+      transition:transform .18s ease, box-shadow .18s ease;
       pointer-events:auto;
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        filter .18s ease;
+      text-align:center;
     }
 
     .cta-hero-button:hover{
       transform:translateY(-2px);
       box-shadow:
-        0 16px 40px rgba(43,23,109,.45),
-        0 0 22px rgba(254,118,225,.75);
-      filter:brightness(1.04);
-    }
-
-    .cta-hero-button-icon{
-      width:1.25rem;
-      height:1.25rem;
-      flex-shrink:0;
-      color:#FFEFD5;
+        0 8px 26px rgba(82,60,173,0.35),
+        0 0 16px rgba(254,118,225,0.45);
     }
 
     @media (max-width:768px){
       .cta-hero-section{
-        margin-top: 1.8rem;
-        margin-bottom: 1.2rem;
+        margin-top: 3rem;
+        margin-bottom: 1.8rem;
       }
       .cta-hero-button{
         width:100%;
         max-width:22rem;
         padding:0.9rem 1.6rem;
         font-size:0.96rem;
-        text-align:center;
+      }
+      .cta-hero-dot{
+        display:none; /* pra não poluir em telas menores */
       }
     }
   </style>
@@ -278,6 +283,8 @@
     <section id="cta-hero" class="cta-hero-section tw-px-4">
       <div class="tw-container tw-mx-auto tw-max-w-4xl">
         <div class="cta-hero-wrapper">
+          <span class="cta-hero-dot tw-mr-3"></span>
+
           <a
             id="cta-hero-button"
             href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
@@ -285,9 +292,10 @@
             rel="noopener"
             class="cta-hero-button"
           >
-            <i data-lucide="lightbulb" class="cta-hero-button-icon"></i>
-            <span>💡 Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
+            💡 Clique aqui para a solução da sua vida melhor com TDAH 💡
           </a>
+
+          <span class="cta-hero-dot tw-ml-3"></span>
         </div>
       </div>
     </section>
@@ -416,14 +424,14 @@
             <h2 class="tw-text-3xl md:tw-text-4xl tw-font-semibold">Quem já encontrou calma</h2>
           </div>
 
-          <div class="tw-flex tw-justify-center tw-mt-3">
-            <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
-              <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
-                Relatos de pessoas que escolheram cuidar da mente com leveza
-              </p>
-            </div>
+        <div class="tw-flex tw-justify-center tw-mt-3">
+          <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
+            <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
+              Relatos de pessoas que escolheram cuidar da mente com leveza
+            </p>
           </div>
         </div>
+      </div>
 
         <div class="tw-grid md:tw-grid-cols-2 tw-gap-6 tw-mb-12">
           <div class="card-surface tw-rounded-3xl tw-p-8 tw-space-y-4">
