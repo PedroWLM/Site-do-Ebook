@@ -127,12 +127,15 @@
       }
     }
 
-    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) */
+    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) — NOVO ESTILO */
+    .cta-hero-section{
+      margin-top: 1.5rem;   /* desce o bloco todo um pouco */
+      margin-bottom: 1.5rem;
+    }
+
     .cta-hero-wrapper{
       display:flex;
       justify-content:center;
-      margin-top:1.5rem;
-      margin-bottom:1.5rem;
     }
 
     .cta-hero-button{
@@ -141,51 +144,49 @@
       align-items:center;
       justify-content:center;
       gap:0.75rem;
-      padding:1rem 2.75rem;
+      padding:1rem 2.9rem;
       border-radius:999px;
       font-weight:600;
-      font-size:1.05rem;
+      font-size:1.02rem;
       text-decoration:none;
-      color:#2B176D;
-      background:#FFFFFF;
-      border:2px solid transparent;
-      background-image:
-        linear-gradient(#FFFFFF,#FFFFFF),
-        linear-gradient(135deg,#523CAD,#FE76E1);
-      background-origin:border-box;
-      background-clip:padding-box,border-box;
+      color:#FFFFFF;
+      background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
       box-shadow:
-        0 0 0 3px rgba(254,118,225,.35),
-        0 16px 40px rgba(43,23,109,.28);
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+        0 10px 30px rgba(43,23,109,.35),
+        0 0 18px rgba(254,118,225,.55);
+      border:2px solid rgba(255,255,255,.85);
       pointer-events:auto;
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        filter .18s ease;
     }
 
     .cta-hero-button:hover{
       transform:translateY(-2px);
       box-shadow:
-        0 0 0 4px rgba(254,118,225,.45),
-        0 22px 55px rgba(43,23,109,.35);
-      filter:brightness(1.03);
+        0 16px 40px rgba(43,23,109,.45),
+        0 0 22px rgba(254,118,225,.75);
+      filter:brightness(1.04);
     }
 
     .cta-hero-button-icon{
       width:1.25rem;
       height:1.25rem;
       flex-shrink:0;
-      color:#523CAD;
+      color:#FFEFD5;
     }
 
     @media (max-width:768px){
-      .cta-hero-wrapper{
-        margin-top:1rem;
-        margin-bottom:1.25rem;
+      .cta-hero-section{
+        margin-top: 1.8rem;
+        margin-bottom: 1.2rem;
       }
       .cta-hero-button{
         width:100%;
         max-width:22rem;
-        padding:0.9rem 1.75rem;
-        font-size:0.98rem;
+        padding:0.9rem 1.6rem;
+        font-size:0.96rem;
         text-align:center;
       }
     }
@@ -274,7 +275,7 @@
 
   <main id="conteudo" class="tw-relative tw-z-10">
     <!-- CTA HERO (BOTÃO 6) -->
-    <section id="cta-hero" class="tw-px-4 tw-pb-4">
+    <section id="cta-hero" class="cta-hero-section tw-px-4">
       <div class="tw-container tw-mx-auto tw-max-w-4xl">
         <div class="cta-hero-wrapper">
           <a
@@ -285,7 +286,7 @@
             class="cta-hero-button"
           >
             <i data-lucide="lightbulb" class="cta-hero-button-icon"></i>
-            <span>💡 Clique aqui para a solução da vida melhor com TDAH 💡</span>
+            <span>💡 Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
           </a>
         </div>
       </div>
