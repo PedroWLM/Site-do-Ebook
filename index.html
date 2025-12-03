@@ -39,14 +39,6 @@
       background-size:100% auto;
       background-position:top center;
     }
-    @media (max-width:768px){
-      body{
-        background-image:url("./assets/bg-magico-mobile.webp");
-        background-repeat:repeat-y;
-        background-size:100% auto;
-        background-position:top center;
-      }
-    }
 
     .cta-pill{
       background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
@@ -139,12 +131,19 @@
       box-shadow:0 20px 40px rgba(43,23,109,0.45);
     }
 
+    /* ===== MOBILE ONLY ===== */
     @media (max-width:768px){
+      body{
+        background-image:url("./assets/bg-magico-mobile.webp");
+        background-repeat:repeat-y;
+        background-size:100% auto;
+        background-position:top center;
+      }
+
       .hero-bubbles{
-        /* aproxima as nuvens do topo e encurta o espaço entre elas no mobile */
-        min-height: 380px;
-        padding-top: 1rem;
-        padding-bottom: 3rem;
+        min-height: 360px;
+        padding-top: 0.75rem;
+        padding-bottom: 2.5rem;
       }
       .hero-bubble img{
         max-width: 360px;
@@ -163,13 +162,14 @@
         width: 320px;
         max-width: 320px;
       }
+
       .hero-cta-wrapper{
         padding-top: 0;
-        padding-bottom: 2.5rem;
+        padding-bottom: 2rem;
       }
       .hero-cta-pill{
         width:100%;
-        max-width: 520px;
+        max-width:520px;
         padding-inline:1.5rem;
         font-size:0.98rem;
       }
@@ -211,7 +211,7 @@
 
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
-    <!-- Imagem 2: pergunta principal (esquerda, linha de cima) -->
+    <!-- Imagem 2 -->
     <div class="hero-bubble hero-bubble--large" style="--x:20; --y:26;">
       <img
         src="./assets/imagem-2.webp"
@@ -220,7 +220,7 @@
       />
     </div>
 
-    <!-- Imagem 3: CALMA, RESPIRA... (direita, linha de cima) -->
+    <!-- Imagem 3 -->
     <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:26;">
       <img
         src="./assets/imagem-3.webp"
@@ -229,7 +229,7 @@
       />
     </div>
 
-    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo) -->
+    <!-- Imagem 4 -->
     <div class="hero-bubble" style="--x:20; --y:76;">
       <img
         src="./assets/imagem-4.webp"
@@ -238,7 +238,7 @@
       />
     </div>
 
-    <!-- Imagem 5: nuvem complementar direita (linha de baixo) -->
+    <!-- Imagem 5 -->
     <div class="hero-bubble hero-bubble--match-4" style="--x:80; --y:76;">
       <img
         src="./assets/imagem-5.webp"
@@ -467,7 +467,7 @@
       </div>
     </section>
 
-    <!-- Contato em faixa branca full-width -->
+    <!-- Contato -->
     <section id="contato" class="tw-py-12 tw-bg-brandWhite">
       <div class="tw-container tw-mx-auto tw-max-w-4xl tw-px-4">
         <div class="tw-text-center tw-space-y-6">
