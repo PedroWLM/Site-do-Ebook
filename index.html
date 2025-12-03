@@ -39,9 +39,6 @@
       background-size:100% auto;
       background-position:top center;
     }
-    @media (max-width:768px){
-      body{ background-image:url("./assets/bg-magico-mobile.webp"); }
-    }
 
     .cta-pill{
       background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
@@ -50,19 +47,11 @@
       transition:transform .2s, box-shadow .2s;
     }
     .cta-pill:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(82,60,173,.35); }
-
-    .card-surface{
-      background:#fff;
-      border:1px solid rgba(82,60,173,.08);
-      box-shadow:0 20px 45px rgba(43,23,109,.08);
-    }
-
+    .card-surface{ background:#fff; border:1px solid rgba(82,60,173,.08); box-shadow:0 20px 45px rgba(43,23,109,.08); }
     .pill-title{
       background:rgba(255,255,255,.35);
-      -webkit-backdrop-filter:blur(6px);
-      backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.45);
-      color:#2B176D;
+      -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.45); color:#2B176D;
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
@@ -75,137 +64,114 @@
       min-height: 520px;
       pointer-events: none;
     }
-
     .hero-bubble{
       position: absolute;
       left: calc(var(--x,50) * 1%);
       top: calc(var(--y,50) * 1%);
       transform: translate(-50%, -50%);
     }
-
     .hero-bubble img{
       width: 100%;
       height: auto;
       max-width: 630px;
       pointer-events: auto;
     }
-
-    /* imagens 2 e 3 (maiores) */
     .hero-bubble--large img{
-      max-width: 700px;
+      max-width: 720px;
+    }
+    .hero-bubble--xlarge img{
+      max-width: 780px;
     }
     .hero-bubble--match-2 img{
-      width: 700px;
-      max-width: 700px;
+      width: 720px;
+      max-width: 720px;
     }
-
-    /* imagens 4 e 5 (um pouco menores) */
     .hero-bubble--match-4 img{
-      width: 600px;
-      max-width: 600px;
+      width: 630px;
+      max-width: 630px;
     }
 
-    /* ===== AJUSTE ESPECÍFICO PARA MOBILE ===== */
+    /* CTA especial do hero */
+    .hero-cta-wrapper{
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
+      text-align: center;
+    }
+    .hero-cta-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:0.75rem;
+      padding:0.9rem 2.75rem;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,0.85);
+      background:linear-gradient(135deg,rgba(82,60,173,0.96),rgba(254,118,225,0.96));
+      box-shadow:0 14px 36px rgba(43,23,109,0.35);
+      color:#fff;
+      font-weight:600;
+      font-size:1.02rem;
+      text-decoration:none;
+      white-space:normal;
+    }
+    .hero-cta-pill span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:1.5rem;
+      height:1.5rem;
+      border-radius:999px;
+      background:#fff;
+      color:#FE76E1;
+      font-size:0.95rem;
+      box-shadow:0 0 12px rgba(255,255,255,0.85);
+    }
+    .hero-cta-pill:hover{
+      transform:translateY(-1px);
+      box-shadow:0 20px 40px rgba(43,23,109,0.45);
+    }
+
+    /* ===== MOBILE ONLY ===== */
     @media (max-width:768px){
+      body{
+        background-image:url("./assets/bg-magico-mobile.webp");
+        background-repeat:repeat-y;
+        background-size:100% auto;
+        background-position:top center;
+      }
+
       .hero-bubbles{
-        /* em vez de layout absoluto, empilha tudo em coluna */
-        min-height: auto;
-        padding-top: 2.5rem;
-        padding-bottom: 3rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.6rem;
+        min-height: 360px;
+        padding-top: 0.75rem;
+        padding-bottom: 2.5rem;
       }
-
-      .hero-bubble{
-        position: static;
-        left: auto;
-        top: auto;
-        transform: none;
-      }
-
       .hero-bubble img{
         max-width: 360px;
       }
       .hero-bubble--large img{
         max-width: 400px;
       }
+      .hero-bubble--xlarge img{
+        max-width: 420px;
+      }
       .hero-bubble--match-2 img{
-        width: 400px;
-        max-width: 400px;
+        width: 360px;
+        max-width: 360px;
       }
       .hero-bubble--match-4 img{
-        width: 300px;
-        max-width: 300px;
+        width: 320px;
+        max-width: 320px;
       }
-    }
 
-    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) — COM RESPIRO */
-    .cta-hero-section{
-      margin-top: 2.8rem;
-      margin-bottom: 3rem;
-    }
-
-    .cta-hero-wrapper{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .cta-hero-dot{
-      width:1.1rem;
-      height:1.1rem;
-      border-radius:999px;
-      background:#FE76E1;
-      opacity:0.75;
-      box-shadow:0 0 12px rgba(254,118,225,0.7);
-    }
-
-    .cta-hero-button{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:1rem 2.8rem;
-      border-radius:999px;
-      font-weight:600;
-      font-size:1.02rem;
-      text-decoration:none;
-      color:#2B176D;
-
-      background:linear-gradient(135deg,#DEC4FF 0%,#F7C7F3 100%);
-      border:2px solid rgba(255,255,255,0.9);
-
-      box-shadow:
-        0 4px 18px rgba(82,60,173,0.25),
-        0 0 12px rgba(254,118,225,0.35);
-
-      transition:transform .18s ease, box-shadow .18s ease;
-      pointer-events:auto;
-      text-align:center;
-    }
-
-    .cta-hero-button:hover{
-      transform:translateY(-2px);
-      box-shadow:
-        0 8px 26px rgba(82,60,173,0.35),
-        0 0 16px rgba(254,118,225,0.45);
-    }
-
-    @media (max-width:768px){
-      .cta-hero-section{
-        margin-top: 3rem;
-        margin-bottom: 1.8rem;
+      .hero-cta-wrapper{
+        padding-top: 0;
+        padding-bottom: 2rem;
       }
-      .cta-hero-button{
+      .hero-cta-pill{
         width:100%;
-        max-width:22rem;
-        padding:0.9rem 1.6rem;
-        font-size:0.96rem;
-      }
-      .cta-hero-dot{
-        display:none;
+        max-width:520px;
+        padding-inline:1.5rem;
+        font-size:0.98rem;
       }
     }
   </style>
@@ -214,8 +180,7 @@
   <script>
     window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date());
-    gtag('config','G-1KS3167PQQ');
+    gtag('js',new Date()); gtag('config','G-1KS3167PQQ');
   </script>
 
   <script type="application/ld+json">
@@ -226,17 +191,10 @@
     "description":"Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
     "author":{"@type":"Organization","name":"TDAH.Simples"},
     "publisher":{"@type":"Organization","name":"TDAH.Simples"},
-    "offers":{
-      "@type":"Offer",
-      "price":"35.00",
-      "priceCurrency":"BRL",
-      "availability":"https://schema.org/InStock",
-      "url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-    }
+    "offers":{"@type":"Offer","price":"35.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"}
   }
   </script>
 </head>
-
 <body class="tw-min-h-screen tw-text-brandDeep" id="topo">
   <!-- HEADER -->
   <header class="tw-relative tw-w-full tw-overflow-hidden">
@@ -246,16 +204,15 @@
         src="./assets/imagem-1-desktop.webp"
         alt="TDAH.Simples — Cabeçalho visual"
         class="tw-w-full tw-block tw-object-cover"
-        loading="eager"
-        fetchpriority="high"
+        loading="eager" fetchpriority="high"
       />
     </picture>
   </header>
 
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
-    <!-- Imagem 2: pergunta principal (esquerda, linha de cima) -->
-    <div class="hero-bubble hero-bubble--large" style="--x:18; --y:30;">
+    <!-- Imagem 2 -->
+    <div class="hero-bubble hero-bubble--large" style="--x:20; --y:26;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -263,8 +220,8 @@
       />
     </div>
 
-    <!-- Imagem 3: CALMA, RESPIRA... (direita, linha de cima) -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:82; --y:30;">
+    <!-- Imagem 3 -->
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:26;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -272,47 +229,40 @@
       />
     </div>
 
-    <!-- Imagem 4: nuvem complementar esquerda (linha de baixo, ajustada) -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:22; --y:82;">
+    <!-- Imagem 4 -->
+    <div class="hero-bubble" style="--x:20; --y:76;">
       <img
         src="./assets/imagem-4.webp"
-        alt="Texto acolhedor explicando que é normal não saber lidar com o TDAH no início."
+        alt="Elemento visual complementar à esquerda do hero"
         loading="lazy"
       />
     </div>
 
-    <!-- Imagem 5: nuvem complementar direita (linha de baixo, ajustada) -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:78; --y:82;">
+    <!-- Imagem 5 -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:80; --y:76;">
       <img
         src="./assets/imagem-5.webp"
-        alt="Texto dizendo que o guia foi criado para acompanhar com leveza esse início desafiador."
+        alt="Elemento visual complementar à direita do hero"
         loading="lazy"
       />
     </div>
   </section>
 
+  <!-- CTA PRINCIPAL DO HERO -->
+  <section class="hero-cta-wrapper">
+    <a
+      id="cta-hero"
+      href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
+      target="_blank"
+      rel="noopener"
+      class="hero-cta-pill"
+    >
+      <span>💡</span>
+      <span>Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
+    </a>
+  </section>
+
   <main id="conteudo" class="tw-relative tw-z-10">
-    <!-- CTA HERO (BOTÃO 6) -->
-    <section id="cta-hero" class="cta-hero-section tw-px-4">
-      <div class="tw-container tw-mx-auto tw-max-w-4xl">
-        <div class="cta-hero-wrapper">
-          <span class="cta-hero-dot tw-mr-3"></span>
-
-          <a
-            id="cta-hero-button"
-            href="https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-            target="_blank"
-            rel="noopener"
-            class="cta-hero-button"
-          >
-            💡 Clique aqui para a solução da sua vida melhor com TDAH 💡
-          </a>
-
-          <span class="cta-hero-dot tw-ml-3"></span>
-        </div>
-      </div>
-    </section>
-
     <!-- Comece no seu ritmo -->
     <section class="tw-px-4 tw-pt-4 tw-pb-10">
       <div class="tw-container tw-mx-auto tw-max-w-4xl tw-text-center tw-space-y-8">
@@ -320,7 +270,6 @@
           <h2 class="tw-text-2xl md:tw-text-3xl tw-font-semibold">Comece no seu ritmo</h2>
         </div>
 
-        <!-- subtítulo em caixa (1) -->
         <div class="tw-flex tw-justify-center">
           <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
             <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
@@ -335,13 +284,11 @@
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Baixe o guia</h3>
             <p class="tw-text-brandDeep/80">Acesso imediato com orientações práticas e acolhedoras.</p>
           </div>
-
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
             <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">2</div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha um micro-passos</h3>
             <p class="tw-text-brandDeep/80">Use exercícios de 10 minutos para construir confiança.</p>
           </div>
-
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
             <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">3</div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Crie sua rotina afetiva</h3>
@@ -359,7 +306,6 @@
             <h2 class="tw-text-2xl md:tw-text-3xl tw-font-semibold">Dentro do TDAH.Simples</h2>
           </div>
 
-          <!-- subtítulo em caixa (2) -->
           <div class="tw-flex tw-justify-center tw-mt-3">
             <div class="tw-inline-flex tw-items-center tw-justify-center tw-px-5 tw-py-3 tw-rounded-full pill-title">
               <p class="tw-text-xl tw-text-brandDeep/80 tw-m-0">
@@ -521,7 +467,7 @@
       </div>
     </section>
 
-    <!-- Contato em faixa branca full-width -->
+    <!-- Contato -->
     <section id="contato" class="tw-py-12 tw-bg-brandWhite">
       <div class="tw-container tw-mx-auto tw-max-w-4xl tw-px-4">
         <div class="tw-text-center tw-space-y-6">
@@ -568,25 +514,19 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
-
     function trackCta(id){
-      const el=document.getElementById(id);
-      if(!el) return;
+      const el=document.getElementById(id); if(!el) return;
       el.addEventListener('click',()=>{ 
         if(typeof gtag==='function'){
           gtag('event','cta_click',{event_category:'engagement',event_label:id});
         }
       });
     }
-
-    ['cta-final','cta-hero-button'].forEach(trackCta);
-
+    ['cta-hero','cta-final'].forEach(trackCta);
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
-        const id=a.getAttribute('href');
-        if(!id||id==='#') return;
-        const t=document.querySelector(id);
-        if(t){
+        const id=a.getAttribute('href'); if(!id||id==='#') return;
+        const t=document.querySelector(id); if(t){
           e.preventDefault();
           t.scrollIntoView({behavior:'smooth'});
         }
