@@ -31,6 +31,14 @@
   <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
 
   <style>
+    /* trava zoom lateral / rolagem horizontal estranha */
+    html, body{
+      margin:0;
+      padding:0;
+      max-width:100%;
+      overflow-x:hidden;
+    }
+
     body{
       font-family:'Lexend',-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
       color:#2B176D;
@@ -55,7 +63,7 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) — DESKTOP === */
     .hero-bubbles{
       position: relative;
       max-width: 1100px;
@@ -118,9 +126,11 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      border-radius:999px;
+    }
+    .hero-cta-pill span:first-child{
       width:1.5rem;
       height:1.5rem;
-      border-radius:999px;
       background:#fff;
       color:#FE76E1;
       font-size:0.95rem;
@@ -140,31 +150,42 @@
         background-position:top center;
       }
 
+      /* no mobile: empilhar as 4 nuvens, sem posição absoluta */
       .hero-bubbles{
-        min-height: 360px;
-        padding-top: 0.75rem;
-        padding-bottom: 2.5rem;
+        position: relative;
+        min-height: auto;
+        padding-top: 1.25rem;
+        padding-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .hero-bubble{
+        position: static;
+        transform: none;
       }
       .hero-bubble img{
-        max-width: 360px;
+        width: 100%;
+        max-width: 480px;
       }
       .hero-bubble--large img{
-        max-width: 400px;
+        max-width: 500px;
       }
       .hero-bubble--xlarge img{
-        max-width: 420px;
+        max-width: 520px;
       }
       .hero-bubble--match-2 img{
-        width: 360px;
-        max-width: 360px;
+        width: 100%;
+        max-width: 500px;
       }
       .hero-bubble--match-4 img{
-        width: 320px;
-        max-width: 320px;
+        width: 100%;
+        max-width: 480px;
       }
 
       .hero-cta-wrapper{
-        padding-top: 0;
+        padding-top: 0.5rem;
         padding-bottom: 2rem;
       }
       .hero-cta-pill{
