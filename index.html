@@ -105,12 +105,26 @@
       max-width: 600px;
     }
 
+    /* ===== AJUSTE ESPECÍFICO PARA MOBILE ===== */
     @media (max-width:768px){
       .hero-bubbles{
-        min-height: 460px;
-        padding-top: 2rem;
-        padding-bottom: 4rem;
+        /* em vez de layout absoluto, empilha tudo em coluna */
+        min-height: auto;
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.6rem;
       }
+
+      .hero-bubble{
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+
       .hero-bubble img{
         max-width: 360px;
       }
@@ -127,10 +141,10 @@
       }
     }
 
-    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) — AJUSTADO ESPAÇO ABAIXO */
+    /* CTA EXCLUSIVO DO HERO (BOTÃO 6) — COM RESPIRO */
     .cta-hero-section{
       margin-top: 2.8rem;
-      margin-bottom: 3rem; /* AQUI: aumentamos só de 2rem para 3rem */
+      margin-bottom: 3rem;
     }
 
     .cta-hero-wrapper{
@@ -160,7 +174,6 @@
       text-decoration:none;
       color:#2B176D;
 
-      /* degradê mais suave, combinando com o fundo */
       background:linear-gradient(135deg,#DEC4FF 0%,#F7C7F3 100%);
       border:2px solid rgba(255,255,255,0.9);
 
