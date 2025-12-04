@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-  <!-- Lexend + Nunito (APENAS adição do Nunito aqui) -->
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet" />
+  <!-- Lexend (site todo) + Nunito (texto do botão) -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -24,10 +25,7 @@
             brandDeep: '#2B176D',
             brandWhite: '#FFFFFF'
           },
-          fontFamily: { 
-            lexend: ['Lexend','Inter','system-ui','sans-serif'],
-            nunito: ['Nunito','system-ui','sans-serif'] /* só adição, não muda nada do resto */
-          }
+          fontFamily: { lexend: ['Lexend','Inter','system-ui','sans-serif'] }
         }
       }
     };
@@ -46,20 +44,33 @@
 
     .cta-pill{
       background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
-      color:#fff;border-radius:999px;font-weight:600;
+      color:#fff;
+      border-radius:999px;
+      font-weight:600;
       box-shadow:0 10px 30px rgba(82,60,173,.25);
       transition:transform .2s, box-shadow .2s;
     }
-    .cta-pill:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(82,60,173,.35); }
-    .card-surface{ background:#fff; border:1px solid rgba(82,60,173,.08); box-shadow:0 20px 45px rgba(43,23,109,.08); }
+    .cta-pill:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 40px rgba(82,60,173,.35);
+    }
+
+    .card-surface{
+      background:#fff;
+      border:1px solid rgba(82,60,173,.08);
+      box-shadow:0 20px 45px rgba(43,23,109,.08);
+    }
+
     .pill-title{
       background:rgba(255,255,255,.35);
-      -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.45); color:#2B176D;
+      -webkit-backdrop-filter:blur(6px);
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.45);
+      color:#2B176D;
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) — DESKTOP === */
     .hero-bubbles{
       position: relative;
       max-width: 1100px;
@@ -68,28 +79,34 @@
       min-height: 520px;
       pointer-events: none;
     }
+
     .hero-bubble{
       position: absolute;
       left: calc(var(--x,50) * 1%);
       top: calc(var(--y,50) * 1%);
       transform: translate(-50%, -50%);
     }
+
     .hero-bubble img{
       width: 100%;
       height: auto;
       max-width: 630px;
       pointer-events: auto;
     }
+
     .hero-bubble--large img{
       max-width: 720px;
     }
+
     .hero-bubble--xlarge img{
       max-width: 780px;
     }
+
     .hero-bubble--match-2 img{
       width: 720px;
       max-width: 720px;
     }
+
     .hero-bubble--match-4 img{
       width: 630px;
       max-width: 630px;
@@ -99,53 +116,64 @@
     .hero-cta-wrapper{
       max-width: 960px;
       margin: 0 auto;
-      padding: 0 1rem 3rem;
+      padding: 0 1rem 4rem;
       text-align: center;
+      margin-top: 0.75rem; /* deixa o botão um pouco mais embaixo */
     }
+
     .hero-cta-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:0.75rem;
-      padding:0.9rem 2.75rem;
+      padding:0.95rem 3rem;
       border-radius:999px;
-      border:2px solid rgba(255,255,255,0.85);
-      background:linear-gradient(135deg,rgba(82,60,173,0.96),rgba(254,118,225,0.96));
-      box-shadow:0 14px 36px rgba(43,23,109,0.35);
+      border:2px solid rgba(255,255,255,0.95);
+      background:linear-gradient(135deg,rgba(82,60,173,0.98),rgba(254,118,225,0.98));
+      box-shadow:
+        0 14px 36px rgba(43,23,109,0.45),
+        0 0 22px rgba(255,255,255,0.65);
       color:#fff;
       font-weight:600;
+      font-size:1.08rem;
       text-decoration:none;
       white-space:normal;
     }
 
-    /* NOVO: bolinhas brancas com o emoji */
     .hero-cta-icon{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:1.5rem;
-      height:1.5rem;
+      width:1.8rem;
+      height:1.8rem;
       border-radius:999px;
       background:#fff;
       color:#FE76E1;
-      font-size:0.95rem;
-      box-shadow:0 0 12px rgba(255,255,255,0.85);
+      font-size:1rem;
+      box-shadow:0 0 12px rgba(255,255,255,0.9);
       flex-shrink:0;
     }
 
-    /* NOVO: texto usando Nunito bold */
+    .hero-cta-icon-left{
+      margin-right:0.75rem;
+    }
+
+    .hero-cta-icon-right{
+      margin-left:0.75rem;
+    }
+
     .hero-cta-text{
-      font-family:'Nunito','Lexend','system-ui',sans-serif;
-      font-weight:700;
-      font-size:1.02rem;
-      color:#FFFFFF;
-      line-height:1.35;
-      white-space:normal;
+      font-family:'Nunito','Lexend','Inter','system-ui','sans-serif';
+      font-weight:800;
+      letter-spacing:0.02em;
+      text-shadow:0 0 12px rgba(255,255,255,0.9);
     }
 
     .hero-cta-pill:hover{
       transform:translateY(-1px);
-      box-shadow:0 20px 40px rgba(43,23,109,0.45);
+      box-shadow:
+        0 20px 40px rgba(43,23,109,0.55),
+        0 0 26px rgba(255,255,255,0.8);
     }
 
     /* ===== MOBILE ONLY ===== */
@@ -157,48 +185,68 @@
         background-position:top center;
       }
 
+      /* HERO: empilhar as nuvens no mobile */
       .hero-bubbles{
-        min-height: 360px;
-        padding-top: 0.75rem;
-        padding-bottom: 2.5rem;
-      }
-      .hero-bubble img{
-        max-width: 360px;
-      }
-      .hero-bubble--large img{
-        max-width: 400px;
-      }
-      .hero-bubble--xlarge img{
-        max-width: 420px;
-      }
-      .hero-bubble--match-2 img{
-        width: 360px;
-        max-width: 360px;
-      }
-      .hero-bubble--match-4 img{
-        width: 320px;
-        max-width: 320px;
+        position: relative;
+        max-width: 480px;
+        margin: 0 auto;
+        padding-top: 1.25rem;
+        padding-bottom: 1.75rem;
+        min-height: auto;
+        pointer-events: none;
       }
 
-      .hero-cta-wrapper{
-        padding-top: 0;
-        padding-bottom: 2rem;
+      .hero-bubble{
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 0 auto 0.75rem;
+        text-align: center;
       }
+
+      .hero-bubble img{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        pointer-events: auto;
+      }
+
+      /* CTA logo abaixo das nuvens */
+      .hero-cta-wrapper{
+        max-width: 480px;
+        margin: 0 auto;
+        padding-top: 0rem;
+        padding-bottom: 2.5rem;
+        text-align: center;
+      }
+
       .hero-cta-pill{
         width:100%;
-        max-width:520px;
+        max-width:480px;
         padding-inline:1.5rem;
+        padding-block:0.9rem;
+        font-size:1.02rem;
+      }
+
+      .hero-cta-text{
+        font-size:1.02rem;
+        text-align:center;
       }
     }
   </style>
 
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date()); gtag('config','G-1KS3167PQQ');
+    gtag('js',new Date());
+    gtag('config','G-1KS3167PQQ');
   </script>
 
+  <!-- Schema Book -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -207,7 +255,13 @@
     "description":"Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
     "author":{"@type":"Organization","name":"TDAH.Simples"},
     "publisher":{"@type":"Organization","name":"TDAH.Simples"},
-    "offers":{"@type":"Offer","price":"35.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"}
+    "offers":{
+      "@type":"Offer",
+      "price":"35.00",
+      "priceCurrency":"BRL",
+      "availability":"https://schema.org/InStock",
+      "url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
+    }
   }
   </script>
 </head>
@@ -220,7 +274,8 @@
         src="./assets/imagem-1-desktop.webp"
         alt="TDAH.Simples — Cabeçalho visual"
         class="tw-w-full tw-block tw-object-cover"
-        loading="eager" fetchpriority="high"
+        loading="eager"
+        fetchpriority="high"
       />
     </picture>
   </header>
@@ -264,7 +319,7 @@
     </div>
   </section>
 
-  <!-- CTA PRINCIPAL DO HERO (APENAS estrutura interna mudou) -->
+  <!-- CTA PRINCIPAL DO HERO -->
   <section class="hero-cta-wrapper">
     <a
       id="cta-hero"
@@ -273,9 +328,9 @@
       rel="noopener"
       class="hero-cta-pill"
     >
-      <span class="hero-cta-icon">💡</span>
+      <span class="hero-cta-icon hero-cta-icon-left">💡</span>
       <span class="hero-cta-text">Clique aqui para a solução da sua vida melhor com TDAH</span>
-      <span class="hero-cta-icon">💡</span>
+      <span class="hero-cta-icon hero-cta-icon-right"></span>
     </a>
   </section>
 
@@ -531,19 +586,25 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
+
     function trackCta(id){
-      const el=document.getElementById(id); if(!el) return;
+      const el=document.getElementById(id);
+      if(!el) return;
       el.addEventListener('click',()=>{ 
         if(typeof gtag==='function'){
           gtag('event','cta_click',{event_category:'engagement',event_label:id});
         }
       });
     }
+
     ['cta-hero','cta-final'].forEach(trackCta);
+
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
-        const id=a.getAttribute('href'); if(!id||id==='#') return;
-        const t=document.querySelector(id); if(t){
+        const id=a.getAttribute('href');
+        if(!id||id==='#') return;
+        const t=document.querySelector(id);
+        if(t){
           e.preventDefault();
           t.scrollIntoView({behavior:'smooth'});
         }
