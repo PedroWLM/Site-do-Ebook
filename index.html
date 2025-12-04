@@ -9,9 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-  <!-- Lexend + Nunito (botão) -->
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,9 +23,7 @@
             brandDeep: '#2B176D',
             brandWhite: '#FFFFFF'
           },
-          fontFamily: { 
-            lexend: ['Lexend','Inter','system-ui','sans-serif'],
-          }
+          fontFamily: { lexend: ['Lexend','Inter','system-ui','sans-serif'] }
         }
       }
     };
@@ -46,29 +42,16 @@
 
     .cta-pill{
       background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
-      color:#fff;
-      border-radius:999px;
-      font-weight:600;
+      color:#fff;border-radius:999px;font-weight:600;
       box-shadow:0 10px 30px rgba(82,60,173,.25);
       transition:transform .2s, box-shadow .2s;
     }
-    .cta-pill:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 40px rgba(82,60,173,.35);
-    }
-
-    .card-surface{
-      background:#fff;
-      border:1px solid rgba(82,60,173,.08);
-      box-shadow:0 20px 45px rgba(43,23,109,.08);
-    }
-
+    .cta-pill:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(82,60,173,.35); }
+    .card-surface{ background:#fff; border:1px solid rgba(82,60,173,.08); box-shadow:0 20px 45px rgba(43,23,109,.08); }
     .pill-title{
       background:rgba(255,255,255,.35);
-      -webkit-backdrop-filter:blur(6px);
-      backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.45);
-      color:#2B176D;
+      -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.45); color:#2B176D;
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
@@ -85,7 +68,7 @@
       position: absolute;
       left: calc(var(--x,50) * 1%);
       top: calc(var(--y,50) * 1%);
-      transform: translate(-50%, -50%);
+      transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px)));
     }
     .hero-bubble img{
       width: 100%;
@@ -103,7 +86,6 @@
       width: 720px;
       max-width: 720px;
     }
-    /* Imagens 4 e 5 agora com mesmo tamanho da 5 (630px) */
     .hero-bubble--match-4 img{
       width: 630px;
       max-width: 630px;
@@ -112,7 +94,7 @@
     /* CTA especial do hero */
     .hero-cta-wrapper{
       max-width: 960px;
-      margin: 0 auto;
+      margin: 50px auto 0; /* desce ~50px */
       padding: 0 1rem 3rem;
       text-align: center;
     }
@@ -120,23 +102,19 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:0.75rem;
-      padding:0.9rem 2.75rem;
+      gap:0.9rem;
+      padding:0.9rem 2.9rem;
       border-radius:999px;
       border:2px solid rgba(255,255,255,0.85);
       background:linear-gradient(135deg,rgba(82,60,173,0.96),rgba(254,118,225,0.96));
       box-shadow:0 14px 36px rgba(43,23,109,0.35);
       color:#fff;
-      font-weight:700;
-      font-size:1.05rem;
+      font-weight:700; /* bold 700 */
+      font-size:1.04rem;
       text-decoration:none;
       white-space:normal;
-      font-family:'Nunito','Lexend','system-ui',sans-serif;
     }
-    .hero-cta-pill span{
-      display:inline-block;
-    }
-    .hero-cta-icon{
+    .hero-cta-pill-icon{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -147,6 +125,14 @@
       color:#FE76E1;
       font-size:1rem;
       box-shadow:0 0 12px rgba(255,255,255,0.85);
+      flex-shrink:0;
+    }
+    .hero-cta-pill-icon--empty{
+      font-size:0; /* só bolinha branca */
+    }
+    .hero-cta-pill-label{
+      line-height:1.4;
+      letter-spacing:0.01em;
     }
     .hero-cta-pill:hover{
       transform:translateY(-1px);
@@ -162,39 +148,33 @@
         background-position:top center;
       }
 
-      /* Hero em coluna no mobile (uma imagem embaixo da outra) */
       .hero-bubbles{
-        min-height:auto;
-        padding-top:1.5rem;
-        padding-bottom:2.5rem;
-      }
-      .hero-bubble{
-        position: static;
-        transform:none;
-        margin:0 auto 0.75rem;
-        text-align:center;
+        min-height: 360px;
+        padding-top: 0.75rem;
+        padding-bottom: 2.5rem;
       }
       .hero-bubble img{
-        max-width:360px;
+        max-width: 360px;
       }
       .hero-bubble--large img{
-        max-width:380px;
+        max-width: 400px;
       }
       .hero-bubble--xlarge img{
-        max-width:400px;
+        max-width: 420px;
       }
       .hero-bubble--match-2 img{
-        width:360px;
-        max-width:360px;
+        width: 360px;
+        max-width: 360px;
       }
       .hero-bubble--match-4 img{
-        width:320px;
-        max-width:320px;
+        width: 320px;
+        max-width: 320px;
       }
 
       .hero-cta-wrapper{
-        padding-top:0.5rem;
-        padding-bottom:2rem;
+        padding-top: 0;
+        padding-bottom: 2rem;
+        margin-top: 40px;
       }
       .hero-cta-pill{
         width:100%;
@@ -205,16 +185,13 @@
     }
   </style>
 
-  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date());
-    gtag('config','G-1KS3167PQQ');
+    gtag('js',new Date()); gtag('config','G-1KS3167PQQ');
   </script>
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -223,13 +200,7 @@
     "description":"Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
     "author":{"@type":"Organization","name":"TDAH.Simples"},
     "publisher":{"@type":"Organization","name":"TDAH.Simples"},
-    "offers":{
-      "@type":"Offer",
-      "price":"35.00",
-      "priceCurrency":"BRL",
-      "availability":"https://schema.org/InStock",
-      "url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-    }
+    "offers":{"@type":"Offer","price":"35.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"}
   }
   </script>
 </head>
@@ -249,8 +220,8 @@
 
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
-    <!-- Imagem 2 - mais para a ESQUERDA -->
-    <div class="hero-bubble hero-bubble--large" style="--x:18; --y:26;">
+    <!-- Imagem 2 -->
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:20; --y:26; --dx:-5px;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -258,8 +229,8 @@
       />
     </div>
 
-    <!-- Imagem 3 - mais para a DIREITA -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:82; --y:26;">
+    <!-- Imagem 3 -->
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:26; --dx:5px;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -267,8 +238,8 @@
       />
     </div>
 
-    <!-- Imagem 4 - mesmo tamanho da 5 -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:24; --y:76;">
+    <!-- Imagem 4 -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:20; --y:76; --dx:-10px;">
       <img
         src="./assets/imagem-4.webp"
         alt="Elemento visual complementar à esquerda do hero"
@@ -276,8 +247,8 @@
       />
     </div>
 
-    <!-- Imagem 5 - mesmo tamanho da 4 -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:76; --y:76;">
+    <!-- Imagem 5 -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:80; --y:76; --dx:10px;">
       <img
         src="./assets/imagem-5.webp"
         alt="Elemento visual complementar à direita do hero"
@@ -295,8 +266,9 @@
       rel="noopener"
       class="hero-cta-pill"
     >
-      <span class="hero-cta-icon">💡</span>
-      <span>Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
+      <span class="hero-cta-pill-icon">💡</span>
+      <span class="hero-cta-pill-label">Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
+      <span class="hero-cta-pill-icon hero-cta-pill-icon--empty" aria-hidden="true"></span>
     </a>
   </section>
 
@@ -552,10 +524,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
-
     function trackCta(id){
-      const el=document.getElementById(id);
-      if(!el) return;
+      const el=document.getElementById(id); if(!el) return;
       el.addEventListener('click',()=>{ 
         if(typeof gtag==='function'){
           gtag('event','cta_click',{event_category:'engagement',event_label:id});
@@ -563,13 +533,10 @@
       });
     }
     ['cta-hero','cta-final'].forEach(trackCta);
-
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
-        const id=a.getAttribute('href');
-        if(!id||id==='#') return;
-        const t=document.querySelector(id);
-        if(t){
+        const id=a.getAttribute('href'); if(!id||id==='#') return;
+        const t=document.querySelector(id); if(t){
           e.preventDefault();
           t.scrollIntoView({behavior:'smooth'});
         }
