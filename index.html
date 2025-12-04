@@ -31,14 +31,6 @@
   <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
 
   <style>
-    /* trava zoom lateral / rolagem horizontal estranha */
-    html, body{
-      margin:0;
-      padding:0;
-      max-width:100%;
-      overflow-x:hidden;
-    }
-
     body{
       font-family:'Lexend',-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
       color:#2B176D;
@@ -63,7 +55,7 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) — DESKTOP === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
     .hero-bubbles{
       position: relative;
       max-width: 1100px;
@@ -126,8 +118,6 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-    }
-    .hero-cta-icon{
       width:1.5rem;
       height:1.5rem;
       border-radius:999px;
@@ -135,6 +125,14 @@
       color:#FE76E1;
       font-size:0.95rem;
       box-shadow:0 0 12px rgba(255,255,255,0.85);
+    }
+    .hero-cta-pill span:nth-child(2){
+      /* texto não precisa da bolinha */
+      background: transparent;
+      box-shadow: none;
+      width: auto;
+      height: auto;
+      color: #fff;
     }
     .hero-cta-pill:hover{
       transform:translateY(-1px);
@@ -150,42 +148,31 @@
         background-position:top center;
       }
 
-      /* no mobile: empilhar as 4 nuvens, sem posição absoluta */
       .hero-bubbles{
-        position: relative;
-        min-height: auto;
-        padding-top: 1.25rem;
-        padding-bottom: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      .hero-bubble{
-        position: static;
-        transform: none;
+        min-height: 360px;
+        padding-top: 0.75rem;
+        padding-bottom: 2.5rem;
       }
       .hero-bubble img{
-        width: 100%;
-        max-width: 480px;
+        max-width: 360px;
       }
       .hero-bubble--large img{
-        max-width: 500px;
+        max-width: 400px;
       }
       .hero-bubble--xlarge img{
-        max-width: 520px;
+        max-width: 420px;
       }
       .hero-bubble--match-2 img{
-        width: 100%;
-        max-width: 500px;
+        width: 360px;
+        max-width: 360px;
       }
       .hero-bubble--match-4 img{
-        width: 100%;
-        max-width: 480px;
+        width: 320px;
+        max-width: 320px;
       }
 
       .hero-cta-wrapper{
-        padding-top: 0.5rem;
+        padding-top: 0;
         padding-bottom: 2rem;
       }
       .hero-cta-pill{
@@ -193,6 +180,9 @@
         max-width:520px;
         padding-inline:1.5rem;
         font-size:0.98rem;
+      }
+      .hero-cta-pill span:nth-child(2){
+        text-align: center;
       }
     }
   </style>
@@ -233,7 +223,7 @@
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
     <!-- Imagem 2 -->
-    <div class="hero-bubble hero-bubble--large" style="--x:24; --y:26;">
+    <div class="hero-bubble hero-bubble--large" style="--x:17; --y:26;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -242,7 +232,7 @@
     </div>
 
     <!-- Imagem 3 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:76; --y:26;">
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:83; --y:26;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -251,7 +241,7 @@
     </div>
 
     <!-- Imagem 4 -->
-    <div class="hero-bubble" style="--x:24; --y:76;">
+    <div class="hero-bubble" style="--x:17; --y:76;">
       <img
         src="./assets/imagem-4.webp"
         alt="Elemento visual complementar à esquerda do hero"
@@ -260,7 +250,7 @@
     </div>
 
     <!-- Imagem 5 -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:76; --y:76;">
+    <div class="hero-bubble hero-bubble--match-4" style="--x:83; --y:76;">
       <img
         src="./assets/imagem-5.webp"
         alt="Elemento visual complementar à direita do hero"
@@ -278,9 +268,9 @@
       rel="noopener"
       class="hero-cta-pill"
     >
-      <span class="hero-cta-icon">💡</span>
+      <span>💡</span>
       <span>Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
-      <span class="hero-cta-icon">💡</span>
+      <span>&nbsp;</span>
     </a>
   </section>
 
