@@ -9,12 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-
-  <!-- Lexend (site inteiro) -->
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Nunito (apenas CTA do hero) -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap" rel="stylesheet" rel="stylesheet" />
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -29,13 +27,15 @@
             brandWhite: '#FFFFFF'
           },
           fontFamily: {
-            lexend: ['Lexend', 'Inter', 'system-ui', 'sans-serif'],
+            lexend: ['Lexend', 'Inter', 'system-ui', 'sans-serif']
           }
         }
       }
     };
   </script>
-  <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
+  <style type="text/css">
+    @import url("https://assets.mlcdn.com/fonts.css?version=1756813");
+  </style>
 
   <style>
     body{
@@ -75,67 +75,65 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (DESKTOP) === */
     .hero-bubbles{
-      position:relative;
-      max-width:1100px;
-      margin:0 auto;
-      padding:3rem 1rem 5rem;
-      min-height:520px;
-      pointer-events:none;
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1rem 5.5rem;
+      min-height: 540px;
+      pointer-events: none;
     }
     .hero-bubble{
-      position:absolute;
-      left:calc(var(--x,50) * 1%);
-      top:calc(var(--y,50) * 1%);
-      transform:translate(-50%, -50%);
+      position: absolute;
+      left: calc(var(--x,50) * 1%);
+      top: calc(var(--y,50) * 1%);
+      transform: translate(-50%, -50%);
     }
     .hero-bubble img{
-      width:100%;
-      height:auto;
-      max-width:630px;
-      pointer-events:auto;
-      display:block;
+      width: 100%;
+      height: auto;
+      max-width: 630px;
+      pointer-events: auto;
     }
     .hero-bubble--large img{
-      max-width:720px;
+      max-width: 720px;
     }
     .hero-bubble--xlarge img{
-      max-width:780px;
+      max-width: 780px;
     }
     .hero-bubble--match-2 img{
-      width:720px;
-      max-width:720px;
+      width: 720px;
+      max-width: 720px;
     }
     .hero-bubble--match-4 img{
-      width:630px;
-      max-width:630px;
+      width: 630px;
+      max-width: 630px;
     }
 
     /* CTA especial do hero */
     .hero-cta-wrapper{
-      max-width:960px;
-      margin:1.75rem auto 0; /* botão um pouco mais embaixo */
-      padding:0 1rem 3rem;
-      text-align:center;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1rem 3.5rem;
+      text-align: center;
     }
     .hero-cta-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:0.75rem;
-      padding:0.9rem 2.75rem;
+      gap:0.9rem;
+      padding:1rem 3rem;
       border-radius:999px;
-      border:2px solid rgba(255,255,255,0.95);
+      border:2px solid rgba(255,255,255,0.9);
       background:linear-gradient(135deg,rgba(82,60,173,0.98),rgba(254,118,225,0.98));
-      box-shadow:0 14px 36px rgba(43,23,109,0.38);
+      box-shadow:0 16px 40px rgba(43,23,109,0.45);
       color:#fff;
       text-decoration:none;
       white-space:normal;
-      position:relative;
-      overflow:hidden;
     }
-    .hero-cta-icon{
+    .hero-cta-pill-icon,
+    .hero-cta-pill-dot{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -143,28 +141,25 @@
       height:1.7rem;
       border-radius:999px;
       background:#fff;
+      box-shadow:0 0 14px rgba(255,255,255,0.9);
+    }
+    .hero-cta-pill-icon{
       color:#FE76E1;
       font-size:1rem;
-      box-shadow:0 0 12px rgba(255,255,255,0.9);
-      flex-shrink:0;
     }
-    .hero-cta-text{
-      font-family:"Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    .hero-cta-pill-dot{
+      color:transparent; /* bolinha vazia */
+    }
+    .hero-cta-pill-text{
+      font-family:'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-weight:700;
       font-size:1.05rem;
-      text-shadow:0 0 10px rgba(255,255,255,0.75);
-    }
-    .hero-cta-pill::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at 0 0, rgba(255,255,255,0.32), transparent 55%);
-      mix-blend-mode:screen;
-      pointer-events:none;
+      letter-spacing:0.02em;
+      text-shadow:0 0 14px rgba(255,255,255,0.9);
     }
     .hero-cta-pill:hover{
-      transform:translateY(-1px);
-      box-shadow:0 20px 40px rgba(43,23,109,0.48);
+      transform:translateY(-2px);
+      box-shadow:0 22px 48px rgba(43,23,109,0.55);
     }
 
     /* ===== MOBILE ONLY ===== */
@@ -176,56 +171,53 @@
         background-position:top center;
       }
 
-      /* Hero empilhado, sem sobreposição no mobile */
+      /* HERO em coluna, sem posicionamento absoluto */
       .hero-bubbles{
-        min-height:auto;
-        padding-top:1.25rem;
-        padding-bottom:2.75rem;
+        position: relative;
+        max-width: 430px;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 1.25rem;
+        padding-bottom: 2.75rem;
+        min-height: auto;
         display:flex;
         flex-direction:column;
         align-items:center;
         gap:1.25rem;
       }
       .hero-bubble{
-        position:static;
+        position: static;
         left:auto;
         top:auto;
         transform:none;
       }
       .hero-bubble img{
-        max-width:min(380px, 100%);
+        max-width: min(380px, 95vw);
       }
-      .hero-bubble--large img{
-        max-width:min(400px, 100%);
-      }
-      .hero-bubble--xlarge img{
-        max-width:min(420px, 100%);
-      }
-      .hero-bubble--match-2 img{
-        width:auto;
-        max-width:min(400px, 100%);
-      }
+      .hero-bubble--large img,
+      .hero-bubble--xlarge img,
+      .hero-bubble--match-2 img,
       .hero-bubble--match-4 img{
-        width:auto;
-        max-width:min(380px, 100%);
+        width:100%;
+        max-width:min(380px,95vw);
       }
 
       .hero-cta-wrapper{
-        margin-top:1.25rem;
-        padding-bottom:2rem;
+        padding-top:0;
+        padding-bottom:2.5rem;
       }
       .hero-cta-pill{
         width:100%;
-        max-width:520px;
+        max-width:430px;
         padding-inline:1.5rem;
+        font-size:0.98rem;
       }
-      .hero-cta-text{
+      .hero-cta-pill-text{
         font-size:0.98rem;
       }
     }
   </style>
 
-  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
@@ -234,7 +226,6 @@
     gtag('config','G-1KS3167PQQ');
   </script>
 
-  <!-- Schema.org Book -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -271,7 +262,7 @@
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
     <!-- Imagem 2 -->
-    <div class="hero-bubble hero-bubble--large" style="--x:18; --y:26;">
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:22; --y:30;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -280,7 +271,7 @@
     </div>
 
     <!-- Imagem 3 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:82; --y:26;">
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:78; --y:30;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -289,7 +280,7 @@
     </div>
 
     <!-- Imagem 4 -->
-    <div class="hero-bubble" style="--x:18; --y:82;">
+    <div class="hero-bubble hero-bubble--match-4" style="--x:18; --y:82;">
       <img
         src="./assets/imagem-4.webp"
         alt="Elemento visual complementar à esquerda do hero"
@@ -316,8 +307,9 @@
       rel="noopener"
       class="hero-cta-pill"
     >
-      <span class="hero-cta-icon">💡</span>
-      <span class="hero-cta-text">Clique aqui para a solução da sua vida melhor com TDAH</span>
+      <span class="hero-cta-pill-icon">💡</span>
+      <span class="hero-cta-pill-text">Clique aqui para a solução da sua vida melhor com TDAH</span>
+      <span class="hero-cta-pill-dot">●</span>
     </a>
   </section>
 
@@ -339,17 +331,23 @@
 
         <div class="tw-grid md:tw-grid-cols-3 tw-gap-8 tw-mt-6">
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
-            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">1</div>
+            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">
+              1
+            </div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Baixe o guia</h3>
             <p class="tw-text-brandDeep/80">Acesso imediato com orientações práticas e acolhedoras.</p>
           </div>
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
-            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">2</div>
+            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">
+              2
+            </div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha um micro-passos</h3>
             <p class="tw-text-brandDeep/80">Use exercícios de 10 minutos para construir confiança.</p>
           </div>
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
-            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">3</div>
+            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">
+              3
+            </div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Crie sua rotina afetiva</h3>
             <p class="tw-text-brandDeep/80">Adapte os testes bônus para um plano que respeita sua energia.</p>
           </div>
@@ -588,7 +586,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         const id=a.getAttribute('href');
-        if(!id || id==='#') return;
+        if(!id||id==='#') return;
         const t=document.querySelector(id);
         if(t){
           e.preventDefault();
