@@ -9,10 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Lexend + Nunito (botão) -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,16 +25,14 @@
             brandDeep: '#2B176D',
             brandWhite: '#FFFFFF'
           },
-          fontFamily: {
-            lexend: ['Lexend', 'Inter', 'system-ui', 'sans-serif']
+          fontFamily: { 
+            lexend: ['Lexend','Inter','system-ui','sans-serif'],
           }
         }
       }
     };
   </script>
-  <style type="text/css">
-    @import url("https://assets.mlcdn.com/fonts.css?version=1756813");
-  </style>
+  <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1756813");</style>
 
   <style>
     body{
@@ -75,13 +72,13 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (DESKTOP) === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
     .hero-bubbles{
       position: relative;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 3rem 1rem 5.5rem;
-      min-height: 540px;
+      padding: 3rem 1rem 5rem;
+      min-height: 520px;
       pointer-events: none;
     }
     .hero-bubble{
@@ -106,6 +103,7 @@
       width: 720px;
       max-width: 720px;
     }
+    /* Imagens 4 e 5 agora com mesmo tamanho da 5 (630px) */
     .hero-bubble--match-4 img{
       width: 630px;
       max-width: 630px;
@@ -115,51 +113,44 @@
     .hero-cta-wrapper{
       max-width: 960px;
       margin: 0 auto;
-      padding: 0 1rem 3.5rem;
+      padding: 0 1rem 3rem;
       text-align: center;
     }
     .hero-cta-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:0.9rem;
-      padding:1rem 3rem;
+      gap:0.75rem;
+      padding:0.9rem 2.75rem;
       border-radius:999px;
-      border:2px solid rgba(255,255,255,0.9);
-      background:linear-gradient(135deg,rgba(82,60,173,0.98),rgba(254,118,225,0.98));
-      box-shadow:0 16px 40px rgba(43,23,109,0.45);
+      border:2px solid rgba(255,255,255,0.85);
+      background:linear-gradient(135deg,rgba(82,60,173,0.96),rgba(254,118,225,0.96));
+      box-shadow:0 14px 36px rgba(43,23,109,0.35);
       color:#fff;
+      font-weight:700;
+      font-size:1.05rem;
       text-decoration:none;
       white-space:normal;
+      font-family:'Nunito','Lexend','system-ui',sans-serif;
     }
-    .hero-cta-pill-icon,
-    .hero-cta-pill-dot{
+    .hero-cta-pill span{
+      display:inline-block;
+    }
+    .hero-cta-icon{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:1.7rem;
-      height:1.7rem;
+      width:1.6rem;
+      height:1.6rem;
       border-radius:999px;
       background:#fff;
-      box-shadow:0 0 14px rgba(255,255,255,0.9);
-    }
-    .hero-cta-pill-icon{
       color:#FE76E1;
       font-size:1rem;
-    }
-    .hero-cta-pill-dot{
-      color:transparent; /* bolinha vazia */
-    }
-    .hero-cta-pill-text{
-      font-family:'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-weight:700;
-      font-size:1.05rem;
-      letter-spacing:0.02em;
-      text-shadow:0 0 14px rgba(255,255,255,0.9);
+      box-shadow:0 0 12px rgba(255,255,255,0.85);
     }
     .hero-cta-pill:hover{
-      transform:translateY(-2px);
-      box-shadow:0 22px 48px rgba(43,23,109,0.55);
+      transform:translateY(-1px);
+      box-shadow:0 20px 40px rgba(43,23,109,0.45);
     }
 
     /* ===== MOBILE ONLY ===== */
@@ -171,53 +162,50 @@
         background-position:top center;
       }
 
-      /* HERO em coluna, sem posicionamento absoluto */
+      /* Hero em coluna no mobile (uma imagem embaixo da outra) */
       .hero-bubbles{
-        position: relative;
-        max-width: 430px;
-        width: 100%;
-        margin: 0 auto;
-        padding-top: 1.25rem;
-        padding-bottom: 2.75rem;
-        min-height: auto;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:1.25rem;
+        min-height:auto;
+        padding-top:1.5rem;
+        padding-bottom:2.5rem;
       }
       .hero-bubble{
         position: static;
-        left:auto;
-        top:auto;
         transform:none;
+        margin:0 auto 0.75rem;
+        text-align:center;
       }
       .hero-bubble img{
-        max-width: min(380px, 95vw);
+        max-width:360px;
       }
-      .hero-bubble--large img,
-      .hero-bubble--xlarge img,
-      .hero-bubble--match-2 img,
+      .hero-bubble--large img{
+        max-width:380px;
+      }
+      .hero-bubble--xlarge img{
+        max-width:400px;
+      }
+      .hero-bubble--match-2 img{
+        width:360px;
+        max-width:360px;
+      }
       .hero-bubble--match-4 img{
-        width:100%;
-        max-width:min(380px,95vw);
+        width:320px;
+        max-width:320px;
       }
 
       .hero-cta-wrapper{
-        padding-top:0;
-        padding-bottom:2.5rem;
+        padding-top:0.5rem;
+        padding-bottom:2rem;
       }
       .hero-cta-pill{
         width:100%;
-        max-width:430px;
+        max-width:520px;
         padding-inline:1.5rem;
-        font-size:0.98rem;
-      }
-      .hero-cta-pill-text{
         font-size:0.98rem;
       }
     }
   </style>
 
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
@@ -226,6 +214,7 @@
     gtag('config','G-1KS3167PQQ');
   </script>
 
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -253,16 +242,15 @@
         src="./assets/imagem-1-desktop.webp"
         alt="TDAH.Simples — Cabeçalho visual"
         class="tw-w-full tw-block tw-object-cover"
-        loading="eager"
-        fetchpriority="high"
+        loading="eager" fetchpriority="high"
       />
     </picture>
   </header>
 
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
-    <!-- Imagem 2 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:22; --y:30;">
+    <!-- Imagem 2 - mais para a ESQUERDA -->
+    <div class="hero-bubble hero-bubble--large" style="--x:18; --y:26;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -270,8 +258,8 @@
       />
     </div>
 
-    <!-- Imagem 3 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:78; --y:30;">
+    <!-- Imagem 3 - mais para a DIREITA -->
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:82; --y:26;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -279,8 +267,8 @@
       />
     </div>
 
-    <!-- Imagem 4 -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:18; --y:82;">
+    <!-- Imagem 4 - mesmo tamanho da 5 -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:24; --y:76;">
       <img
         src="./assets/imagem-4.webp"
         alt="Elemento visual complementar à esquerda do hero"
@@ -288,8 +276,8 @@
       />
     </div>
 
-    <!-- Imagem 5 -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:82; --y:82;">
+    <!-- Imagem 5 - mesmo tamanho da 4 -->
+    <div class="hero-bubble hero-bubble--match-4" style="--x:76; --y:76;">
       <img
         src="./assets/imagem-5.webp"
         alt="Elemento visual complementar à direita do hero"
@@ -307,9 +295,8 @@
       rel="noopener"
       class="hero-cta-pill"
     >
-      <span class="hero-cta-pill-icon">💡</span>
-      <span class="hero-cta-pill-text">Clique aqui para a solução da sua vida melhor com TDAH</span>
-      <span class="hero-cta-pill-dot">●</span>
+      <span class="hero-cta-icon">💡</span>
+      <span>Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
     </a>
   </section>
 
@@ -331,23 +318,17 @@
 
         <div class="tw-grid md:tw-grid-cols-3 tw-gap-8 tw-mt-6">
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
-            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">
-              1
-            </div>
+            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">1</div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Baixe o guia</h3>
             <p class="tw-text-brandDeep/80">Acesso imediato com orientações práticas e acolhedoras.</p>
           </div>
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
-            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">
-              2
-            </div>
+            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">2</div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Escolha um micro-passos</h3>
             <p class="tw-text-brandDeep/80">Use exercícios de 10 minutos para construir confiança.</p>
           </div>
           <div class="tw-text-center card-surface tw-rounded-2xl tw-p-8">
-            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">
-              3
-            </div>
+            <div class="tw-w-16 tw-h-16 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-4 tw-bg-brandPrimary/15 tw-text-brandPrimary tw-font-semibold tw-text-2xl">3</div>
             <h3 class="tw-text-xl tw-font-semibold tw-mb-3">Crie sua rotina afetiva</h3>
             <p class="tw-text-brandDeep/80">Adapte os testes bônus para um plano que respeita sua energia.</p>
           </div>
