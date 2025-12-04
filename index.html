@@ -9,9 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-  <!-- Lexend (site todo) + Nunito (texto do botão) -->
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet" />
-
+  <!-- Lexend + Nunito -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,7 +24,10 @@
             brandDeep: '#2B176D',
             brandWhite: '#FFFFFF'
           },
-          fontFamily: { lexend: ['Lexend','Inter','system-ui','sans-serif'] }
+          fontFamily: { 
+            lexend: ['Lexend','Inter','system-ui','sans-serif'],
+            nunito: ['Nunito','system-ui','sans-serif']
+          }
         }
       }
     };
@@ -44,29 +46,16 @@
 
     .cta-pill{
       background:linear-gradient(135deg,#523CAD 0%,#FE76E1 100%);
-      color:#fff;
-      border-radius:999px;
-      font-weight:600;
+      color:#fff;border-radius:999px;font-weight:600;
       box-shadow:0 10px 30px rgba(82,60,173,.25);
       transition:transform .2s, box-shadow .2s;
     }
-    .cta-pill:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 40px rgba(82,60,173,.35);
-    }
-
-    .card-surface{
-      background:#fff;
-      border:1px solid rgba(82,60,173,.08);
-      box-shadow:0 20px 45px rgba(43,23,109,.08);
-    }
-
+    .cta-pill:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(82,60,173,.35); }
+    .card-surface{ background:#fff; border:1px solid rgba(82,60,173,.08); box-shadow:0 20px 45px rgba(43,23,109,.08); }
     .pill-title{
       background:rgba(255,255,255,.35);
-      -webkit-backdrop-filter:blur(6px);
-      backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.45);
-      color:#2B176D;
+      -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.45); color:#2B176D;
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
@@ -79,34 +68,28 @@
       min-height: 520px;
       pointer-events: none;
     }
-
     .hero-bubble{
       position: absolute;
       left: calc(var(--x,50) * 1%);
       top: calc(var(--y,50) * 1%);
       transform: translate(-50%, -50%);
     }
-
     .hero-bubble img{
       width: 100%;
       height: auto;
       max-width: 630px;
       pointer-events: auto;
     }
-
     .hero-bubble--large img{
       max-width: 720px;
     }
-
     .hero-bubble--xlarge img{
       max-width: 780px;
     }
-
     .hero-bubble--match-2 img{
       width: 720px;
       max-width: 720px;
     }
-
     .hero-bubble--match-4 img{
       width: 630px;
       max-width: 630px;
@@ -116,64 +99,52 @@
     .hero-cta-wrapper{
       max-width: 960px;
       margin: 0 auto;
-      padding: 0 1rem 4rem;
+      padding: 0 1rem 3.25rem;
       text-align: center;
-      margin-top: 0.75rem; /* deixa o botão um pouco mais embaixo */
     }
-
     .hero-cta-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:0.75rem;
-      padding:0.95rem 3rem;
+      gap:0.9rem;
+      padding:1rem 3rem;
       border-radius:999px;
-      border:2px solid rgba(255,255,255,0.95);
+      border:2px solid rgba(255,255,255,0.9);
       background:linear-gradient(135deg,rgba(82,60,173,0.98),rgba(254,118,225,0.98));
       box-shadow:
-        0 14px 36px rgba(43,23,109,0.45),
-        0 0 22px rgba(255,255,255,0.65);
+        0 14px 36px rgba(43,23,109,0.40),
+        0 0 20px rgba(254,118,225,0.65);
       color:#fff;
-      font-weight:600;
-      font-size:1.08rem;
       text-decoration:none;
       white-space:normal;
     }
-
     .hero-cta-icon{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:1.8rem;
-      height:1.8rem;
+      width:1.9rem;
+      height:1.9rem;
       border-radius:999px;
       background:#fff;
       color:#FE76E1;
-      font-size:1rem;
+      font-size:1.05rem;
       box-shadow:0 0 12px rgba(255,255,255,0.9);
       flex-shrink:0;
     }
-
-    .hero-cta-icon-left{
-      margin-right:0.75rem;
-    }
-
-    .hero-cta-icon-right{
-      margin-left:0.75rem;
-    }
-
     .hero-cta-text{
-      font-family:'Nunito','Lexend','Inter','system-ui','sans-serif';
+      font-family:'Nunito','Lexend',system-ui,sans-serif;
       font-weight:800;
-      letter-spacing:0.02em;
-      text-shadow:0 0 12px rgba(255,255,255,0.9);
+      font-size:1.05rem;
+      letter-spacing:0.01em;
+      text-shadow:
+        0 0 8px rgba(255,255,255,0.9),
+        0 0 16px rgba(254,118,225,0.9);
     }
-
     .hero-cta-pill:hover{
       transform:translateY(-1px);
       box-shadow:
-        0 20px 40px rgba(43,23,109,0.55),
-        0 0 26px rgba(255,255,255,0.8);
+        0 20px 40px rgba(43,23,109,0.48),
+        0 0 26px rgba(254,118,225,0.8);
     }
 
     /* ===== MOBILE ONLY ===== */
@@ -185,68 +156,55 @@
         background-position:top center;
       }
 
-      /* HERO: empilhar as nuvens no mobile */
+      /* Hero: empilhado, sem zoom bugado */
       .hero-bubbles{
         position: relative;
         max-width: 480px;
         margin: 0 auto;
-        padding-top: 1.25rem;
-        padding-bottom: 1.75rem;
+        padding: 1.5rem 1rem 2.25rem;
         min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.9rem;
         pointer-events: none;
       }
-
       .hero-bubble{
         position: static;
         left: auto;
         top: auto;
         transform: none;
-        margin: 0 auto 0.75rem;
-        text-align: center;
       }
-
       .hero-bubble img{
-        display: block;
-        width: 100%;
         max-width: 100%;
+        width: 100%;
         height: auto;
         pointer-events: auto;
       }
 
-      /* CTA logo abaixo das nuvens */
       .hero-cta-wrapper{
-        max-width: 480px;
-        margin: 0 auto;
-        padding-top: 0rem;
-        padding-bottom: 2.5rem;
-        text-align: center;
+        padding-top: 0;
+        padding-bottom: 2rem;
       }
-
       .hero-cta-pill{
-        width:100%;
-        max-width:480px;
-        padding-inline:1.5rem;
-        padding-block:0.9rem;
-        font-size:1.02rem;
+        width: 100%;
+        max-width: 520px;
+        padding-inline: 1.5rem;
+        font-size: 0.98rem;
       }
-
       .hero-cta-text{
-        font-size:1.02rem;
-        text-align:center;
+        font-size: 0.98rem;
       }
     }
   </style>
 
-  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KS3167PQQ"></script>
   <script>
     window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date());
-    gtag('config','G-1KS3167PQQ');
+    gtag('js',new Date()); gtag('config','G-1KS3167PQQ');
   </script>
 
-  <!-- Schema Book -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -255,13 +213,7 @@
     "description":"Um guia acolhedor para entender o TDAH e criar rotinas leves, com técnicas práticas e adaptáveis.",
     "author":{"@type":"Organization","name":"TDAH.Simples"},
     "publisher":{"@type":"Organization","name":"TDAH.Simples"},
-    "offers":{
-      "@type":"Offer",
-      "price":"35.00",
-      "priceCurrency":"BRL",
-      "availability":"https://schema.org/InStock",
-      "url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"
-    }
+    "offers":{"@type":"Offer","price":"35.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://pay.kirvano.com/563bc2a7-ca8d-47a9-9040-93b9c37da086"}
   }
   </script>
 </head>
@@ -274,8 +226,7 @@
         src="./assets/imagem-1-desktop.webp"
         alt="TDAH.Simples — Cabeçalho visual"
         class="tw-w-full tw-block tw-object-cover"
-        loading="eager"
-        fetchpriority="high"
+        loading="eager" fetchpriority="high"
       />
     </picture>
   </header>
@@ -283,7 +234,7 @@
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
     <!-- Imagem 2 -->
-    <div class="hero-bubble hero-bubble--large" style="--x:20; --y:26;">
+    <div class="hero-bubble hero-bubble--large" style="--x:22; --y:30;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -292,7 +243,7 @@
     </div>
 
     <!-- Imagem 3 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:26;">
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:78; --y:30;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -301,19 +252,19 @@
     </div>
 
     <!-- Imagem 4 -->
-    <div class="hero-bubble" style="--x:20; --y:76;">
+    <div class="hero-bubble" style="--x:24; --y:74;">
       <img
         src="./assets/imagem-4.webp"
-        alt="Elemento visual complementar à esquerda do hero"
+        alt="Texto acolhedor explicando que é normal se sentir sobrecarregado ao descobrir o TDAH."
         loading="lazy"
       />
     </div>
 
     <!-- Imagem 5 -->
-    <div class="hero-bubble hero-bubble--match-4" style="--x:80; --y:76;">
+    <div class="hero-bubble hero-bubble--match-4" style="--x:76; --y:74;">
       <img
         src="./assets/imagem-5.webp"
-        alt="Elemento visual complementar à direita do hero"
+        alt="Texto explicando que o guia foi criado para acompanhar com leveza esse início de adaptação."
         loading="lazy"
       />
     </div>
@@ -328,9 +279,9 @@
       rel="noopener"
       class="hero-cta-pill"
     >
-      <span class="hero-cta-icon hero-cta-icon-left">💡</span>
+      <span class="hero-cta-icon">💡</span>
       <span class="hero-cta-text">Clique aqui para a solução da sua vida melhor com TDAH</span>
-      <span class="hero-cta-icon hero-cta-icon-right"></span>
+      <span class="hero-cta-icon">💡</span>
     </a>
   </section>
 
@@ -586,25 +537,19 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
-
     function trackCta(id){
-      const el=document.getElementById(id);
-      if(!el) return;
+      const el=document.getElementById(id); if(!el) return;
       el.addEventListener('click',()=>{ 
         if(typeof gtag==='function'){
           gtag('event','cta_click',{event_category:'engagement',event_label:id});
         }
       });
     }
-
     ['cta-hero','cta-final'].forEach(trackCta);
-
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
-        const id=a.getAttribute('href');
-        if(!id||id==='#') return;
-        const t=document.querySelector(id);
-        if(t){
+        const id=a.getAttribute('href'); if(!id||id==='#') return;
+        const t=document.querySelector(id); if(t){
           e.preventDefault();
           t.scrollIntoView({behavior:'smooth'});
         }
