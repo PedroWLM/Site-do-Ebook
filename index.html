@@ -106,13 +106,15 @@
       padding:0.9rem 2.9rem;
       border-radius:999px;
       border:2px solid rgba(255,255,255,0.85);
-      background:linear-gradient(135deg,rgba(82,60,173,0.96),rgba(254,118,225,0.96));
+      /* degradê vertical opção B: rosa em cima -> roxo embaixo */
+      background:linear-gradient(to bottom,#FE76E1,#523CAD);
       box-shadow:0 14px 36px rgba(43,23,109,0.35);
       color:#fff;
-      font-weight:700; /* bold 700 */
+      font-weight:800; /* mais grosso */
       font-size:1.04rem;
       text-decoration:none;
       white-space:normal;
+      text-align:center;
     }
     .hero-cta-pill-icon{
       display:inline-flex;
@@ -128,7 +130,7 @@
       flex-shrink:0;
     }
     .hero-cta-pill-icon--empty{
-      font-size:0; /* classe ainda existe, mas não está sendo usada no CTA */
+      font-size:0; /* classe preservada para compatibilidade, não usada no CTA */
     }
     .hero-cta-pill-label{
       line-height:1.4;
@@ -221,7 +223,7 @@
   <!-- HERO COM SISTEMA DE POSICIONAMENTO (IMAGENS 2, 3, 4, 5) -->
   <section class="hero-bubbles tw-px-4">
     <!-- Imagem 2 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:20; --y:26; --dx:-5px;">
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:20; --y:26; --dx:-15px;">
       <img
         src="./assets/imagem-2.webp"
         alt="Está com dificuldade para criar ou ajustar sua rotina... e já não sabe mais o que fazer?"
@@ -230,7 +232,7 @@
     </div>
 
     <!-- Imagem 3 -->
-    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:26; --dx:5px;">
+    <div class="hero-bubble hero-bubble--large hero-bubble--match-2" style="--x:80; --y:26; --dx:15px;">
       <img
         src="./assets/imagem-3.webp"
         alt="Calma, respira... Está tudo bem se sentir assim, acontece com quem ainda está aprendendo a lidar."
@@ -267,8 +269,10 @@
       class="hero-cta-pill"
     >
       <span class="hero-cta-pill-icon">💡</span>
-      <span class="hero-cta-pill-label">Clique aqui para a solução da sua vida melhor com TDAH 💡</span>
-      <span class="hero-cta-pill-icon" aria-hidden="true">💡</span>
+      <span class="hero-cta-pill-label">
+        Clique aqui para a solução da sua vida melhor com TDAH 💡
+      </span>
+      <!-- emoji direito removido, mantendo apenas o ícone da esquerda -->
     </a>
   </section>
 
