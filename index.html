@@ -55,7 +55,7 @@
       box-shadow:0 10px 30px rgba(43,23,109,.10);
     }
 
-    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) === */
+    /* === SISTEMA DE POSICIONAMENTO DO HERO (IMAGENS 2, 3, 4, 5) — DESKTOP === */
     .hero-bubbles{
       position: relative;
       max-width: 1100px;
@@ -106,7 +106,7 @@
       padding:0.9rem 2.9rem;
       border-radius:999px;
       border:2px solid rgba(255,255,255,0.85);
-      /* degradê vertical rosa em cima -> roxo embaixo */
+      /* degradê vertical: rosa em cima -> roxo embaixo */
       background:linear-gradient(to bottom,#FE76E1,#523CAD);
       box-shadow:0 14px 36px rgba(43,23,109,0.35);
       color:#fff;
@@ -146,31 +146,53 @@
       body{
         background-image:url("./assets/bg-magico-mobile.webp");
         background-repeat:repeat-y;
-        background-size:100% auto;
+        background-size:auto 140%; /* fundo mais “cheio” no mobile */
         background-position:top center;
       }
 
+      /* Cabeçalho (imagem 1) mais presente no mobile */
+      header img{
+        width:100%;
+        height:auto;
+        min-height:200px;
+        object-fit:cover;
+      }
+
+      /* Hero: empilhar imagens 2, 3, 4 e 5 em coluna */
       .hero-bubbles{
-        min-height: 360px;
-        padding-top: 0.75rem;
+        position: relative;
+        max-width: 100%;
+        min-height: auto;
+        padding-top: 1.25rem;
         padding-bottom: 2.5rem;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:1rem;
+        pointer-events:none;
+      }
+      .hero-bubble{
+        position:static;
+        left:auto;
+        top:auto;
+        transform:none;
       }
       .hero-bubble img{
-        max-width: 360px;
-      }
-      .hero-bubble--large img{
-        max-width: 400px;
-      }
-      .hero-bubble--xlarge img{
         max-width: 420px;
       }
+      .hero-bubble--large img{
+        max-width: 430px;
+      }
+      .hero-bubble--xlarge img{
+        max-width: 440px;
+      }
       .hero-bubble--match-2 img{
-        width: 360px;
-        max-width: 360px;
+        width: 420px;
+        max-width: 420px;
       }
       .hero-bubble--match-4 img{
-        width: 320px;
-        max-width: 320px;
+        width: 380px;
+        max-width: 380px;
       }
 
       .hero-cta-wrapper{
@@ -270,7 +292,7 @@
     >
       <span class="hero-cta-pill-icon">💡</span>
       <span class="hero-cta-pill-label">
-        Clique aqui para a solução da sua vida melhor com TDAH
+        Clique aqui para a solução da sua vida melhor com TDAH 💡
       </span>
       <span class="hero-cta-pill-icon">💡</span>
     </a>
