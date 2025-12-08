@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://assets.mlcdn.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -59,7 +59,7 @@
     .hero-bubbles{
       max-width: 100%;
       margin: 0 auto;
-      padding: 1.5rem 1rem 2rem;
+      padding: 1.25rem 1.25rem 2.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -69,7 +69,7 @@
     .hero-bubble{
       position: static;
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       display: flex;
       justify-content: center;
     }
@@ -79,54 +79,66 @@
       height: auto;
       pointer-events: auto;
     }
-    
-    /* CTA especial do hero - MOBILE FIRST */
+    .hero-bubble--large img{
+      max-width: 100%;
+    }
+    .hero-bubble--xlarge img{
+      max-width: 100%;
+    }
+    .hero-bubble--match-2 img,
+    .hero-bubble--match-4 img{
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* CTA especial do hero */
     .hero-cta-wrapper{
       max-width: 960px;
-      margin: 2rem auto 0;
-      padding: 0 1rem 2.5rem;
+      margin: 100px auto 0; /* 100px total de margem superior */
+      padding: 0 1rem 3rem;
       text-align: center;
     }
     .hero-cta-pill{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      padding: 1rem 1.5rem;
-      border-radius: 999px;
-      border: 2px solid rgba(255,255,255,0.85);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:0.9rem;
+      padding:0.9rem 2.9rem;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,0.85);
       /* degradê vertical: rosa em cima -> roxo embaixo */
-      background: linear-gradient(to bottom, #FE76E1, #523CAD);
-      box-shadow: 0 14px 36px rgba(43,23,109,0.35);
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.95rem;
-      line-height: 1.35;
-      text-decoration: none;
-      text-align: center;
-      width: 100%;
-      max-width: 520px;
+      background:linear-gradient(to bottom,#FE76E1,#523CAD);
+      box-shadow:0 14px 36px rgba(43,23,109,0.35);
+      color:#fff;
+      font-weight:800; /* mais grosso */
+      font-size:1.04rem;
+      text-decoration:none;
+      white-space:normal;
+      text-align:center;
     }
     .hero-cta-pill-icon{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.5rem;
-      height: 1.5rem;
-      border-radius: 999px;
-      background: #fff;
-      font-size: 0.9rem;
-      box-shadow: 0 0 12px rgba(255,255,255,0.85);
-      flex-shrink: 0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:1.6rem;
+      height:1.6rem;
+      border-radius:999px;
+      background:#fff;
+      color:#FE76E1;
+      font-size:1rem;
+      box-shadow:0 0 12px rgba(255,255,255,0.85);
+      flex-shrink:0;
+    }
+    .hero-cta-pill-icon--empty{
+      font-size:0; /* classe preservada para compatibilidade, não usada no CTA */
     }
     .hero-cta-pill-label{
-      flex: 1;
-      line-height: 1.4;
-      letter-spacing: 0.01em;
+      line-height:1.4;
+      letter-spacing:0.01em;
     }
     .hero-cta-pill:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(43,23,109,0.45);
+      transform:translateY(-1px);
+      box-shadow:0 20px 40px rgba(43,23,109,0.45);
     }
 
     /* === DESKTOP (layout absoluto com variáveis, igual ao aprovado) === */
@@ -166,50 +178,35 @@
         width: 630px;
         max-width: 630px;
       }
-      
-      /* CTA no desktop - mais espaçamento e tamanho ajustado */
-      .hero-cta-wrapper{
-        margin-top: 100px;
-        padding-bottom: 3rem;
-      }
-      .hero-cta-pill{
-        width: auto;
-        padding: 0.9rem 2.9rem;
-        gap: 0.9rem;
-        font-size: 1.04rem;
-      }
-      .hero-cta-pill-icon{
-        width: 1.6rem;
-        height: 1.6rem;
-        font-size: 1rem;
-      }
     }
 
-    /* ===== MOBILE ONLY (fundo, header, ajustes finos) ===== */
+    /* ===== MOBILE ONLY (fundo, header, CTA width) ===== */
     @media (max-width:768px){
       body{
         background-image:url("./assets/bg-magico-mobile.webp");
         background-repeat:repeat-y;
-        background-size:auto 140%;
+        background-size:auto 140%; /* fundo mais “cheio” no mobile */
         background-position:top center;
       }
 
+      /* Cabeçalho (imagem 1) mais presente no mobile */
       header img{
         width:100%;
         height:auto;
         min-height:200px;
         object-fit:cover;
       }
-      
-      /* Ajuste fino: espaçamento entre nuvens */
-      .hero-bubbles{
-        gap: 1.5rem;
-        padding-bottom: 1.5rem;
+
+      .hero-cta-wrapper{
+        padding-top: 0;
+        padding-bottom: 2rem;
+        margin-top: 40px;
       }
-      
-      /* Garantir que cada nuvem não ultrapasse um tamanho confortável */
-      .hero-bubble{
-        max-width: 380px;
+      .hero-cta-pill{
+        width:100%;
+        max-width:520px;
+        padding-inline:1.5rem;
+        font-size:0.98rem;
       }
     }
   </style>
@@ -297,7 +294,7 @@
     >
       <span class="hero-cta-pill-icon">💡</span>
       <span class="hero-cta-pill-label">
-        Clique aqui para a solução da sua vida melhor com TDAH
+        Clique aqui para a solução da sua vida melhor com TDAH 💡
       </span>
       <span class="hero-cta-pill-icon">💡</span>
     </a>
